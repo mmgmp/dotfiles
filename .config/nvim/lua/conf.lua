@@ -1,10 +1,24 @@
-local o = vim.o -- Opciones globales
-local w = vim.wo -- Opciones de ventana
-local b = vim.bo -- Opciones de buffer
+--  __  __                           __  __ _ _         _ _        
+-- |  \/  | __ _ _ __ ___ ___  ___  |  \/  (_) | _____ | | |_ __ _ 
+-- | |\/| |/ _` | '__/ __/ _ \/ __| | |\/| | | |/ / _ \| | __/ _` |
+-- | |  | | (_| | | | (_| (_) \__ \ | |  | | |   < (_) | | || (_| |
+-- |_|  |_|\__,_|_|  \___\___/|___/ |_|  |_|_|_|\_\___/|_|\__\__,_|
+--             _                              __  _             
+--  _ ____   _(_)_ __ ___     ___ ___  _ __  / _|| |_   _  __ _ 
+-- | '_ \ \ / / | '_ ` _ \   / __/ _ \| '_ \| |_ | | | | |/ _` |
+-- | | | \ V /| | | | | | | | (_| (_) | | | |  _|| | |_| | (_| |
+-- |_| |_|\_/ |_|_| |_| |_|  \___\___/|_| |_|_|(_)_|\__,_|\__,_|
 
-w.number = true -- Numero de linea
-w.relativenumber = true -- Numero relativo de linea
+-- Atajos
+local o = vim.o
+local w = vim.wo
+local b = vim.bo
 
-o.tabstop = 4 -- Tamaño 4
-o.softtabstop = 4 -- Tamaño 4
-o.shiftwidth = 4 -- Tamaño 4
+-- Numeros de lineas y relativas
+w.number = true
+w.relativenumber = true
+
+-- TAB de 4 espacios
+o.tabstop = 4
+o.softtabstop = 4
+o.shiftwidth = 4
