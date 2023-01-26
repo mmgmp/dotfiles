@@ -29,8 +29,14 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-# mover historial a .local/state/bash
+# mueve el historial de bash
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
+
+# mueve la carpeta de gnupg
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+
+# mueve la carpeta de wine
+export WINEPREFIX="$XDG_DATA_HOME"/wine
 
 ## PERSONALIZACION ##
 
@@ -40,6 +46,11 @@ PS1='\n\[\033[01;34m\]\w\n\[\033[01;32m\]\u@\h\[\033[00m\]:$ \[$(tput sgr0)\]'
 # carpetas de colores
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
+# permite ejecutar desde .local/bin
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
 fi
 
 # ignorar MAYUSCULAS al pulsar TAB
