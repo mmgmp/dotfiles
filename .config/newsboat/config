@@ -1,0 +1,30 @@
+# +---------------------------+  +----------------+
+# | Configuración de Newsboat |  | Marcos Mikolta |
+# +---------------------------+  +----------------+
+
+# Movimiento estilo VIM
+bind-key j down
+bind-key k up
+
+# Abre los links en Firefox
+browser "firefox %u"
+
+# [,v] habren el video en mpv 
+macro v set browser "mpv %u --really-quiet --no-terminal" ; open-in-browser-and-mark-read ; set browser "firefox %u"
+
+# Solo muestra los links sin leer (l para ver todos)
+show-read-feeds  no
+
+# Colores
+highlight	article		"Título:" 	yellow	default		bold
+highlight	article		"Fecha:" 	green	default		bold
+highlight	article 	"Enlace:"	red		default		bold
+highlight	article 	"Enlaces:"	red		default		bold
+highlight	article 	"Autor:"	blue	default		bold
+highlight	article 	"Fuente:"	magenta	default		bold
+
+# Descaragas paralelas
+reload-threads 10
+
+# Al abrir recargar todos los feeds
+auto-reload yes
