@@ -61,9 +61,6 @@ alias rm='rm -i'
 # La pereza de escribir
 alias c='clear'
 
-# Matlab en terminal
-alias tmatlab='matlab -nodesktop -nosplash'
-
 ##-- AUTOEJECUTAR --##
 
 # Limpia la terminal al inicio
