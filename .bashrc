@@ -22,6 +22,9 @@ export HISTFILE="${XDG_STATE_HOME}"/bash/history
 
 ##-- PERSONALIZACION --##
 
+# Permitir ejecutar desde /.local/bin
+PATH="$HOME/.local/bin:$PATH"
+
 # Prompt personalizada
 PS1='\n\[\033[01;34m\]\w\n\[\033[01;32m\]\u@\h\[\033[00m\]:$ \[$(tput sgr0)\]'
 
