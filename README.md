@@ -5,5 +5,5 @@ Los "dotfiles" son archivos de configuracion de varios programas. El nombre vien
 
 ## Configuracion de software
   * [bash](https://github.com/mmgmp/dotfiles/blob/main/.bashrc)
-  * [newsboat](https://github.com/mmgmp/dotfiles/blob/main/.config/newsboat/config)
+  * [newsboat](https://github.com/mmgmp/dotfiles/blob/main/.config/newsboat)
   * [nvim](https://github.com/mmgmp/dotfiles/tree/main/.config/nvim)
