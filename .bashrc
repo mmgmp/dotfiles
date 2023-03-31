@@ -1,6 +1,6 @@
 #!/bin/bash
 
-##-- HISTORIAL --##
+## HISTORIAL ##
 
 # Historial de comandos
 HISTCONTROL=ignoreboth
@@ -9,7 +9,7 @@ HISTCONTROL=ignoreboth
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-##-- EXPORTS --##
+## EXPORTS ##
 
 # Variables de entorno
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -20,7 +20,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # Mover historial a .local/state/bash
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
 
-##-- PERSONALIZACION --##
+## PERSONALIZACION ##
 
 # Permitir ejecutar desde /.local/bin
 PATH="$HOME/.local/bin:$PATH"
@@ -39,7 +39,7 @@ bind "set completion-ignore-case on"
 # Autocompletar
 source /etc/profile.d/bash_completion.sh
 
-##-- ALIASES --##
+## ALIASES ##
 
 # Colores y ajustes de ls
 alias ls='ls --color=auto'
@@ -60,8 +60,3 @@ alias rm='rm -i'
 
 # La pereza de escribir
 alias c='clear'
-
-##-- AUTOEJECUTAR --##
-
-# Limpia la terminal al inicio
-clear
