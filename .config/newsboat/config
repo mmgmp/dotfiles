@@ -1,26 +1,25 @@
-# Movimiento estilo VIM
+# Ajustes generales
+auto-reload yes
+max-items 50
+reload-threads 10
+show-read-feeds yes
+
+# Desasignar teclas
+unbind-key j
+unbind-key k
+
+# Asignar teclas estilo vim
 bind-key j down
 bind-key k up
 
-# Abre los links en Firefox
+# Buscador externo
 browser "firefox %u"
-
-# [,v] habren el video en mpv 
 macro v set browser "mpv %u --really-quiet --no-terminal" ; open-in-browser-and-mark-read ; set browser "firefox %u"
 
-# Solo muestra los links sin leer (l para ver todos)
-show-read-feeds  no
+# Estilo de interfaz
+highlight feedlist "[║│]" default default bold
+highlight feedlist "╠═.*" default default bold
+feedlist-format "%?T?║%4i %n %8u %t (%T) &╠ %-8t════════════════════════════════════════?"
 
 # Colores
-highlight	article		"Título:" 	yellow	default		bold
-highlight	article		"Fecha:" 	green	default		bold
-highlight	article 	"Enlace:"	red		default		bold
-highlight	article 	"Enlaces:"	red		default		bold
-highlight	article 	"Autor:"	blue	default		bold
-highlight	article 	"Fuente:"	magenta	default		bold
-
-# Descaragas paralelas
-reload-threads 10
-
-# Al abrir recargar todos los feeds
-auto-reload yes
+#
