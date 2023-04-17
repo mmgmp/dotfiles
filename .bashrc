@@ -1,26 +1,23 @@
 #!/bin/bash
 
-## HISTORIAL ##
+#--- HISTORIAL ---#
 
-# Historial de comandos
 HISTCONTROL=ignoreboth
-
-# Tamaño del historial
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-## EXPORTS ##
+#--- EXPORTS ---#
 
-# Variables de entorno
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-# Mover historial a .local/state/bash
-export HISTFILE="${XDG_STATE_HOME}"/bash/history
+export HISTFILE="${XDG_STATE_HOME}"/bash/history		# Mover .bash_history
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg					# Mover .gnupg
+export LESSHISTFILE="$XDG_STATE_HOME"/less/history		# Mover .lesshst
 
-## PERSONALIZACION ##
+#--- PERSONALIZACION ---#
 
 # Permitir ejecutar desde /.local/bin
 PATH="$HOME/.local/bin:$PATH"
@@ -39,24 +36,16 @@ bind "set completion-ignore-case on"
 # Autocompletar
 source /etc/profile.d/bash_completion.sh
 
-## ALIASES ##
+#--- ALIASES ---#
 
-# Colores y ajustes de ls
+# colores
 alias ls='ls --color=auto'
 alias ll='ls -lh -a --group-directories-first'
-
-# Colores para grep
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-
-# nvim >> vim
-alias vim='nvim'
 
 # Pedir confirmación
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
-
-# La pereza de escribir
-alias c='clear'
