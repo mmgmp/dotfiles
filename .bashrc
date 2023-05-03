@@ -49,3 +49,6 @@ alias egrep='egrep --color=auto'
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
+
+alias vim='nvim'
+alias update='sudo nala update && sudo nala upgrade'
