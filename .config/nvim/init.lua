@@ -1,2 +1,2 @@
 -- Cargar archivos de Lua	
-require("conf")
+require("marcos")
