@@ -4,22 +4,27 @@ max-items 50
 reload-threads 10
 show-read-feeds yes
 
-# Desasignar teclas
 unbind-key j
-unbind-key k
-
-# Asignar teclas estilo vim
 bind-key j down
+unbind-key k
 bind-key k up
 
-# Buscador externo
 browser "firefox %u"
+
+# i son numeros
+# n es la N que indica nuevo
+# u es (0/50)
+feedlist-format "%?T? %1 %n %1 %u %1 %t %10 & ----------------------------?"
+
 macro v set browser "mpv %u --really-quiet --no-terminal" ; open-in-browser-and-mark-read ; set browser "firefox %u"
 
-# Estilo de interfaz
-highlight feedlist "[║│]" default default bold
-highlight feedlist "╠═.*" default default bold
-feedlist-format "%?T?║%4i %n %8u %t (%T) &╠ %-8t════════════════════════════════════════?"
-
 # Colores
-#
+highlight article "^Fuente:.*" color5 color0 bold
+highlight article "^Título:.*" color3 color0 bold
+highlight article "^Autor:.*" color2 color0 bold
+highlight article "^Fecha:.*" color223 color0 bold
+highlight article "^Enlace:.*" color4 color0 bold
+highlight article "^Flags:.*" color9 color0 bold
+highlight article "\\[[0-9][0-9]*\\]" color66 default bold
+highlight article "\\[image [0-9][0-9]*\\]" color109 default bold
+highlight article "\\[embedded flash: [0-9][0-9]*\\]" color66 default bold
