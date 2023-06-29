@@ -14,7 +14,7 @@ browser "firefox %u"
 # i son numeros
 # n es la N que indica nuevo
 # u es (0/50)
-feedlist-format "%?T? %1 %n %1 %u %1 %t %10 & ----------------------------?"
+feedlist-format "%?T? %1 %n %1 %7u %t %10 & ----------------------------?"
 
 macro v set browser "mpv %u --really-quiet --no-terminal" ; open-in-browser-and-mark-read ; set browser "firefox %u"
 
