@@ -1,30 +1,19 @@
-# Ajustes generales
+#== GENERALES ==#
 auto-reload yes
 max-items 50
 reload-threads 10
-show-read-feeds yes
+browser "firefox %u"
 
+#== TECLAS ==#
 unbind-key j
 bind-key j down
 unbind-key k
 bind-key k up
 
-browser "firefox %u"
-
-# i son numeros
-# n es la N que indica nuevo
-# u es (0/50)
+#== APARIENCIA ==#
 feedlist-format "%?T? %1 %n %1 %7u %t %10 & ----------------------------?"
 
-macro v set browser "mpv %u --really-quiet --no-terminal" ; open-in-browser-and-mark-read ; set browser "firefox %u"
+#== MACROS ==# 
 
-# Colores
-highlight article "^Fuente:.*" color5 color0 bold
-highlight article "^Título:.*" color3 color0 bold
-highlight article "^Autor:.*" color2 color0 bold
-highlight article "^Fecha:.*" color223 color0 bold
-highlight article "^Enlace:.*" color4 color0 bold
-highlight article "^Flags:.*" color9 color0 bold
-highlight article "\\[[0-9][0-9]*\\]" color66 default bold
-highlight article "\\[image [0-9][0-9]*\\]" color109 default bold
-highlight article "\\[embedded flash: [0-9][0-9]*\\]" color66 default bold
+# Ver videos de YouTube en mpv
+macro v set browser "mpv %u --really-quiet --no-terminal" ; open-in-browser-and-mark-read
