@@ -3,6 +3,7 @@ auto-reload yes
 max-items 50
 reload-threads 10
 browser "firefox %u"
+cleanup-on-quit yes
 
 #== TECLAS ==#
 unbind-key j
@@ -26,3 +27,8 @@ macro v set browser "mpv %u --really-quiet --no-terminal" ; open-in-browser-and-
 
 # Audio mpv
 macro a set browser "mpv --no-video --force-window=yes --really-quiet %u" ; open-in-browser-and-mark-read ; set browser "firefox %u"
+
+#== IGNORAR ==#
+ignore-mode "download"
+ignore-article "https://youtube.com/feeds/videos.xml?channel_id=UCuDm45jKrsTeEpx7BayVaiw" "title !# \"Worldcast\""
+ignore-article "https://youtube.com/feeds/videos.xml?channel_id=UCBYyJBCtCvgqA4NwtoPMwpQ" "title !# \"The Wild Project\""
