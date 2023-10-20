@@ -11,7 +11,7 @@ unbind-key k
 bind-key k up
 
 #== APARIENCIA ==#
-feedlist-format "%?T? %1 %n %1 %7u %t %10 & ----------------------------?"
+feedlist-format "%?T? %1 %n %1 %7u %t %10 & ----------------------------------?"
 
 #== MACROS ==# 
 
