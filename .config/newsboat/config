@@ -9,8 +9,6 @@ unbind-key j
 unbind-key k
 unbind-key h
 unbind-key l
-unbind-key ENTER
-unbind-key q
 
 bind-key j down
 bind-key k up
