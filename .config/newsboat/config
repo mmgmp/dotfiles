@@ -11,9 +11,9 @@ unbind-key k
 bind-key k up
 
 #== APARIENCIA ==#
-feedlist-format "%?T? %1 %n %1 %7u %t %10 & ----------------------------------?"
+feedlist-format "%?T? %1 %n %1 %7u %t %10 & ========== %t ==========?"
 
 #== MACROS ==# 
 
 # Ver videos de YouTube en mpv
-macro v set browser "mpv %u --really-quiet --no-terminal" ; open-in-browser-and-mark-read
+macro v set browser "mpv %u --really-quiet --no-terminal" ; open-in-browser-and-mark-read ; set browser "firefox %u"
