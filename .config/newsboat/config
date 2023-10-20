@@ -19,7 +19,7 @@ bind-key h quit
 
 #== APARIENCIA ==#
 feedlist-format "%?T? %2 %-4i %-3n %7u %t %10 & %-10t -----------------------------?"
-highlight article "https?://[^ ]+" blue default protect
+highlight article "https?://[^ ]+" color4 default protect
 
 #== MACROS ==# 
 
