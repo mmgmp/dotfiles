@@ -6,12 +6,20 @@ browser "firefox %u"
 
 #== TECLAS ==#
 unbind-key j
-bind-key j down
 unbind-key k
+unbind-key h
+unbind-key l
+unbind-key ENTER
+unbind-key q
+
+bind-key j down
 bind-key k up
+bind-key l open
+bind-key h quit
 
 #== APARIENCIA ==#
-feedlist-format "%?T? %1 %n %1 %7u %t %10 & ========== %t ==========?"
+feedlist-format "%?T? %2 %-4i %-3n %7u %t %10 & %-10t -----------------------------?"
+highlight article "https?://[^ ]+" blue default protect
 
 #== MACROS ==# 
 
