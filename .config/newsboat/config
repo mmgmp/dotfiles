@@ -16,7 +16,7 @@ bind-key l open
 bind-key h quit
 
 #== APARIENCIA ==#
-feedlist-format "%?T? %2 %-4i %-3n %7u %t %10 & %-10t -----------------------------?"
+feedlist-format "%?T? │ %1 %-3n %7u %t & ├────────────────────────────────────────» %t?"
 highlight article "https?://[^ ]+" color4 default protect
 
 #== MACROS ==# 
