@@ -25,4 +25,4 @@ highlight article "https?://[^ ]+" color4 default protect
 macro v set browser "mpv %u --really-quiet --no-terminal" ; open-in-browser-and-mark-read ; set browser "firefox %u"
 
 # Audio mpv
-macro a set browser "mpv --no-video %u" ; open-in-browser-and-mark-read ; set browser "firefox %u"
+macro a set browser "mpv --no-video --force-window=yes --really-quiet %u" ; open-in-browser-and-mark-read ; set browser "firefox %u"
