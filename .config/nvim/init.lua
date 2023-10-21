@@ -1,2 +1,2 @@
--- Cargar archivos de Lua	
-require("marcos")
+-- init.lua
+require "config"
