@@ -18,7 +18,7 @@ bind-key l open
 bind-key h quit
 
 #== APARIENCIA ==#
-feedlist-format "%?T? │ %1 %n %1 %7u %t & ├─────────────────────────────────────────»?"
+feedlist-format "%?T? │ %1 %n %1 %7u (%T) %t & ├─────────────────────────────────────────»?"
 highlight article "https?://[^ ]+" color4 default protect
 
 #== MACROS ==# 
@@ -29,7 +29,7 @@ macro v set browser "mpv %u --really-quiet --no-terminal" ; open-in-browser-and-
 macro a set browser "mpv --no-video --force-window=yes --really-quiet %u" ; open-in-browser-and-mark-read ; set browser "firefox %u"
 
 # Leer articulos con reader
-macro r set browser "reader %u | less -R" ; open-in-browser-and-mark-read ; set browser "firefox %u"
+macro r set browser "reader --image-mode none %u | less -R" ; open-in-browser-and-mark-read ; set browser "firefox %u"
 
 #== IGNORAR ==#
 ignore-mode "display"
