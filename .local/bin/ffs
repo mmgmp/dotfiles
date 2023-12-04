@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ayuda en caso de meter -h
+# ayuda en caso de meter --h
 if [ "$1" == "--h" ]; then
 	echo "El comando tiene 2 entardas,"
 	echo "el primero es el archivo multimedia, puede ser cualquier formato."
