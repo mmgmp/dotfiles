@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# ayuda en caso de meter -h
+if [ "$1" == "--h" ]; then
+	echo "El comando tiene 2 entardas,"
+	echo "el primero es el archivo multimedia, puede ser cualquier formato."
+	echo ""
+	echo "Ejemplo:" 
+	echo "ffs cancion.mp3 archivo-de-tiempos" 
+	echo ""
+	echo "------------------------------------------------------------"
+	echo ""
+	echo "El archivo de tiempos tiene que tener 2 columnas."
+	echo "Con los intervalos de tiempo de cada cancion,"
+	echo "00:00:00 es el inicio y 00:06:20 el final de la canción."
+	echo "La segunda es el nombre, con la misma extension que la entrada"
+	echo ""
+	echo "Ejemplo:"
+	echo "00:00:00 primera-cancion.mp3"
+	echo "00:04:20 segunda-cancion.mp3"
+	echo "00:06:00"
+	exit
+fi
+
+# compueba que tiene las 2 variables
+if [ -z "$1" ] || [ -z "$2" ]; then
+	echo "ERROR: ejecuta ffs --h para obtener ayuda"
+	exit
+else
+
+# contar lineas del archivo
+lineas=$(wc -l $2 | awk '{ print $1 }')
+
+cont=1
+
+for ((i = 1; i < $lineas; i++))
+do
+	# inicio de cancion
+	inicio=$(sed -n "${cont}p" $2 | awk '{ print $1 }')
+
+	# nombre de la cancion
+	nombre=$(sed -n "${cont}p" $2 | awk '{ print $2 }')
+
+	((cont++))
+
+	# final de la cancion
+	final=$(sed -n "${cont}p" $2 | awk '{ print $1 }')
+
+	# parte el video con las variables anteriores
+	ffmpeg -i $1 -ss $inicio -to $final $nombre
+
+done
+
+echo
+echo "Hecho, que tengas un buen dia."
+
+fi
