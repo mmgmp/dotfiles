@@ -1,12 +1,12 @@
-#== GENERALES ==#
-max-items 50
+#--- GENERALES ---#
+max-items 50			
 auto-reload yes
-reload-threads 10
+reload-threads 10 
 browser "firefox %u"
 cleanup-on-quit yes
 show-keymap-hint yes
 
-#== TECLAS ==#
+#--- TECLAS ---#
 unbind-key j
 unbind-key k
 unbind-key h
@@ -17,21 +17,15 @@ bind-key k up
 bind-key l open
 bind-key h quit
 
-#== APARIENCIA ==#
-feedlist-format "%?T? │ %1 %n %1 %7u (%T) %t & ├─────────────────────────────────────────»?"
+#--- APARIENCIA ---#
+feedlist-format "%?T? %1 %n %7u %t & ───── %t ─────?"
 highlight article "https?://[^ ]+" color4 default protect
 
-#== MACROS ==# 
-# Video mpv
-macro v set browser "mpv %u --really-quiet --no-terminal" ; open-in-browser-and-mark-read ; set browser "firefox %u"
-
-# Audio mpv
-macro a set browser "mpv --no-video --force-window=yes --really-quiet %u" ; open-in-browser-and-mark-read ; set browser "firefox %u"
-
-# Leer articulos con reader
+#--- MACROS ---# 
+macro v set browser "mpv %u --fs" ; open-in-browser-and-mark-read ; set browser "firefox %u"
 macro r set browser "reader --image-mode none %u | less -R" ; open-in-browser-and-mark-read ; set browser "firefox %u"
 
-#== IGNORAR ==#
+#--- IGNORAR ---#
 ignore-mode "display"
 ignore-article "https://youtube.com/feeds/videos.xml?channel_id=UCuDm45jKrsTeEpx7BayVaiw" "title !# \"Worldcast\""
-ignore-article "https://youtube.com/feeds/videos.xml?channel_id=UCBYyJBCtCvgqA4NwtoPMwpQ" "title !# \"The Wild Project\""
+ignore-article "https://youtube.com/feeds/videos.xml?channel_id=UCBYyJBCtCvgqA4NwtoPMwpQ" "title !# \"The\"" \"Wild\"" \"Project\""
