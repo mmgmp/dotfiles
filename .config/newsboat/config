@@ -23,7 +23,7 @@ highlight article "https?://[^ ]+" color4 default protect
 
 #--- MACROS ---# 
 macro v set browser "mpv %u --fs" ; open-in-browser-and-mark-read ; set browser "firefox %u"
-macro r set browser "reader --image-mode none %u | less -R" ; open-in-browser-and-mark-read ; set browser "firefox %u"
+macro r set browser "reader -i none %u | less -R" ; open-in-browser-and-mark-read ; set browser "firefox %u"
 
 #--- IGNORAR ---#
 ignore-mode "display"
