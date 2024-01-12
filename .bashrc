@@ -6,8 +6,9 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
-export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
+
 
 # if not running interactively, don't do anything
 case $- in
