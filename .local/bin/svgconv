@@ -8,23 +8,31 @@ lphone="Teléfono:"
 
 touch "$output_file"
 
-lines=$(wc -l $1 | awk '{ print $1 }') # Lee las lineas para luego usarlo en el for, para evitar loop infinito.
+lines=$(wc -l "$input_file" | awk '{ print $1 }') # Read the number of lines in the input file
 
 name=""
 phone=""
 
-for ((i = 1; i <= $lines; i++)); do # Analiza todas las lineas
-	word=$(sed -n "${i}p" "$input_file" | awk '{ print $1 }')  # Read the current line from the input file
-	
-	if [ "$word" = "$lname" ]; then # Lee la linea en busca del nombre
-		name=$(sed -n "${i}p" "$input_file" | cut -d' ' -f2-)
-	elif [ "$word" = "$lphone" ]; then # Lee la linea en busca del teléfono
-		phone=$(sed -n "${i}p" "$input_file" | cut -d' ' -f2-)	
-	fi
-	
-	if [ -n "$name" ] && [ -n "$phone" ]; then
-        printf "BEGIN:VCARD\nVERSION:4.0\nFN:${name}\nTEL:${phone}\nEND:VCARD\n" >> $output_file
+for ((i = 1; i <= lines; i++)); do
+    word=$(sed -n "${i}p" "$input_file" | awk '{ print $1 }')
+    
+    if [ "$word" = "$lname" ]; then
+        name=$(sed -n "${i}p" "$input_file" | cut -d' ' -f2-)
+    elif [ "$word" = "$lphone" ]; then
+        phone=$(sed -n "${i}p" "$input_file" | cut -d' ' -f2-)
+    fi
+    
+    if [ -n "$name" ] && [ -n "$phone" ]; then
+        # Extract first and last name
+        first_name=$(echo "$name" | awk '{print $1}')
+        last_name=$(echo "$name" | awk '{print $2}')
+        
+        # Write vCard entry to the output file
+        printf "BEGIN:VCARD\nVERSION:4.0\nPRODID:ez-vcard 0.11.3\nFN:${name}\nN:${last_name};${first_name};;;\nTEL;TYPE=CELL:${phone}\nEND:VCARD\n" >> "$output_file"
+        
+        # Reset variables
         name=""
         phone=""
     fi
 done
+
