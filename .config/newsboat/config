@@ -29,3 +29,4 @@ macro r set browser "reader -i none %u | less -R" ; open-in-browser-and-mark-rea
 ignore-mode "display"
 ignore-article "https://youtube.com/feeds/videos.xml?channel_id=UCuDm45jKrsTeEpx7BayVaiw" "title !# \"Worldcast\""
 ignore-article "https://youtube.com/feeds/videos.xml?channel_id=UCBYyJBCtCvgqA4NwtoPMwpQ" "title !# \"The\"" \"Wild\"" \"Project\""
+ignore-article "https://youtube.com/feeds/videos.xml?channel_id=UCFYqNfxE5JWNeYuZuaM4YNQ" "title =~ \"shorts\""
