@@ -3,10 +3,12 @@ function map(m, k, v)
 end
 
 -- General
-map('n', '<SPACE><SPACE>', '/(<>)<ENTER>4xi')
+map('i', '<SPACE><SPACE>', '<ESC>/<++><ENTER>4xi')
 
 -- LaTeX
-map('i', ';fi', '\\begin{figure}[(<>)]<ENTER>\\centering<ENTER>\\includegraphics[width=(<>)\\textwidth]{img/(<>).png}<ENTER>\\caption{(<>)}<ENTER>\\label{(<>)}<ENTER><ESC>i\\end{figure}<ESC>5kB')
-map('i', ';li', '\\begin{itemize}<ENTER>\\end{itemize}<ESC>kB')
-map('i', ';it', '\\item  (<>)<ESC>')
-map('i', ';se', '\\section{(<>)}<ESC>')
+map('i', ';fi', '\\begin{figure}[<++>]<ENTER>\\centering<ENTER>\\includegraphics[width=<++>\\textwidth]{img/<++>.png}<ENTER>\\caption{<++>}<ENTER>\\label{<++>}<ENTER><ESC>i\\end{figure}<ESC>5kBi')
+map('i', ';li', '\\begin{itemize}<ENTER>\\end{itemize}<ESC>ko<TAB>')
+map('i', ';it', '\\item<SPACE><ESC>A')
+map('i', ';se', '\\section{}<ESC>i')
+map('i', ';su', '\\subsection{}<ESC>i')
+map('i', ';ssu', '\\subsubsection{}<ESC>i')
