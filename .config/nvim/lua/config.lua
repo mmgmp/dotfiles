@@ -1,14 +1,22 @@
--- Numeros de lineas
+-- Números de lineas
 vim.wo.number = true
 
--- Numeros relativos
+-- Números relativos
 vim.wo.relativenumber = true
 
--- Numero de espacios de tabulador
+-- Número de espacios de tabulador
 vim.o.tabstop = 4
 
--- Numero de espacios automaticos
+-- Número de espacios automáticos
 vim.o.shiftwidth = 4
 
--- Numero de espacios cuando se usa <BS> o <Del>
+-- Número de espacios cuando se usa <BS> o <Del>
 vim.o.softtabstop = 4
+
+-- Activar corrector
+vim.opt.spelllang = 'es'
+vim.opt.spell = true
+
+-- Subrayar mal escritas
+vim.cmd([[highlight clear SpellBad]])
+vim.cmd([[highlight SpellBad cterm=underline gui=underline]])
