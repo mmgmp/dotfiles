@@ -1,0 +1,44 @@
+#!/bin/bash
+
+if [ "$1" == "--h" ]; then
+	echo "El comando ffmsep tiene 2 entradas"
+	echo "Ejemplo: ffmsep musica.mp3 tiempos.txt"
+	echo ""
+	echo "El archivo de tiempos tiene que tener 2 columnas."                 
+	echo "Con los intervalos de tiempo de cada canción,"                     
+	echo "00:00:00 es el inicio y 00:06:20 el final de la canción."          
+	echo "La segunda es el nombre"                                           
+	echo ""                                                                  
+	echo "Ejemplo:"                                                          
+	echo "00:00:00 Primera canción.mp3"                                      
+	echo "00:04:20 Segunda canción.mp3"                                      
+	echo "00:06:00" 
+	exit
+fi
+
+# comprueba que tiene 2 entradas                                         
+if [ -z "$1" ] || [ -z "$2" ]; then                                          
+	echo "ERROR: Ejecuta ffmsep --h para obtener ayuda"                         
+ 	exit                                                                     
+fi
+
+# elegir el formato
+if [ "${1##*.}" == "opus" ]; then
+	ext=".opus"
+elif [ "${1##*.}" == "mp3" ]; then
+	ext=".mp3"
+else
+    echo "ERROR: Solo soporta los formatos opus y mp3."
+	exit
+fi
+
+# leer numero de lineas
+lineas=$(wc -l "$2" | awk '{ print $1 }')
+
+# analizar cada linea
+for ((i = 1; i < $lineas; i++)); do
+	inicio=$(sed -n "${i}p" $2 | awk '{ print $1 }')
+	nombre=$(sed -n "${i}p" "$2" | cut -d' ' -f2-)
+	final=$(sed -n "$((i + 1))p" $2 | awk '{ print $1 }')
+	ffmpeg -loglevel quiet -i $1 -ss $inicio -to $final -c copy "$nombre$ext"
+done
