@@ -26,6 +26,9 @@ for ((i = 1; i <= lines; i++)); do
         # Extract first and last name
         first_name=$(echo "$name" | awk '{print $1}')
         last_name=$(echo "$name" | awk '{print $2}')
+
+		first_name=$(echo "$first_name" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+last_name=$(echo "$last_name" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/[\r\n]//')
         
         # Write vCard entry to the output file
         printf "BEGIN:VCARD\nVERSION:4.0\nPRODID:ez-vcard 0.11.3\nFN:${name}\nN:${last_name};${first_name};;;\nTEL;TYPE=CELL:${phone}\nEND:VCARD\n" >> "$output_file"
