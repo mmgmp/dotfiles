@@ -1,4 +1,2 @@
--- init.lua
-require "config"
-
-require "mappin"
+require("config")
+require("keymap")
