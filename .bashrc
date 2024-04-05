@@ -31,6 +31,7 @@ alias ls='ls -lh --color=auto --time-style=long-iso'
 alias ll='ls -lhA --color=auto --time-style=long-iso'
 alias vim='nvim'
 alias c='clear'
+alias abook="abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_CONFIG_HOME"/abook/addressbook"
 
 # Aliases para paquetes
 alias nalup='sudo nala update && sudo nala upgrade'
