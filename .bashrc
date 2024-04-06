@@ -36,9 +36,10 @@ alias abook="abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_CO
 # Aliases para paquetes
 alias nalup='sudo nala update && sudo nala upgrade'
 alias nalin='sudo nala install'
-alias nalre='sudo nala remove'
+alias nalre='sudo nala purge'
 alias update='sudo nala update && sudo nala upgrade && flatpak update'
 alias clean='sudo nala autoremove && flatpak remove --unused'
 
 # Prompt personalizada
 PS1='\n\[\e[01;34m\]\w\n\[\e[01;32m\]>\[\e[0m\] '
+
