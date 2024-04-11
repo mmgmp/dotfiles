@@ -86,6 +86,11 @@ bindsym $mod+Shift+c reload
 # Cerrar sesión de sway
 bindsym $mod+Shift+e exec swaynag -t warning -m '¿Quieres cerrar la sesión de sway?' -B 'Si, cerrar sway' 'swaymsg exit'
 
+#- Control de audio -#
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
 #- Movimiento -#
 
 bindsym $mod+Ctrl+$right workspace next 
