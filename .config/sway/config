@@ -22,6 +22,7 @@ include /etc/sway/config-vars.d/*
 # Teclado en Español
 input type:keyboard {
     xkb_layout es
+	xkb_options caps:escape
 }
 
 # Estilo de ventanas
