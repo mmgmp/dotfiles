@@ -14,7 +14,7 @@ set $right l
 # Programas predeterminados
 set $term foot
 set $browser firefox
-set $menu tofi-run | xargs swaymsg exec --
+set $menu tofi-drun | xargs swaymsg exec --
 set $filem foot sh -c lf
 
 include /etc/sway/config-vars.d/*
