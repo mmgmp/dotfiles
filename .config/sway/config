@@ -14,7 +14,7 @@ set $right l
 # Programas predeterminados
 set $term foot
 set $browser firefox
-set $menu tofi-drun | xargs swaymsg exec --
+set $menu tofi-run | xargs swaymsg exec --
 set $filem foot sh -c lf
 
 include /etc/sway/config-vars.d/*
@@ -86,6 +86,10 @@ floating_modifier $mod normal
 
 # Recargar la configuración de sway
 bindsym $mod+Shift+c reload
+
+# Scripts de tofi
+bindsym Shift+$mod+q exec ~/.local/share/bin/tofi-session-manager.sh
+bindsym Shift+$mod+i exec ~/.local/share/bin/tofi-wifi-menu.sh
 
 #-- Teclas especiales --#
 
