@@ -96,11 +96,10 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "({signalStrength}%) ",
-        "format-ethernet": "",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "⚠",
-        "format-alt": "{essid}",
 	"tooltip": false
     },
     "pulseaudio": {
