@@ -12,7 +12,9 @@ min-input-width = 130
 result-spacing = 10
 padding-top = 5
 padding-bottom = 0
-
 background-color = #2c2b32 
+selection-color = #2980b9
 
+# Extra
 require-match = false
+

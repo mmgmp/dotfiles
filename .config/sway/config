@@ -15,7 +15,7 @@ set $right l
 set $term foot
 set $browser firefox
 set $menu tofi-run | xargs swaymsg exec --
-set $filem lf
+set $filem foot sh -c lf
 
 include /etc/sway/config-vars.d/*
 
@@ -36,7 +36,7 @@ gaps inner 10
 ### Output configuration
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/Imágenes/Fondos/pixel-paisaje.png fill
 
 ### Idle configuration
 #
@@ -86,9 +86,6 @@ floating_modifier $mod normal
 
 # Recargar la configuración de sway
 bindsym $mod+Shift+c reload
-
-# Cerrar sesión de sway
-bindsym $mod+Shift+e exec swaynag -t warning -m '¿Quieres cerrar la sesión de sway?' -B 'Si, cerrar sway' 'swaymsg exit'
 
 #-- Teclas especiales --#
 
