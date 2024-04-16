@@ -81,7 +81,7 @@
 		"tooltip": false
     },
     "backlight": {
-        "format": " {percent}%",
+        "format": " {percent}%",
     },
     "battery": {
         "states": {
