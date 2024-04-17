@@ -143,13 +143,13 @@ bindsym $mod+Shift+0 move container to workspace number 10
 # Layout stuff:
 
 # Cambiar entre horizontal y vertical
-# bindsym $mod+h splith
-bindsym $mod+v splitv
+#bindsym $mod+h splith
+#bindsym $mod+v splitv
 
-# Switch the current container between different layout styles
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# Cambiar a diferentes estilos
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+bindsym $mod+Space layout toggle split
 
 # Maximizar ventana enfocada
 bindsym $mod+m fullscreen
