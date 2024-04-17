@@ -1,6 +1,6 @@
 # Read `man 5 sway` for a complete reference.
 
-#--- Variables ---#
+#---- CONFIGURACION GENERAL ----#
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -33,12 +33,16 @@ client.focused #2980b9 #2980b9 #2980b9
 gaps outer 5
 gaps inner 10
 
-### Output configuration
-
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# Fondo de pantalla
 output * bg ~/.local/share/backgrounds/pixel-paisaje.png fill
 
-#---- Energía ----#
+#---- AUTOEJECUTAR ----#
+
+exec dunst
+
+
+
+#---- ENERGÍA ----#
 
 exec swayidle -w \
 	timeout 300 'swaylock -f -c 2c2b32' \
@@ -59,7 +63,7 @@ exec swayidle -w \
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 
-#---- Configuración de teclas ----#
+#---- TECLAS Y ATAJOS ----#
 
 # Ejecutar programas
 bindsym $mod+t exec $term
@@ -84,8 +88,6 @@ bindsym $mod+Shift+c reload
 bindsym Shift+$mod+q exec ~/.local/share/bin/tofi-session-manager.sh
 bindsym Shift+$mod+i exec ~/.local/share/bin/tofi-wifi-menu.sh
 
-#-- Teclas especiales --#
-
 # Control del brillo
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl s 5%+
@@ -97,8 +99,6 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym Alt+XF86AudioRaiseVolume exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
 bindsym Alt+XF86AudioLowerVolume exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
-
-#-- Movimiento --#
 
 # Moverse entre escritorios
 bindsym $mod+Ctrl+$right workspace next 
