@@ -17,10 +17,7 @@ if [ "$1" == "--h" ]; then
 fi
 
 # comprueba que tiene 2 entradas                                         
-if [ -z "$1" ] || [ -z "$2" ]; then                                          
-	echo "ERROR: Ejecuta ffmsep --h para obtener ayuda"                         
- 	exit                                                                     
-fi
+[ ! -f "$2" ] && printf "Ejecuta -h para obtener ayuda\\n" && exit
 
 # elegir el formato
 if [ "${1##*.}" == "opus" ]; then
