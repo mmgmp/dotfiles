@@ -2,31 +2,31 @@
 
 if [ "$1" == "--h" ]; then
 	echo "El comando ffmsep tiene 2 entradas"
-	echo "Ejemplo: ffmsep musica.mp3 tiempos.txt"
+	echo "Ejemplo: ffmsep musica.mp3 tiempos"
 	echo ""
 	echo "El archivo de tiempos tiene que tener 2 columnas."                 
 	echo "Con los intervalos de tiempo de cada canción,"                     
 	echo "00:00:00 es el inicio y 00:06:20 el final de la canción."          
 	echo "La segunda es el nombre"                                           
 	echo ""                                                                  
-	echo "Ejemplo:"                                                          
-	echo "00:00:00 Primera canción.mp3"                                      
-	echo "00:04:20 Segunda canción.mp3"                                      
-	echo "00:06:00" 
+	echo "Ejemplo:"                                                         
+	echo "00:00:00 Primera canción"                                      
+	echo "00:04:20 Segunda canción"                                      
+	echo "00:06:00"
 	exit
 fi
 
 # comprueba que tiene 2 entradas                                         
-[ ! -f "$2" ] && printf "Ejecuta -h para obtener ayuda\\n" && exit
+[ ! -f "$2" ] && printf "Ejecuta --h para obtener ayuda\\n" && exit
 
 # leer extenxion
 ext="${1##*.}"
 
 # leer numero de lineas
-lines="$(wc -l < "$2")"
+lineas="$(wc -l < "$2")"
 
 # analizar cada linea
-for ((i = 1; i < $lines; i++)); do
+for ((i = 1; i < $lineas; i++)); do
 	inicio=$(sed -n "${i}p" $2 | awk '{ print $1 }')
 	nombre=$(sed -n "${i}p" "$2" | cut -d' ' -f2- | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
 	final=$(sed -n "$((i + 1))p" $2 | awk '{ print $1 }')
