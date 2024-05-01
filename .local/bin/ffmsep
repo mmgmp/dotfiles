@@ -28,7 +28,7 @@ lines="$(wc -l < "$2")"
 # analizar cada linea
 for ((i = 1; i < $lines; i++)); do
 	inicio=$(sed -n "${i}p" $2 | awk '{ print $1 }')
-	nombre=$(sed -n "${i}p" "$2" | cut -d' ' -f2-)
+	nombre=$(sed -n "${i}p" "$2" | cut -d' ' -f2- | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
 	final=$(sed -n "$((i + 1))p" $2 | awk '{ print $1 }')
-	ffmpeg -loglevel quiet -i $1 -ss $inicio -to $final -c copy "$nombre$ext"
+	ffmpeg -i $1 -ss $inicio -to $final -c copy "$nombre.$ext"
 done
