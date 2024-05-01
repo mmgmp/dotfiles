@@ -19,15 +19,8 @@ fi
 # comprueba que tiene 2 entradas                                         
 [ ! -f "$2" ] && printf "Ejecuta -h para obtener ayuda\\n" && exit
 
-# elegir el formato
-if [ "${1##*.}" == "opus" ]; then
-	ext=".opus"
-elif [ "${1##*.}" == "mp3" ]; then
-	ext=".mp3"
-else
-    echo "ERROR: Solo soporta los formatos opus y mp3."
-	exit
-fi
+# leer extenxion
+ext="${1##*.}"
 
 # leer numero de lineas
 lineas=$(wc -l "$2" | awk '{ print $1 }')
