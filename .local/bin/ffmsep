@@ -30,5 +30,6 @@ for ((i = 1; i < $lineas; i++)); do
 	inicio=$(sed -n "${i}p" $2 | awk '{ print $1 }')
 	nombre=$(sed -n "${i}p" "$2" | cut -d' ' -f2- | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
 	final=$(sed -n "$((i + 1))p" $2 | awk '{ print $1 }')
-	ffmpeg -i $1 -ss $inicio -to $final -c copy "$i.$nombre.$ext"
+	num=$(printf "%.2d" "$i")
+	ffmpeg -i $1 -ss $inicio -to $final -c copy "$num.$nombre.$ext"
 done
