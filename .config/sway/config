@@ -26,21 +26,20 @@ input type:keyboard {
 }
 
 # Estilo de ventanas
-default_border pixel 3
-client.focused #2980b9 #2980b9 #2980b9
+default_border pixel 2
+client.focused #2E9EF4 #2E9EF4 #2E9EF4
 
 # Espacios entre ventanas
 gaps outer 5
 gaps inner 10
 
 # Fondo de pantalla
-output * bg ~/.local/share/backgrounds/pixel-paisaje.png fill
+#output * bg ~/.local/share/backgrounds/pixel-paisaje.png fill
 
 #---- AUTOEJECUTAR ----#
 
 exec dunst
-
-
+exec_always autotiling
 
 #---- ENERGÍA ----#
 
@@ -143,13 +142,14 @@ bindsym $mod+Shift+0 move container to workspace number 10
 # Layout stuff:
 
 # Cambiar entre horizontal y vertical
-#bindsym $mod+h splith
-#bindsym $mod+v splitv
+# bindsym $mod+h splith
+# bindsym $mod+v splitv
 
 # Cambiar a diferentes estilos
-#bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
-bindsym $mod+Space layout toggle split
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+Space layout toggle split
+
 
 # Maximizar ventana enfocada
 bindsym $mod+m fullscreen
