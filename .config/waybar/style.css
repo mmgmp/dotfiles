@@ -54,22 +54,20 @@ button:hover {
 #network,
 #pulseaudio,
 #wireplumber,
-#custom-media,
+#custom-weather,
 #tray,
 #mode,
 #idle_inhibitor,
-#scratchpad,
-#mpd {
+#scratchpad {
     padding: 0 7px;
     color: #ffffff;
     margin: 5px 0;
-    font-weight: bold;
+	font-weight: bold;
 }
 
-#window,
 #workspaces {
     margin: 0 4px;
-    font-weight: bold;
+	font-weight: bold;
 }
 
 /* If workspaces is the leftmost module, omit left margin */

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+day_low="$(curl -s wttr.in | sed '13q;d' | grep -o "m\\([-+]\\)*[0-9]\\+" | sed 's/[+m]//g' | sort -g | head -1q)"
+day_high="$(curl -s wttr.in | sed '13q;d' | grep -o "m\\([-+]\\)*[0-9]\\+" | sed 's/[+m]//g' | sort -g | sed -e '$!d')"
+day_prec="$(curl -s wttr.in | sed '16q;d' | grep -wo "[0-9]*%" | sort -rn | head -1q)"
+
+echo  "$day_prec"  "$day_low"ºC  "$day_high"ºC

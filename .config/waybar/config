@@ -1,18 +1,15 @@
 {
-    // === Configuración global === //
-
     "height": 30,
     "spacing": 4,
-
-    // === Módulos === //
-
     "modules-left": [
 		"sway/workspaces", 
 		"sway/mode", 
-		"sway/scratchpad",  
+		"sway/scratchpad", 
 	],
-    "modules-center": [],
+    "modules-center": [
+	],
     "modules-right": [
+		"custom/weather",
 		"network",
 		"cpu",
 		"memory", 
@@ -23,7 +20,7 @@
 		"battery#bat2", 
 		"tray",
 		"clock#date",
-		"clock#time" 
+		"clock#time"
 	],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -36,10 +33,10 @@
         "tooltip-format": "{app}: {title}"
     },
     "tray": {
-        // "icon-size": 21,
+        // "icon-size": 15,
         "spacing": 10
     },
-    "clock#time": {
+	"clock#time": {
         "format": "{:%H:%M}",
         "tooltip": false
     },
@@ -76,12 +73,18 @@
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
-        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-wifi": "  {essid} ({signalStrength}%)",
         "format-ethernet": " {ifname}",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "⚠",
 		"tooltip": false
     },
+	"custom/weather": {
+		"format": "{}",
+		"interval": 3600, // 1 hora
+		"exec": "~/.config/waybar/modules/weather",
+		"tooltip": false
+	},
     "pulseaudio": {
         "format": "{icon} {volume}% {format_source}",
         "format-muted": " {format_source}",
