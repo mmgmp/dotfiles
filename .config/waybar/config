@@ -1,6 +1,11 @@
 {
+    // === Configuración global === //
+
     "height": 30,
     "spacing": 4,
+
+    // === Módulos === //
+
     "modules-left": [
 		"sway/workspaces", 
 		"sway/mode", 
