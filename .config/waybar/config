@@ -75,9 +75,6 @@
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""]
     },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
     "network": {
         "format-wifi": " {essid} ({signalStrength}%)",
         "format-ethernet": " {ifname}",
