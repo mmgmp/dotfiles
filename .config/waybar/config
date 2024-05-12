@@ -99,7 +99,7 @@
     },
     "network": {
         "format-wifi": " {essid} ({signalStrength}%)",
-        "format-ethernet": "",
+        "format-ethernet": " {ifname}",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "⚠",
 		"tooltip": false
