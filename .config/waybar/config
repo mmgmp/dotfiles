@@ -93,6 +93,6 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
-    },
+    }
 }
 
