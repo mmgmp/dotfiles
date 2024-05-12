@@ -17,7 +17,8 @@
 		"battery", 
 		"battery#bat2", 
 		"tray",
-		"clock"
+		"clock#date",
+		"clock#time" 
 	],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -59,10 +60,13 @@
         // "icon-size": 21,
         "spacing": 10
     },
-    "clock": {
-		"format": "{:%d de %b %H:%M}",
-		"format-alt": "{:%d/%m/%Y}",
-		"tooltip": false
+    "clock#time": {
+        "format": "{:%H:%M}",
+        "tooltip": false
+    },
+    "clock#date": {
+      "format": " {:%e %b %Y}",
+      "tooltip-format": false
     },
     "cpu": {
         "format": " {usage}%",
