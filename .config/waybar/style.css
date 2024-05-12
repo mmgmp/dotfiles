@@ -63,11 +63,13 @@ button:hover {
     padding: 0 7px;
     color: #ffffff;
     margin: 5px 0;
+    font-weight: bold;
 }
 
 #window,
 #workspaces {
     margin: 0 4px;
+    font-weight: bold;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
