@@ -79,11 +79,12 @@
         "format-disconnected": "⚠",
 		"tooltip": false
     },
-	"custom/weather": {
-		"format": "{}",
-		"interval": 3600, // 1 hora
-		"exec": "~/.config/waybar/modules/weather",
-		"tooltip": false
+    "custom/weather": {
+	"format": "{}",
+	"interval": 3600, // 1 hora
+	"exec": "~/.config/waybar/modules/weather",
+	"tooltip": false,
+	"on-click": "foot -e sh -c 'curl wttr.in; sleep 30'" 
 	},
     "pulseaudio": {
         "format": "{icon} {volume}% {format_source}",
