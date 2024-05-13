@@ -30,6 +30,7 @@ bar {
 
 # Estilo de ventanas
 default_border pixel 2
+default_floating_border pixel 2
 client.focused #2E9EF4 #2E9EF4 #2E9EF4
 
 # Espacios entre ventanas
