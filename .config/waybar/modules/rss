@@ -1,0 +1,4 @@
+#!/bin/bash
+
+unread="$(newsboat -r -x print-unread | awk '{ print $1 }')"
+echo  "$unread"
