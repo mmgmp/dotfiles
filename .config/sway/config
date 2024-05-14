@@ -58,21 +58,8 @@ exec swaync
 exec swayidle -w \
 	timeout 300 'swaylock -f -c 2c2b32' \
 	timeout 600 'swaymsg "output * dpms off"' \
-		resume 'swaymsg "output * dpms on"' \
+	resume 'swaymsg "output * dpms on"' \
 	before-sleep 'swaylock -f -c 2c2b32'
-
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
 
 #= ATAJOS DE TECLAS =================================================================#
 
