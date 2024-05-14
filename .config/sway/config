@@ -17,14 +17,18 @@ set $filem foot sh -c lf
 
 include /etc/sway/config-vars.d/*
 
-# Teclado en Español
+# Configuración del teclado
 input type:keyboard {
     xkb_layout es
 	xkb_options caps:escape
+	xkb_numlock enabled
 }
 
-# Activar NumLock
-input type:keyboard xkb_numlock enabled
+# Configuración de la trackball
+input 1133:50184:Logitech_USB_Trackball {
+	scroll_button button8
+	scroll_method on_button_down
+}
 
 # Activar waybar
 bar {
