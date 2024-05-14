@@ -23,6 +23,9 @@ input type:keyboard {
 	xkb_options caps:escape
 }
 
+# Activar NumLock
+input type:keyboard xkb_numlock enabled
+
 # Activar waybar
 bar {
      swaybar_command waybar	
