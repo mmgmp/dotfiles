@@ -1,16 +1,10 @@
 {
-    "height": 30,
-    "spacing": 4,
-    "modules-left": [
-		"sway/workspaces", 
-		"sway/mode", 
-		"sway/scratchpad", 
-	],
-    "modules-center": [
-	],
+	"height": 30,
+//= MODULOS ===================================================================
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
+    "modules-center": [],
     "modules-right": [
 		"custom/weather",
-		"custom/rss",
 		"network",
 		"cpu",
 		"memory", 
@@ -18,11 +12,11 @@
 		"pulseaudio", 
 		"backlight", 
 		"battery", 
-		"battery#bat2", 
 		"tray",
 		"clock#date",
 		"clock#time"
 	],
+//= CONFIGURACIÓN =============================================================
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -42,24 +36,24 @@
         "tooltip": false
     },
     "clock#date": {
-      "format": " {:%e %b %Y}",
+      "format": "  {:%e %b %Y}",
       "tooltip-format": false
     },
     "cpu": {
-        "format": " {usage}%",
+        "format": "  {usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": " {}%"
+        "format": "  {}%"
     },
     "temperature": {
         "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
+        "format": "{icon}  {temperatureC}°C",
         "format-icons": ["", "", ""],
 		"tooltip": false
     },
     "backlight": {
-        "format": " {percent}%",
+        "format": "  {percent}%",
     },
     "battery": {
         "states": {
@@ -67,15 +61,15 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
+        "format": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-alt": "{time}  {icon}",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
         "format-wifi": "  {essid} ({signalStrength}%)",
-        "format-ethernet": " {ifname}",
+        "format-ethernet": "  {ifname}",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "⚠",
 		"tooltip": false
@@ -95,10 +89,10 @@
 	"on-click": "foot -e sh -c newsboat" 
     },
     "pulseaudio": {
-        "format": "{icon} {volume}% {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "  {volume}%",
-        "format-source-muted": " ",
+        "format": "{icon}  {volume}%  {format_source}",
+        "format-muted": "  {format_source}",
+        "format-source": "  {volume}%",
+        "format-source-muted": " ",
         "format-icons": {
             "headphone": "",
             "headset": "",
