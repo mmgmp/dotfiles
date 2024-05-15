@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Muestra todas las claves en $PASSWORD_STORE_DIR excluyendo la carpeta otp
+selec="$(find "$PASSWORD_STORE_DIR" -type d -name 'otp' -prune -o -type f -name '*.gpg' -exec basename {} .gpg \; | tofi)"
+
+# Logra el enlace al archivo seleccionado
+path="$(find "$PASSWORD_STORE_DIR" -type f -name "$selec.gpg" | grep -oP "^$PASSWORD_STORE_DIR/\K.*(?=\.gpg$)")"
+
+# Opciones
+options=("Usuario" "Clave")
+
+# Juntar las opciones en un string en diferentes lineas
+options_str=$(printf "%s\n" "${options[@]}")
+
+# Muestra las opciones en tofi
+selected=$(echo -e "$options_str" | tofi)
+
+# Comprobar las opciones y ejecutar los comandos
+case $selected in
+    "Usuario")
+		pass -c2 $path
+		notify-send "Usuario copiado al portapapeles por 45 segundos"
+        ;;
+    "Clave")
+		pass -c1 $path
+		notify-send "Contraseña copiada al portapapeles por 45 segundos"
+        ;;
+    *)
+		exit 1
+        ;;
+esac

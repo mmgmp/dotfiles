@@ -1,0 +1,26 @@
+#!/bin/bash
+
+options=("Bloquear" "Cerrar sesion" "Suspender" "Reiniciar" "Apagar")
+selected="$(printf "%s\n" "${options[@]}" | tofi)"
+
+case $selected in
+	"Bloquear")
+		swaylock -c 2c2b32
+		;;
+	"Cerrar sesion")
+		swaymsg exit
+		;;
+	"Suspender")
+		swaylock -c 2c2b32 & systemctl suspend
+		;;
+	"Reiniciar")
+		systemctl reboot
+		;;
+	"Apagar")
+		systemctl poweroff
+		;;
+	*)
+		exit 1
+		;;
+esac
+
