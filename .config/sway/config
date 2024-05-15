@@ -86,7 +86,7 @@ floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 
 # Scripts de tofi
-bindsym Shift+$mod+q exec ~/.local/bin/tofi-session-manager.sh
+bindsym Shift+$mod+q exec ~/.local/bin/tofi-session-manager
 bindsym Shift+$mod+i exec ~/.local/bin/tofi-wifi-menu.sh
 bindsym Shift+$mod+p exec ~/.local/bin/tofi-pass.sh
 
