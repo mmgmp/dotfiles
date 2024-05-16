@@ -19,6 +19,9 @@ shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 
+# Autocompletar
+source /etc/profile.d/bash_completion.sh
+
 # Ignorar mayúsculas al pulsar TAB
 bind "set completion-ignore-case on"
 
