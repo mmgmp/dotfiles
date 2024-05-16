@@ -22,14 +22,11 @@ wifi_list=$(nmcli --fields "SSID" device wifi list | sed -e 1d -e 's/ //g')
 
  case $selection in
 	"Desactivar Wifi")
-		nmcli radio wifi off && notify-send "Wifi desactivado"
-		;;
+		nmcli radio wifi off && notify-send "Wifi desactivado" ;;
 	"Activar Wifi")
-		nmcli radio wifi on && notify-send "Wifi activado"
-		;;
+		nmcli radio wifi on && notify-send "Wifi activado" ;;
 	*)
-		secret && connect && notify-send "Conectado a la red $selection"
-		;;
+		secret && connect && notify-send "Conectado a la red $selection" ;;
 esac
 
 exit 0
