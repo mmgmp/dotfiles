@@ -15,8 +15,6 @@ set $browser firefox
 set $menu tofi-drun | xargs swaymsg exec --
 set $filem foot sh -c lf
 
-include /etc/sway/config-vars.d/*
-
 # Configuración del teclado
 input type:keyboard {
     xkb_layout es
@@ -87,8 +85,9 @@ bindsym $mod+Shift+c reload
 
 # Scripts de tofi
 bindsym Shift+$mod+q exec ~/.local/bin/tofi-session-manager
-bindsym Shift+$mod+i exec ~/.local/bin/tofi-wifi-menu.sh
-bindsym Shift+$mod+p exec ~/.local/bin/tofi-pass.sh
+bindsym Shift+$mod+i exec ~/.local/bin/tofi-wifi-menu
+bindsym Shift+$mod+p exec ~/.local/bin/tofi-pass
+bindsym Shift+$mod+o exec ~/.local/bin/tofi-otp
 
 # Control del brillo
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
@@ -192,3 +191,4 @@ bindsym $mod+a focus parent
     bindsym $mod+minus scratchpad show
 
 include /etc/sway/config.d/*
+include /etc/sway/config-vars.d/*
