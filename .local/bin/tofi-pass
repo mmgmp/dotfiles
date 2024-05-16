@@ -17,9 +17,9 @@ selected=$(echo -e "$options_str" | tofi)
 # Comprobar las opciones y ejecutar los comandos
 case $selected in
     "Usuario")
-		pass -c2 $path && notify-send "Usuario copiado al portapapeles por 45 segundos" ;;
+		pass -c2 $path && notify-send "Usuario copiado" ;;
     "Clave")
-		pass -c1 $path && notify-send "Contraseña copiada al portapapeles por 45 segundos" ;;
+		pass -c1 $path && notify-send "Contraseña copiada" ;;
     *)
 		exit 0 ;;
 esac
