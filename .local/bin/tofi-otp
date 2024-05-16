@@ -4,3 +4,5 @@ selec=$(find "$PASSWORD_STORE_DIR/otp" -type f -name '*.gpg' -exec basename {} .
 path=$(find "$PASSWORD_STORE_DIR" -type f -name "$selec.gpg" | grep -oP "^$PASSWORD_STORE_DIR/\K.*(?=\.gpg$)")
 
 pass otp -c $path && notify-send "Clave otp copiada"
+
+exit 0
