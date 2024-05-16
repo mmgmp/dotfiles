@@ -1,33 +1,35 @@
 #!/bin/bash
 
+connect() {
+	nmcli device wifi connect "$selection" password "$password"	
+}
+
+secret() {
+	password=$(echo "" | tofi --prompt-text='Clave: ' --hide-input=true --hidden-character=* --require-match=false)
+}
+
 # Lista de redes wifi disponibles
-notify-send "Buscando redes wifi..."
-wifi_list=$(nmcli --fields "SSID" device wifi list | sed 's/ //g' | sed 1d)
+wifi_list=$(nmcli --fields "SSID" device wifi list | sed -e 1d -e 's/ //g')
 
-# Estado del Wifi
-if [[ $(nmcli -fields WIFI g | sed 's/ //g' | sed 1d) = "activado" ]]; then
-        check="─ DESACTIVAR WIFI ─"
-	notify-send "Wifi desactivado"
-else
-        check="─ ACTIVAR WIFI ─"
-	notify-send "Wifi activado"
-fi
+# Comprobar si el wifi esta ON o OFF
+[ $(nmcli -fields WIFI g | sed -e 1d -e 's/ //g') = "activado" ] && switch="Desactivar Wifi" || switch="Activar Wifi"
 
-chosen_network=$(printf "$check \n $wifi_list" | tofi --prompt-text Redes' 'Wifi:' ')
+# Mostrar señales wifi 
+ selection=$(printf "$switch\n$wifi_list" | tofi --prompt-text 'Redes Wifi: ')
 
-if [[ "$chosen_network" = "" ]]; then
-	exit
+# Salir en caso de no elegir nada
+[ -z $selection ] && exit 0
 
-elif [[ "$chosen_network" = "─ DESACTIVAR WIFI ─" ]]; then
-	nmcli radio wifi off
- 	notify-send "Wifi desactivado"
+ case $selection in
+	"Desactivar Wifi")
+		nmcli radio wifi off && notify-send "Wifi desactivado"
+		;;
+	"Activar Wifi")
+		nmcli radio wifi on && notify-send "Wifi activado"
+		;;
+	*)
+		secret && connect && notify-send "Conectado a la red $selection"
+		;;
+esac
 
-elif [[ "$chosen_network" = "─ ACTIVAR WIFI ─" ]]; then
-	nmcli radio wifi on
- 	notify-send "Wifi activado"
-
-else
-	passw=$(echo "" | tofi --prompt-text Clave:' ')
- 	notify-send "Conectado a la red $choosen_network"
-	nmcli device wifi connect "$chosen_network" password "$passw"
-fi
+exit 0
