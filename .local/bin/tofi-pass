@@ -8,8 +8,6 @@ path="$(find "$PASSWORD_STORE_DIR" -type f -name "$selec.gpg" | grep -oP "^$PASS
 
 # Opciones
 options=("Usuario" "Clave")
-
-# Juntar las opciones en un string en diferentes lineas
 options_str=$(printf "%s\n" "${options[@]}")
 
 # Muestra las opciones en tofi
@@ -18,14 +16,9 @@ selected=$(echo -e "$options_str" | tofi)
 # Comprobar las opciones y ejecutar los comandos
 case $selected in
     "Usuario")
-		pass -c2 $path
-		notify-send "Usuario copiado al portapapeles por 45 segundos"
-        ;;
+		pass -c2 $path && notify-send "Usuario copiado al portapapeles por 45 segundos" ;;
     "Clave")
-		pass -c1 $path
-		notify-send "Contraseña copiada al portapapeles por 45 segundos"
-        ;;
+		pass -c1 $path && notify-send "Contraseña copiada al portapapeles por 45 segundos" ;;
     *)
-		exit 1
-        ;;
+		exit 0 ;;
 esac
