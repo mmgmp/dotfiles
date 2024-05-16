@@ -20,7 +20,7 @@ case $selected in
 		systemctl poweroff
 		;;
 	*)
-		exit 1
+		exit 0
 		;;
 esac
 
