@@ -5,22 +5,16 @@ selected="$(printf "%s\n" "${options[@]}" | tofi)"
 
 case $selected in
 	"Bloquear")
-		swaylock -c 2c2b32
-		;;
+		swaylock -c 2c2b32 ;;
 	"Cerrar sesion")
-		swaymsg exit
-		;;
+		swaymsg exit ;;
 	"Suspender")
-		swaylock -c 2c2b32 & systemctl suspend
-		;;
+		swaylock -c 2c2b32 & systemctl suspend ;;
 	"Reiniciar")
-		systemctl reboot
-		;;
+		systemctl reboot ;;
 	"Apagar")
-		systemctl poweroff
-		;;
+		systemctl poweroff ;;
 	*)
-		exit 0
-		;;
+		exit 0 ;;
 esac
 
