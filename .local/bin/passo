@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# copia al portapapeles el codigo del QR
-pass otp -c /otp/$1-otp
