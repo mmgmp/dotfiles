@@ -21,7 +21,3 @@ selection-color = #ffffff
 selection-background = #64727D
 selection-background-padding = 0, 5
 selection-background-corner-radius = 2
-
-# Extra
-require-match = false
-
