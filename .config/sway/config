@@ -59,6 +59,10 @@ exec swayidle -w \
 	resume 'swaymsg "output * dpms on"' \
 	before-sleep 'swaylock -f -c 2c2b32'
 
+# No suspender en pantalla completa
+for_window [class=".*"] inhibit_idle fullscreen
+for_window [app_id=".*"] inhibit_idle fullscreen
+
 #= ATAJOS DE TECLAS =================================================================#
 
 # Ejecutar programas
