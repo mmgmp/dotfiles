@@ -1,5 +1,5 @@
 # Fuente
-font = FiraMono Nerd Font
+font = UbuntuMono Nerd Font
 font-size = 10
 
 # Estilo de ventana
@@ -7,7 +7,7 @@ prompt-text = "> "
 horizontal = true
 anchor = top
 width = 100%
-height = 28
+height = 30
 outline-width = 0
 border-width = 0
 min-input-width = 130
