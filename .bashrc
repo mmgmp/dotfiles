@@ -1,13 +1,4 @@
-# Configurar directorios XDG
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_CACHE_HOME="$HOME/.cache"
-
-export GNUPGHOME="$XDG_DATA_HOME"/gnupg
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
-export HISTFILE="${XDG_STATE_HOME}"/bash/history
-export EDITOR="/usr/bin/nvim"
+#!/bin/bash
 
 # No duplicar el historial
 HISTCONTROL=ignoreboth
@@ -25,25 +16,15 @@ source /etc/profile.d/bash_completion.sh
 # Ignorar mayúsculas al pulsar TAB
 bind "set completion-ignore-case on"
 
-# Permitir ejecutar desde ~/.local/bin
-if [ -d "$HOME/.local/bin" ]; then
-	PATH="$HOME/.local/bin:$PATH"
-fi
+# Prompt personalizada
+PS1='\n\[\e[01;34m\]\w\n\[\e[01;32m\]>\[\e[0m\] '
 
 # Aliases
 alias ls='ls -lh --color=auto --time-style=long-iso'
 alias ll='ls -lhA --color=auto --time-style=long-iso'
-alias vim='nvim'
 alias c='clear'
 alias abook="abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_CONFIG_HOME"/abook/addressbook"
 
 # Aliases para paquetes
-alias nalup='sudo nala update && sudo nala upgrade'
-alias nalin='sudo nala install'
-alias nalre='sudo nala purge'
-alias update='sudo nala update && sudo nala upgrade && flatpak update'
-alias clean='sudo nala autoremove && flatpak remove --unused'
-
-# Prompt personalizada
-PS1='\n\[\e[01;34m\]\w\n\[\e[01;32m\]>\[\e[0m\] '
-
+alias up='sudo apt update && sudo apt upgrade'
+alias clean='sudo apt autoremove && flatpak remove --unused'
