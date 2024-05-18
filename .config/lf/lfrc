@@ -3,30 +3,35 @@ set hidden true
 set ignorecase true
 set icons true
 set drawbox true
-set sixel true
-set previewer ~/.config/lf/previewer.sh
-set cursorpreviewfmt "\033[7;90m"
-
-# Funciones especiales
-cmd mkdir ${{
-	clear; echo; printf "Nombre del directorio: " 
-	read ans 
-	mkdir $ans
-}}
-
-cmd mkfile ${{
-	clear; echo; printf "Nombre del archivo: " 
-	read ans
-	$EDITOR $ans
-}}
+#set sixel true
+#set previewer ~/.config/lf/previewer.sh
 
 # Quitar teclas predeterminadas
 map m
 map n
+map r
 
-# Funciones básicas
+# Funciones cmd
+cmd mkdir %printf " Nombre del directorio: "; read ans; mkdir $ans; echo "Se ha creado el directorio '$ans'"
+
+cmd mkfile %printf " Nombre del archivo: "; read ans; touch $ans; echo "Se ha creado el archivo '$ans'"
+
+cmd remove %printf "¿Borrar? [s/N]"; read ans; [ $ans = "s" ] && rm -frv $fx || printf "Operación cancelada"
+
+cmd extract ${{
+	case "$f" in
+		*.zip) unzip "$f" ;;
+		*.tar) tar -xvf "$f" ;;
+		*) printf "Formato no soportado" ;;
+	esac
+}}
+
+map A :rename; cmd-end
+map I :rename; cmd-home
+
+# Teclas
 map md mkdir
 map mf mkfile
+map R remove
+map E extract
 
-# Navegación
-map gD cd ~/Documentos
