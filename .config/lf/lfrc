@@ -16,7 +16,7 @@ cmd mkdir %printf " Nombre del directorio: "; read ans; mkdir $ans; echo "Se ha 
 
 cmd mkfile %printf " Nombre del archivo: "; read ans; touch $ans; echo "Se ha creado el archivo '$ans'"
 
-cmd remove %printf "¿Borrar? [s/N]"; read ans; [ $ans = "s" ] && rm -frv $fx || printf "Operación cancelada"
+cmd remove %printf " ¿Borrar? [s/N]"; read ans; [ $ans = "s" ] && rm -frv $fx || printf "Operación cancelada"
 
 cmd extract ${{
 	case "$f" in
