@@ -4,10 +4,6 @@ connect() {
 	nmcli device wifi connect "$selection" password "$password"	
 }
 
-secret() {
-	password=$(echo "" | tofi --prompt-text='Clave: ' --hide-input=true --hidden-character=* --require-match=false)
-}
-
 # Lista de redes wifi disponibles
 wifi_list=$(nmcli --fields "SSID" device wifi list | sed -e 1d -e 's/ //g')
 
@@ -26,7 +22,7 @@ wifi_list=$(nmcli --fields "SSID" device wifi list | sed -e 1d -e 's/ //g')
 	"Activar Wifi")
 		nmcli radio wifi on && notify-send "Wifi activado" ;;
 	*)
-		secret && connect && notify-send "Conectado a la red $selection" ;;
+		password=$($PASSWORD_MENU) && connect && notify-send "Conectado a la red $selection" ;;
 esac
 
 exit 0
