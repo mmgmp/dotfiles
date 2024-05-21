@@ -16,9 +16,6 @@ source /etc/profile.d/bash_completion.sh
 # Ignorar mayúsculas al pulsar TAB
 bind "set completion-ignore-case on"
 
-# Activar modo vi
-set -o vi
-
 # Prompt personalizada
 PS1='\n\[\e[01;34m\]\w\n\[\e[01;32m\]>\[\e[0m\] '
 
