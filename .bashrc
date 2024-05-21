@@ -29,7 +29,6 @@ alias grep='grep --color=auto'
 alias c='clear'
 alias v='nvim'
 alias sv='sudo nvim'
-alias nb='newsboat'
 
 # Sistema
 alias a='sudo apt'
