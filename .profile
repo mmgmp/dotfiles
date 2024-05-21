@@ -7,6 +7,7 @@
 export EDITOR="nvim"
 export TERMINAL="foot"
 export BROWSER="firefox"
+export PASSWORD_MENU="tofi-password-menu"
 
 # Limpiar ~/
 export XDG_CONFIG_HOME="$HOME/.config"
