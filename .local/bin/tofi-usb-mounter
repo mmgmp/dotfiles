@@ -1,9 +1,5 @@
 #!/bin/bash
 
-secret() {
-	password=$(echo "" | tofi --prompt-text='Clave: ' --hide-input=true --hidden-character=* --require-match=false)
-}
-
 unlock() {
 	udisksctl unlock -b $name --key-file <(echo -n "$password") 
 }
@@ -13,11 +9,12 @@ mount() {
 	mount_path=$(echo "$mount_output" | awk '{print $4}')
 }
 
+# Ruta de los discos normales
 read-name() {
 	name=$(echo $selected | awk '{print $2}')
-	name2=$name
 }
 
+# Ruta de los discos encriptados
 find-crypt() {
 	name=$(lsblk -nlpo "name,type,mountpoint" | grep crypt | awk '$3==""{print $1}')
 }
@@ -36,12 +33,12 @@ selected=$(printf "$all_luks\n$normal_part" | tofi)
 
 case $selected in
 	*)
-		read-name
-		secret && unlock && find-crypt && mount && notify-send "  Desencriptado y montado" "$name2 montado en $mount_path"
+		name2=$name ; read-name
+		password=$($PASSWORD_MENU) && unlock && find-crypt && mount && notify-send "  Desencriptado y montado" "$name2 montado en $mount_path" || notify-send "Error al montar USB"
 		;;
 	*)
 		read-name
-		mount  && notify-send "  Disco montado" "$name montado en $mount_path"
+		mount  && notify-send "  Disco montado" "$name montado en $mount_path" || notify-send "Error al montar USB"
 		;;
 esac
 		
