@@ -1,23 +1,23 @@
-* {
-    font-family: "UbuntuMono Nerd Font";
-    font-size: 15px;
-}
 
-button {
-    box-shadow: inset 0 -3px transparent;
-    border: none;
-    border-radius: 0;
+@define-color bg #18181a;
+@define-color text #ffffff;
+@define-color alt-text #b0a99f;
+
+#waybar {
+	background: @bg;
+	color: @text;
+	font-family: UbuntuMono Nerd Font;
+	font-size: 1.05em;
 }
 
 #workspaces button {
+	color: @alt-text;
 	padding: 0px 5px; /* V H */
 }
 
 #workspaces button.focused {
-	background-color: #64727D;
-	border-radius: 0px;
-	border-bottom: 2px solid white;
 	font-weight: bold;
+	color: @text;
 }
 
 #clock,
@@ -30,6 +30,7 @@ button {
 #network,
 #custom-weather,
 #tray {
-	padding: 0 7px;
-	font-weight: bold;
+	margin: 5px 0px;
+	padding: 0 10px;
+	border-left: 2px solid @alt-text;
 }
