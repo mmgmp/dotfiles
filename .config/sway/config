@@ -33,7 +33,7 @@ bar {
 # Configuración del teclado
 input type:keyboard {
     xkb_layout es
-	xkb_options caps:escape
+	xkb_options caps:escape # Convierte la tecla de BloqMayús en Esc
 	xkb_numlock enabled
 }
 
