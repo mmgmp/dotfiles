@@ -1,7 +1,16 @@
+// Esta es la configuración de waybar de Marcos Mikolta
+// Mi Github: http://github.com/mmgmp/
+
 {
 	"height": 30,
-//= MODULOS ===================================================================
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
+
+//= MODULOS ===================================================================//
+    
+	"modules-left": [
+		"sway/workspaces", 
+		"sway/mode", 
+		"sway/scratchpad"
+	],
     "modules-center": [],
     "modules-right": [
 		"custom/weather",
@@ -16,8 +25,10 @@
 		"clock#date",
 		"clock#time"
 	],
-//= CONFIGURACIÓN =============================================================
-    "sway/mode": {
+
+//= CONFIGURACIÓN =============================================================//
+    
+	"sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
     "sway/scratchpad": {
