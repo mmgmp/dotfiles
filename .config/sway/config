@@ -1,3 +1,11 @@
+# Esta es la configuracion de Marcos Mikolta
+# Mi Github: http://github.com/mmgmp/
+
+# Esta configuración desactiva el control manual
+# y lo reemplaza por el script de autotiling, todo esto
+# esta pensado para usarse con mi script de SAM
+# (http://github.com/mmgmp/SAM)
+
 #= CONFIGURACION GENERAL ============================================================#
 
 # Logo key. Use Mod1 for Alt.
@@ -15,6 +23,13 @@ set $browser firefox
 set $menu tofi-drun | xargs swaymsg exec --
 set $filem foot sh -c lf
 
+# Activar waybar
+bar {
+     swaybar_command waybar	
+}
+
+#= DISPOSITIVOS =====================================================================#
+
 # Configuración del teclado
 input type:keyboard {
     xkb_layout es
@@ -28,10 +43,7 @@ input 1133:50184:Logitech_USB_Trackball {
 	scroll_method on_button_down
 }
 
-# Activar waybar
-bar {
-     swaybar_command waybar	
-}
+#= APARIENCIA =======================================================================#
 
 # Estilo de ventanas
 default_border pixel 2
@@ -43,8 +55,8 @@ gaps outer 5
 gaps inner 10
 
 # Fondo de pantalla
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#output * bg ~/.local/share/backgrounds/pixel-paisaje.png fill
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/.local/share/backgrounds/pixel-paisaje.png fill
 
 #= AUTOEJECUTAR =====================================================================#
 
@@ -74,18 +86,8 @@ bindsym $mod+f exec $filem
 # Centro de notificaciones
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
-# Cerrar ventana enfocada
-bindsym $mod+q kill
-
-# Drag floating windows by holding down $mod and left mouse button.
-# Resize them with right mouse button + $mod.
-# Despite the name, also works for non-floating windows.
-# Change normal to inverse to use left mouse button for resizing and right
-# mouse button for draggibrightnessctl s 40%-ng.
-floating_modifier $mod normal
-
 # Recargar la configuración de sway
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r reload
 
 # Scripts de tofi
 bindsym Shift+$mod+q exec ~/.local/bin/tofi-session-manager
@@ -93,6 +95,8 @@ bindsym Shift+$mod+i exec ~/.local/bin/tofi-wifi-menu
 bindsym Shift+$mod+p exec ~/.local/bin/tofi-pass
 bindsym Shift+$mod+o exec ~/.local/bin/tofi-otp
 bindsym Shift+$mod+m exec ~/.local/bin/tofi-usb-mounter
+
+#---- Funciónes ----#
 
 # Control del brillo
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
@@ -113,6 +117,29 @@ bindsym Alt+F3 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym Alt+F4 exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym Alt+Shift+F2 exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
 bindsym Alt+Shift+F3 exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
+
+#---- Ventanas ----#
+
+# Cerrar ventana enfocada
+bindsym $mod+q kill
+
+# Maximizar ventana enfocada
+bindsym $mod+m fullscreen
+
+# Cambiar ventana enfocada ente flotante o tilling
+bindsym $mod+Shift+space floating toggle
+
+# Cambiar enfoque entre las ventanas flotantes y tilling
+bindsym $mod+Tab focus mode_toggle
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for draggibrightnessctl s 40%-ng.
+floating_modifier $mod normal
+
+#---- Movimiento ----#
 
 # Moverse entre escritorios
 bindsym $mod+Ctrl+$right workspace next 
@@ -171,17 +198,7 @@ bindsym $mod+o resize grow width 20px
 # bindsym $mod+w layout tabbed
 # bindsym $mod+Space layout toggle split
 
-# Maximizar ventana enfocada
-bindsym $mod+m fullscreen
-
-# Toggle the current focus between tiling and floating mode
-bindsym $mod+Shift+space floating toggle
-
-# Swap focus between the tiling area and the floating area
-bindsym $mod+Tab focus mode_toggle
-
-# Move focus to the parent container
-bindsym $mod+a focus parent
+#---- Scratchpads ----#
 
 # Scratchpad:
 
@@ -195,5 +212,8 @@ bindsym $mod+a focus parent
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
 
+#---- Extra ----#
+
+# Requeridos para el correcto funcionamiento de sway
 include /etc/sway/config.d/*
 include /etc/sway/config-vars.d/*
