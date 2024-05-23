@@ -3,8 +3,8 @@
 /* Mi Web: http://marcosmikolta.xyz */
 
 @define-color bg #18181a;
-@define-color text #ffffff;
-@define-color alt-text #b0a99f;
+@define-color text white;
+@define-color alt-text grey;
 
 #waybar {
 	background: @bg;
