@@ -1,0 +1,18 @@
+font=UbuntuMono Nerd Font
+
+padding=10
+background-color=#333333
+border-color=#808080
+border-size=1
+
+[urgency=low]
+border-color=#d08770
+default-timeout=3000
+
+[urgency=normal]
+border-color=#d08770
+default-timeout=5000
+
+[urgency=high]
+border-color=#bf616a
+default-timeout=0
