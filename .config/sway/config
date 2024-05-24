@@ -63,6 +63,7 @@ output * bg ~/.local/share/backgrounds/pixel-paisaje.png fill
 
 exec_always autotiling
 exec mako
+ecex gammastep -c ~/.config/gammastep/config.ini
 
 #= ENERGÍA ==========================================================================#
 
