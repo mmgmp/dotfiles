@@ -1,23 +1,16 @@
-# Fuente
-font = UbuntuMono Nerd Font
-font-size = 12
-
-# Estilo de ventana
-prompt-text = "> "
-horizontal = true
 anchor = top
 width = 100%
 height = 30
+horizontal = true
+font-size = 12
+font = UbuntuMono Nerd Font
 outline-width = 0
 border-width = 0
-min-input-width = 130
-result-spacing = 10
+background-color = #18181a
+min-input-width = 120
+result-spacing = 20
+selection-color = #2E9EF4
 padding-top = 5
 padding-bottom = 0
-
-# Colores
-background-color = #2c2b32 
-selection-color = #ffffff
-selection-background = #64727D
-selection-background-padding = 0, 5
-selection-background-corner-radius = 2
+padding-left = 5
+padding-right = 0
