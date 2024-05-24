@@ -62,7 +62,7 @@ output * bg ~/.local/share/backgrounds/pixel-paisaje.png fill
 #= AUTOEJECUTAR =====================================================================#
 
 exec_always autotiling
-exec swaync
+exec mako
 
 #= ENERGÍA ==========================================================================#
 
@@ -83,9 +83,6 @@ bindsym $mod+t exec $term
 bindsym $mod+b exec $browser
 bindsym $mod+d exec $menu
 bindsym $mod+f exec $filem
-
-# Centro de notificaciones
-bindsym $mod+Shift+n exec swaync-client -t -sw
 
 # Recargar la configuración de sway
 bindsym $mod+Shift+r reload
