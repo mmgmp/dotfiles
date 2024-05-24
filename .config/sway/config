@@ -34,7 +34,7 @@ bar {
 # Configuración del teclado
 input type:keyboard {
     xkb_layout es
-	xkb_options caps:escape # Convierte la tecla de BloqMayús en Esc
+	xkb_options caps:escape
 	xkb_numlock enabled
 }
 
@@ -63,7 +63,7 @@ output * bg ~/.local/share/backgrounds/pixel-paisaje.png fill
 
 exec_always autotiling
 exec mako
-ecex gammastep -c ~/.config/gammastep/config.ini
+exec gammastep -c ~/.config/gammastep/config.ini
 
 #= ENERGÍA ==========================================================================#
 
