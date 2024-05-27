@@ -14,7 +14,6 @@
 	],
     "modules-center": [],
     "modules-right": [
-		"custom/weather",
 		"network",
 		"cpu",
 		"memory", 
