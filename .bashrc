@@ -16,8 +16,8 @@ source /etc/profile.d/bash_completion.sh
 # Ignorar mayúsculas al pulsar TAB
 bind "set completion-ignore-case on"
 
-# Prompt personalizada
-PS1='\n\[\e[01;34m\]\w\n\[\e[01;32m\]>\[\e[0m\] '
+# Starship prompt
+eval "$(starship init bash)"
 
 # Colores                                                                             
 alias ls='ls --color=auto --group-directories-first'
@@ -29,6 +29,10 @@ alias grep='grep --color=auto'
 alias c='clear'
 alias v='nvim'
 alias sv='sudo nvim'
+
+# Git
+alias gcm='git commit -am'
+alias gp='git push'
 
 # Sistema
 alias a='sudo apt'
