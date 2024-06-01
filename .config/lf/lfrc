@@ -31,6 +31,13 @@ cmd extract ${{
 	esac
 }}
 
+# Crear link simbólico
+cmd symbolic ${{
+	current_path=$(pwd)
+	name=$(basename "$f")
+	ln -s "$f" $current_path/Enlace_a_$name
+}}
+
 # Renombrar
 map A :rename; cmd-end
 map I :rename; cmd-home
@@ -40,4 +47,5 @@ map md mkdir
 map mf mkfile
 map R remove
 map E extract
+map S symbolic
 
