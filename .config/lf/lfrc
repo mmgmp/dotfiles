@@ -11,13 +11,16 @@ map m
 map n
 map r
 
-# Funciones cmd
+# Crear carpeta
 cmd mkdir %printf " Nombre del directorio: "; read ans; mkdir $ans; echo "Se ha creado el directorio '$ans'"
 
+# Crear archivo
 cmd mkfile %printf " Nombre del archivo: "; read ans; touch $ans; echo "Se ha creado el archivo '$ans'"
 
+# Borrar archivos
 cmd remove %printf " ¿Borrar? [s/N]"; read ans; [ $ans = "s" ] && rm -frv $fx || printf "Operación cancelada"
 
+# Descomprimir
 cmd extract ${{
 	case "$f" in
 		*.zip) unzip "$f" ;;
@@ -28,10 +31,11 @@ cmd extract ${{
 	esac
 }}
 
+# Renombrar
 map A :rename; cmd-end
 map I :rename; cmd-home
 
-# Teclas
+# Configuración de teclas
 map md mkdir
 map mf mkfile
 map R remove
