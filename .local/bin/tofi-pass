@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Muestra todas las claves en $PASSWORD_STORE_DIR excluyendo la carpeta otp
+# Muestra todas las claves en $PASSWORD_STORE_DIR
 selec=$(find "$PASSWORD_STORE_DIR/" -type f -name '*.gpg' -exec basename {} .gpg \; | tofi --prompt-text="pass: ")
 [ -z $selec ] && exit 0
 
