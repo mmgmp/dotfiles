@@ -92,7 +92,6 @@ bindsym $mod+Shift+r reload
 bindsym Shift+$mod+q exec ~/.local/bin/tofi-session-manager
 bindsym Shift+$mod+i exec ~/.local/bin/tofi-wifi-menu
 bindsym Shift+$mod+p exec ~/.local/bin/tofi-pass
-bindsym Shift+$mod+o exec ~/.local/bin/tofi-otp
 bindsym Shift+$mod+m exec ~/.local/bin/tofi-usb-mounter
 
 #---- Funciónes ----#
