@@ -1,21 +1,23 @@
 #!/bin/bash
 
 # Muestra todas las claves en $PASSWORD_STORE_DIR excluyendo la carpeta otp
-selec=$(find "$PASSWORD_STORE_DIR/" -type f -name '*.gpg' -exec basename {} .gpg \; | tofi)
+selec=$(find "$PASSWORD_STORE_DIR/" -type f -name '*.gpg' -exec basename {} .gpg \; | tofi --prompt-text="pass: ")
 [ -z $selec ] && exit 0
 
 # Logra el enlace al archivo seleccionado
 path=$(find "$PASSWORD_STORE_DIR/" -type f -name "$selec.gpg" | grep -oP "^$PASSWORD_STORE_DIR/\K.*(?=\.gpg$)")
 
-# Muestra las opciones en tofi
-selected=$(printf "Usuario\nClave" | tofi)
-
-# Comprobar las opciones y ejecutar los comandos
-case $selected in
-    "Usuario")
-		pass -c2 $path && notify-send "Usuario copiado" ;;
-    "Clave")
-		pass -c1 $path && notify-send "Contraseña copiada" ;;
-    *)
-		exit 0 ;;
-esac
+if [[ $selec =~ otp ]]; then 
+	pass otp -c $path && notify-send "Código copiado" 
+	exit 0
+else
+	selected=$(printf "Usuario\nClave" | tofi --prompt-text="pass: ")
+	case $selected in
+		"Usuario")
+			pass -c2 $path && notify-send "Usuario copiado" ;;
+		"Clave")
+			pass -c1 $path && notify-send "Contraseña copiada" ;;
+		*)
+			exit 0 ;;
+	esac
+fi
