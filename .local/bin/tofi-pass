@@ -1,18 +1,14 @@
 #!/bin/bash
 
 # Muestra todas las claves en $PASSWORD_STORE_DIR excluyendo la carpeta otp
-selec=$(find "$PASSWORD_STORE_DIR" -type d -name 'otp' -prune -o -type f -name '*.gpg' -exec basename {} .gpg \; | tofi)
+selec=$(find "$PASSWORD_STORE_DIR/" -type f -name '*.gpg' -exec basename {} .gpg \; | tofi)
 [ -z $selec ] && exit 0
 
 # Logra el enlace al archivo seleccionado
-path=$(find "$PASSWORD_STORE_DIR" -type f -name "$selec.gpg" | grep -oP "^$PASSWORD_STORE_DIR/\K.*(?=\.gpg$)")
-
-# Opciones
-options=("Usuario" "Clave")
-options_str=$(printf "%s\n" "${options[@]}")
+path=$(find "$PASSWORD_STORE_DIR/" -type f -name "$selec.gpg" | grep -oP "^$PASSWORD_STORE_DIR/\K.*(?=\.gpg$)")
 
 # Muestra las opciones en tofi
-selected=$(echo -e "$options_str" | tofi)
+selected=$(printf "Usuario\nClave" | tofi)
 
 # Comprobar las opciones y ejecutar los comandos
 case $selected in
