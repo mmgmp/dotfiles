@@ -41,7 +41,15 @@ cmd symbolic ${{
 map A :rename; cmd-end
 map I :rename; cmd-home
 
-map gh cd ~/Documentos/GitHub/
+# Movimiento
+map gd cd ~/Descargas/
+map gD cd ~/Documentos/
+map gi cd ~/Imágenes/
+map gm cd ~/Música/
+map gv cd ~/Vídeos/
+
+map gs cd ~/.local/bin/
+map gr cd ~/Documentos/GitHub/
 
 # Configuración de teclas
 map md mkdir
