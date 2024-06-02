@@ -37,6 +37,11 @@ cmd symbolic ${{
 	ln -s "$f" $current_path/Enlace_a_$name
 }}
 
+# Hacer ejecutable
+cmd chmodx ${{
+	chmod +x $fx
+}}
+
 # Renombrar
 map A :rename; cmd-end
 map I :rename; cmd-home
@@ -57,4 +62,5 @@ map mf mkfile
 map R remove
 map E extract
 map S symbolic
+map X chmodx
 
