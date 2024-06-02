@@ -23,6 +23,7 @@ set $term foot
 set $browser firefox
 set $menu tofi-drun | xargs swaymsg exec --
 set $filem foot sh -c lf
+set $news foot sh -c newsboat
 
 # Activar waybar
 bar {
@@ -84,6 +85,7 @@ bindsym $mod+t exec $term
 bindsym $mod+b exec $browser
 bindsym $mod+d exec $menu
 bindsym $mod+f exec $filem
+bindsym $mod+n exec $news
 
 # Recargar la configuración de sway
 bindsym $mod+Shift+r reload
