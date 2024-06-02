@@ -47,7 +47,7 @@
         "tooltip": false
     },
     "clock#date": {
-		"format": "  {:%e %b %Y}",
+		"format": " {:%e %b %Y}",
       	"tooltip-format": false
     },
     "cpu": {
@@ -59,7 +59,7 @@
     },
     "temperature": {
         "critical-threshold": 80,
-        "format": "{icon}  {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
         "format-icons": ["", "", ""],
 		"tooltip": false
     },
@@ -73,7 +73,7 @@
             "critical": 15
         },
         "format": "{icon}  {capacity}%",
-        "format-charging": "  {capacity}%",
+        "format-charging": " {capacity}%",
         "format-plugged": "  {capacity}%",
         "format-alt": "{time}  {icon}",
         "format-icons": ["", "", "", "", ""]
