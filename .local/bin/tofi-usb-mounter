@@ -5,13 +5,17 @@ unlock() {
 }
 
 mount() {
-	mount_output=$(udisksctl mount -b $name)
-	mount_path=$(echo "$mount_output" | awk '{print $4}')
+	mount_path=$(udisksctl mount -b $name | awk '{print $4}')
+}
+
+notify() {
+	notify-send "$icon  USB montado" "$name2 montado en $mount_path" || notify-send "Error al montar USB"
 }
 
 # Ruta de los discos normales
 read-name() {
 	name=$(echo $selected | awk '{print $2}')
+	name2=$name # Copia para la función
 }
 
 # Ruta de los discos encriptados
@@ -19,26 +23,26 @@ find-crypt() {
 	name=$(lsblk -nlpo "name,type,mountpoint" | grep crypt | awk '$3==""{print $1}')
 }
 
-# Leer todos los dispositivos
-lsblk_output=$(lsblk -nlpo "name,type,size,fstype,mountpoint")
+# Leer todos los dispositivos, excluyendo a /dev/sda
+lsblk_output=$(lsblk -nlpo "name,type,size,fstype,mountpoint" | grep -v sda)
 
 # Discos encriptados LUKS
-all_luks=$(echo "$lsblk_output" | grep crypto_LUKS | awk '{printf "  %s %s\n",$1,$3}')
+all_luks=$(echo "$lsblk_output" | grep crypto_LUKS | awk '{printf "  %s (%s)\n",$1,$3}')
 
 # Particiones normales no montadas
-normal_part=$(echo "$lsblk_output" | grep part | grep -v crypto_LUKS | awk '$5==""{printf "  %s %s\n",$1,$3}')
+normal_part=$(echo "$lsblk_output" | grep -e part -e ntfs | grep -v crypto_LUKS | awk '$5==""{printf "  %s (%s)\n",$1,$3}')
 
-# Menu con todos los dispositivos
-selected=$(printf "$all_luks\n$normal_part" | tofi)
+# Menú con todos los dispositivos
+selected=$(printf "$all_luks\n$normal_part" | tofi --prompt-text='Montar USB: ')
 
 case $selected in
 	*)
-		name2=$name ; read-name
-		password=$($PASSWORD_MENU) && unlock && find-crypt && mount && notify-send "  Desencriptado y montado" "$name2 montado en $mount_path" || notify-send "Error al montar USB"
+		icon=
+		read-name && password=$($PASSWORD_MENU) && unlock && find-crypt && mount && notify
 		;;
 	*)
-		read-name
-		mount  && notify-send "  Disco montado" "$name montado en $mount_path" || notify-send "Error al montar USB"
+		icon=
+		read-name && mount && notify
 		;;
 esac
 		
