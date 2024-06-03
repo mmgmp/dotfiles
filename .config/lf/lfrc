@@ -43,6 +43,15 @@ cmd background ${{
 	sway reload
 }}
 
+# Abrir archivos
+cmd open ${{
+	case $(file --mime-type -Lb "$f") in
+		text/*) $EDITOR "$f" ;;
+		image/*) swayimg "$f" ;;
+		*) xdg-open "$f" ;;
+	esac
+}}
+
 # Hacer ejecutable
 cmd chmodx ${{
 	chmod +x $fx
