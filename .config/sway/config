@@ -97,6 +97,10 @@ bindsym Shift+$mod+m exec ~/.local/bin/tofi-usb-mounter
 
 #---- Funciónes ----#
 
+# Captura de pantalla
+bindsym Print exec grim && notify-send "Captura realizada"
+bindsym Alt+Print exec grim -g "$(slurp -w 0)" && notify-send "Captura realizada"
+
 # Control del brillo
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl s 5%+
