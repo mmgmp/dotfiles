@@ -48,6 +48,7 @@ cmd open ${{
 	case $(file --mime-type -Lb "$f") in
 		text/*) $EDITOR "$f" ;;
 		image/*) swayimg "$f" ;;
+		*/pdf) zathura "$f" ;;
 		*) xdg-open "$f" ;;
 	esac
 }}
