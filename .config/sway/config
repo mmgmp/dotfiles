@@ -68,10 +68,10 @@ exec gammastep -c ~/.config/gammastep/config.ini
 #= ENERGÍA ==========================================================================#
 
 exec swayidle -w \
-	timeout 300 'swaylock -f -c 2c2b32' \
+	timeout 300 '~/.local/bin/lockscreen' \
 	timeout 600 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"' \
-	before-sleep 'swaylock -f -c 2c2b32'
+	before-sleep '~/.local/bin/lockscreen'
 
 # No suspender en pantalla completa
 for_window [class=".*"] inhibit_idle fullscreen

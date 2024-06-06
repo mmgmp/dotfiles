@@ -7,4 +7,4 @@ grim /tmp/screen.png
 convert /tmp/screen.png -paint 1 -swirl 360 /tmp/screen.png
 
 # Bloquear la pantalla con la imagen de fondo
-swaylock -i /tmp/screen.png --indicator-idle-visible --indicator-radius 75
+swaylock -i /tmp/screen.png -i --indicator-idle-visible --indicator-radius 75
