@@ -8,9 +8,13 @@
 
 #waybar {
 	background: @bg;
+	margin: 5px 0px;
 	color: @text;
 	font-family: UbuntuMono Nerd Font;
 	font-size: 1.05em;
+}
+
+#workspaces {
 }
 
 #workspaces button {
