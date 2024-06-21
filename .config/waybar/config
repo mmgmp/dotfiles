@@ -74,7 +74,7 @@
             "critical": 15
         },
         "format": "{icon}  {capacity}%",
-        "format-charging": " {capacity}%",
+        "format-charging": "  {capacity}%",
         "format-plugged": "  {capacity}%",
         "format-alt": "{time}  {icon}",
         "format-icons": ["", "", "", "", ""]
@@ -82,8 +82,8 @@
     "network": {
         "format-wifi": "  {essid} ({signalStrength}%)",
         "format-ethernet": " ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "⚠",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "",
 		"tooltip": false
     },
     "custom/weather": {
@@ -107,7 +107,7 @@
         "format-source-muted": " ",
         "format-icons": {
             "headphone": "",
-            "headset": "",
+            "headset": "",
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
