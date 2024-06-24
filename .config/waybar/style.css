@@ -37,7 +37,6 @@
 #network,
 #custom-weather,
 #tray {
-	margin: 5px 0px;
-	padding: 0 10px;
-	border-left: 2px solid @alt-text;
+	margin: 5px;
+	margin-right: 15px;
 }
