@@ -19,10 +19,5 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/password-store
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 
-# Aliases para flatpaks
-alias steam='flatpak run com.valvesoftware.Steam'
-alias lutris='flatpak run net.lutris.Lutris'
-alias librewolf='flatpak run io.gitlab.librewolf-community'
-
 # Ejecutar sway desde la tty
 [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ] && exec sway
