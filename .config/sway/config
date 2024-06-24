@@ -53,8 +53,7 @@ default_floating_border pixel 2
 client.focused #2E9EF4 #2E9EF4 #2E9EF4
 
 # Espacios entre ventanas
-gaps outer 5
-gaps inner 10
+gaps inner 5
 
 # Fondo de pantalla
 include ~/.config/sway/wallpaper
@@ -94,10 +93,11 @@ bindsym $mod+n exec $news
 bindsym $mod+Shift+r reload
 
 # Scripts de tofi
-bindsym Shift+$mod+q exec ~/.local/bin/tofi-session-manager
-bindsym Shift+$mod+i exec ~/.local/bin/tofi-wifi-menu
-bindsym Shift+$mod+p exec ~/.local/bin/tofi-pass
-bindsym Shift+$mod+m exec ~/.local/bin/tofi-usb-mounter
+bindsym $mod+Shift+q exec ~/.local/bin/tofi-session-manager
+bindsym $mod+Shift+i exec ~/.local/bin/tofi-wifi-menu
+bindsym $mod+Shift+p exec ~/.local/bin/tofi-pass
+bindsym $mod+Shift+m exec ~/.local/bin/tofi-usb-mounter
+bindsym $mod+Shift+b exec ~/.local/bin/tofi-bookmark-menu
 
 #---- Funciónes ----#
 
