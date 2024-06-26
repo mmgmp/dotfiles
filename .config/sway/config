@@ -20,7 +20,7 @@ set $right l
 
 # Programas predeterminados
 set $term foot
-set $browser flatpak run io.gitlab.librewolf-community
+set $browser brave-browser
 set $menu tofi-drun | xargs swaymsg exec --
 set $filem foot sh -c lf
 set $news foot sh -c newsboat
