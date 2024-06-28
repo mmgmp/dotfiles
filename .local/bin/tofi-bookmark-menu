@@ -1,0 +1,4 @@
+#!/bin/bash
+ 
+selection=$(cat $BOOKMARK_FILE | tofi --prompt-text="Marcadores: ")
+wl-copy $selection && notify-send "Éxito" "Marcador copiado al portapapeles"

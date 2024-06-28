@@ -92,6 +92,9 @@ bindsym $mod+n exec $news
 # Recargar la configuración de sway
 bindsym $mod+Shift+r reload
 
+# Añadir a marcadores el elemento copiado
+bindsym $mod+Alt+b exec ~/.local/bin/add-bookmark
+
 # Scripts de tofi
 bindsym $mod+Shift+q exec ~/.local/bin/tofi-session-manager
 bindsym $mod+Shift+i exec ~/.local/bin/tofi-wifi-menu
