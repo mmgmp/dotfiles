@@ -35,9 +35,9 @@ alias gcm='git commit -am'
 alias gp='git push'
 
 # Sistema
-alias a='sudo apt'
-alias up='sudo apt update && sudo apt upgrade'
-alias clean='sudo apt autoremove && flatpak remove --unused'
+alias na='sudo nala'
+alias up='sudo nala update && sudo nala upgrade'
+alias cl='sudo nala autoremove && flatpak remove --unused'
 alias ss='sudo systemctl'
 
 # Otros
