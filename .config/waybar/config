@@ -47,15 +47,15 @@
         "tooltip": false
     },
     "clock#date": {
-		"format": "  {:%e %b %Y}",
+		"format": "   {:%e %b %Y}",
       	"tooltip-format": false
     },
     "cpu": {
-        "format": "  {usage}%",
+        "format": "   {usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": "  {}%"
+        "format": "   {}%"
     },
     "temperature": {
         "critical-threshold": 80,
@@ -100,9 +100,9 @@
 		"on-click": "foot -e sh -c newsboat" 
     },
     "pulseaudio": {
-        "format": "{icon}  {volume}%  {format_source}",
+        "format": "{icon}   {volume}%   {format_source}",
         "format-muted": "   {format_source}",
-        "format-source": " {volume}%",
+        "format-source": "  {volume}%",
         "format-source-muted": " ",
         "format-icons": {
             "headphone": "",
