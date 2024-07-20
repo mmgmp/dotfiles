@@ -7,6 +7,9 @@
 export EDITOR="nvim"
 export TERMINAL="foot"
 export BROWSER="firefox"
+export FILE_MANAGER="foot sh -c lf"
+export RSS_READER="foot sh -c newsboat"
+export RUN_LAUNCHER="tofi-drun"
 export PASSWORD_MENU="tofi-password-menu"
 
 # Limpiar ~/
