@@ -20,6 +20,3 @@ export HISTFILE="${XDG_STATE_HOME}/bash/history"
 
 # Rutas personalizadas
 export BOOKMARK_FILE="$HOME/.local/share/bookmarks/bookmark-list"
-
-# Ejecutar sway desde la tty
-[ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ] && exec sway
