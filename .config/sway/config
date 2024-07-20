@@ -18,13 +18,6 @@ set $down j
 set $up k
 set $right l
 
-# Programas predeterminados
-set $term foot
-set $browser brave-browser
-set $menu tofi-drun | xargs swaymsg exec --
-set $filem foot sh -c lf
-set $news foot sh -c newsboat
-
 # Activar waybar
 bar {
      swaybar_command waybar	
@@ -83,11 +76,11 @@ for_window [app_id=".*"] inhibit_idle fullscreen
 #= ATAJOS DE TECLAS =================================================================#
 
 # Ejecutar programas
-bindsym $mod+t exec $term
-bindsym $mod+b exec $browser
-bindsym $mod+d exec $menu
-bindsym $mod+f exec $filem
-bindsym $mod+n exec $news
+bindsym $mod+t exec $TERMINAL
+bindsym $mod+b exec $BROWSER
+bindsym $mod+d exec $RUN_LAUNCHER | xargs swaymsg exec --
+bindsym $mod+f exec $FILE_MANAGER
+bindsym $mod+n exec $RSS_READER
 
 # Recargar la configuración de sway
 bindsym $mod+Shift+r reload
