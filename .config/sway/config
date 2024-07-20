@@ -60,13 +60,13 @@ include ~/.config/sway/wallpaper
 
 #= AUTOEJECUTAR =====================================================================#
 
-exec_always autotiling
-exec mako
-exec gammastep -c ~/.config/gammastep/config.ini
+exec_always --no-startup-id autotiling
+exec --no-startup-id mako
+exec --no-startup-id gammastep -c ~/.config/gammastep/config.ini
 
 # Barra de cambio de volumen/brillo
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
+exec --no-startup-id rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 
 #= ENERGÍA ==========================================================================#
 

@@ -24,6 +24,7 @@ cmd extract ${{
 	case "$f" in
 		*.zip) unzip "$f" ;;
 		*.tar) tar -xvf "$f" ;;
+		*.tar.xz) tar -xvf "$f" ;;
 		*.rar) unrar x "$f" ;;
 		*.7z) 7zz x "$f" ;;
 		*) printf "Formato no soportado" ;;
