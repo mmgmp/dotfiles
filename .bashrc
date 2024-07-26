@@ -33,6 +33,7 @@ alias sv='sudo nvim'
 # Git
 alias gcm='git commit -am'
 alias gp='git push'
+alias gc='git clone'
 
 # Sistema
 alias na='sudo nala'
