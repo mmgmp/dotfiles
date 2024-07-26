@@ -20,6 +20,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export HISTFILE="${XDG_STATE_HOME}/bash/history"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+export XCURSOR_PATH="/usr/share/icons:$XDG_DATA_HOME/icons"
 
 # Rutas personalizadas
 export BOOKMARK_FILE="$HOME/.local/share/bookmarks/bookmark-list"
