@@ -19,7 +19,7 @@ bind "set completion-ignore-case on"
 # Starship prompt
 eval "$(starship init bash)"
 
-# Colores                                                                             
+# Colores
 alias ls='ls --color=auto --group-directories-first'
 alias la='ls -A --color=auto --group-directories-first'
 alias ll='ls -Ahl --color=auto --group-directories-first'
