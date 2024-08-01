@@ -100,10 +100,10 @@
 		"on-click": "foot -e sh -c newsboat" 
     },
     "pulseaudio": {
-        "format": "{icon}   {volume}%   {format_source}",
-        "format-muted": "   {format_source}",
-        "format-source": "  {volume}%",
-        "format-source-muted": " ",
+        "format": "{icon}   {format_source}",
+        "format-muted": "<span color='#808080'></span>   {format_source}",
+        "format-source": "",
+        "format-source-muted": "<span color='#808080'></span>",
         "format-icons": {
             "headphone": "",
             "headset": "",
