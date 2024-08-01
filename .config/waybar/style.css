@@ -12,19 +12,15 @@
 	color: @text;
 	font-family: FiraSans;
 	font-size: 1em;
+	font-weight: bold;
 }
 
 .modules-right {
-	margin: 4px 0px;
 	margin-right: 4px;	
 }
 
 .modules-left {
-	margin: 4px 0px;
 	margin-left: 4px;	
-	padding: 0px 4px;
-	background: @bg-alt;
-	border-radius: 15px;
 }
 
 button {
@@ -61,8 +57,5 @@ button {
 #network,
 #custom-weather,
 #tray {
-	background: @bg-alt;
-	margin: 0px 3px;
-	padding: 0px 7px;
-	border-radius: 15px;
+	margin: 0px 7px;
 }
