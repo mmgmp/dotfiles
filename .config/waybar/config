@@ -63,9 +63,6 @@
         "format-icons": ["", "", ""],
 		"tooltip": false
     },
-    "backlight": {
-        "format": "  {percent}%",
-    },
     "battery": {
         "states": {
             // "good": 95,
