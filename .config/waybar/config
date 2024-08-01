@@ -7,12 +7,14 @@
 
 //= MODULOS ===================================================================//
     
-	"modules-left": [
+"modules-left": [
 		"sway/workspaces", 
 		"sway/mode", 
 		"sway/scratchpad"
 	],
-    "modules-center": [],
+    "modules-center": [
+		"clock"
+    ],
     "modules-right": [
 		"cpu",
 		"memory", 
@@ -21,9 +23,7 @@
 		"pulseaudio", 
 		"backlight", 
 		"battery", 
-		"tray",
-		"clock#date",
-		"clock#time"
+		"tray"
 	],
 
 //= CONFIGURACIÓN =============================================================//
@@ -42,12 +42,8 @@
         // "icon-size": 15,
         "spacing": 10
     },
-	"clock#time": {
-        "format": "{:%H:%M}",
-        "tooltip": false
-    },
-    "clock#date": {
-		"format": "   {:%e %b %Y}",
+    "clock": {
+	"format": "{:%e %b  %H:%M}",
       	"tooltip-format": false
     },
     "cpu": {
