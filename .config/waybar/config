@@ -85,20 +85,6 @@
         "format-disconnected": " ",
 		"tooltip": false
     },
-    "custom/weather": {
-		"format": "{}",
-		"interval": 3600, // 1 hora
-		"exec": "~/.config/waybar/modules/weather",
-		"tooltip": false,
-		"on-click": "foot -e sh -c 'curl wttr.in; sleep 30'" 
-    },
-    "custom/rss": {
-		"format": "{}",
-		"interval": 3600, // 1 hora
-		"exec": "~/.config/waybar/modules/rss",
-		"tooltip": false,
-		"on-click": "foot -e sh -c newsboat" 
-    },
     "pulseaudio": {
         "format": "{icon}   {format_source}",
         "format-muted": "<span color='#808080'></span>   {format_source}",
