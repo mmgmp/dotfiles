@@ -19,10 +19,10 @@
 		"cpu",
 		"memory", 
 		"temperature", 
+		"tray",
 		"network",
 		"pulseaudio", 
-		"battery", 
-		"tray"
+		"battery" 
 	],
 
 //= CONFIGURACIÓN =============================================================//
