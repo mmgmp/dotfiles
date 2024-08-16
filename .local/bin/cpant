@@ -1,0 +1,13 @@
+#!/bin/bash
+
+[ -d "$GRIM_DEFAULT_DIR" ] || mkdir -p $GRIM_DEFAULT_DIR
+
+case $1 in
+	"1") # Modo normal
+		grim && notify-send "Captura realizada" ;;
+	"2") # Modo selector
+		grim -g "$(slurp -w 0)" && notify-send "Captura realizada" ;;
+	*)
+		exit ;;
+esac
+

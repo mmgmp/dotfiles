@@ -5,14 +5,16 @@
 
 # Programas predeterminados
 export EDITOR="nvim"
-export TERMINAL="foot"
 export BROWSER="firefox"
-export FILE_MANAGER="foot sh -c lf"
-export RSS_READER="foot sh -c newsboat"
+export TERMINAL="foot"
+export TERMINAL_RUN="foot sh -c"
+export FILE_MANAGER="$TERMINAL_RUN lf"
+export CALENDAR="$TERMINAL_RUN calcurse"
+export RSS_READER="$TERMINAL_RUN newsboat"
 export RUN_LAUNCHER="tofi-drun"
 export PASSWORD_MENU="tofi-password-menu"
 
-# Limpiar ~/
+# Organización
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
@@ -22,6 +24,5 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export HISTFILE="${XDG_STATE_HOME}/bash/history"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export XCURSOR_PATH="/usr/share/icons:$XDG_DATA_HOME/icons"
-
-# Rutas personalizadas
-export BOOKMARK_FILE="$HOME/.local/share/bookmarks/bookmark-list"
+export BOOKMARK_FILE="$XDG_DATA_HOME/bookmarks/bookmark-list"
+export GRIM_DEFAULT_DIR="$HOME/Imágenes/capturas-de-pantalla"
