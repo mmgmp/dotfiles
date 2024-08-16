@@ -27,8 +27,8 @@ alias grep='grep --color=auto'
 
 # Atajos
 alias c='clear'
-alias v='nvim'
-alias sv='sudo nvim'
+alias v='$EDITOR'
+alias sv='sudo $EDITOR'
 
 # Git
 alias gcm='git commit -am'
@@ -40,6 +40,9 @@ alias na='sudo nala'
 alias up='sudo nala update && sudo nala upgrade'
 alias cl='sudo nala autoremove && flatpak remove --unused'
 alias ss='sudo systemctl'
+
+# Atajos para fzf
+alias ff='find ~/.config/ ~/.local/bin/ -type f | fzf | xargs -r $EDITOR'
 
 # Otros
 alias abook="abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_CONFIG_HOME"/abook/addressbook"
