@@ -56,6 +56,11 @@ button {
 #memory,
 #network,
 #custom-weather,
+#idle_inhibitor,
 #tray {
 	margin: 0px 7px;
+}
+
+#idle_inhibitor {
+	margin-right: 12px;
 }
