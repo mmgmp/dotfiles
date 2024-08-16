@@ -99,8 +99,8 @@ bindsym $mod+Shift+b exec ~/.local/bin/tofi-bookmark-menu
 #---- Funciónes ----#
 
 # Captura de pantalla
-bindsym Print exec grim && notify-send "Captura realizada"
-bindsym Alt+Print exec grim -g "$(slurp -w 0)" && notify-send "Captura realizada"
+bindsym Print exec cpant 1
+bindsym Alt+Print exec cpant 2
 
 # Control del brillo
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
