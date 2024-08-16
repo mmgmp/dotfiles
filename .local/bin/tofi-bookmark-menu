@@ -1,4 +1,4 @@
 #!/bin/bash
  
-selection=$(cat $BOOKMARK_FILE | tofi --prompt-text="Marcadores: ")
+selection=$(cat $BOOKMARK_FILE | tofi --prompt-text="Marcadores: " --include=$XDG_CONFIG_HOME/tofi/config-alt)
 wl-copy $selection && notify-send "Éxito" "Marcador copiado al portapapeles"
