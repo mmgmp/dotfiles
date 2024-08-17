@@ -136,11 +136,10 @@ bindsym $mod+Shift+space floating toggle
 # Cambiar enfoque entre las ventanas flotantes y tilling
 bindsym $mod+Tab focus mode_toggle
 
-# Drag floating windows by holding down $mod and left mouse button.
-# Resize them with right mouse button + $mod.
-# Despite the name, also works for non-floating windows.
-# Change normal to inverse to use left mouse button for resizing and right
-# mouse button for draggibrightnessctl s 40%-ng.
+# Mover ventanas flotantes con $mod y click izquierdo
+# Redimensionarlas con $mod y click derecho
+# Funciona nos ventanas no flotantes
+# Cambiar normal a invertido para cambiar los botones del ratón
 floating_modifier $mod normal
 
 #---- Movimiento ----#
