@@ -74,6 +74,13 @@ exec swayidle -w \
 for_window [class=".*"] inhibit_idle fullscreen
 for_window [app_id=".*"] inhibit_idle fullscreen
 
+#= REGLAS DE VENTANAS ===============================================================#
+
+for_window [app_id="pavucontrol"] floating enable
+assign [class="Firefox-esr"] 2
+assign [app_id="org.mozilla.Thunderbird"] 6
+assign [class="steam"] 7
+
 #= ATAJOS DE TECLAS =================================================================#
 
 # Ejecutar programas
@@ -203,13 +210,6 @@ bindsym $mod+o resize grow width 20px
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-
-#= REGLAS DE VENTANAS ===============================================================#
-
-for_window [app_id="pavucontrol"] floating enable
-assign [class="Firefox-esr"] 2
-assign [app_id="org.mozilla.Thunderbird"] 6
-assign [class="steam"] 7
 
 #= EXTRAS ===========================================================================#
 
