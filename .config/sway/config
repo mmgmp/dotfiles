@@ -56,7 +56,7 @@ include ~/.config/sway/wallpaper
 exec_always --no-startup-id autotiling
 exec --no-startup-id mako
 exec --no-startup-id gammastep -c ~/.config/gammastep/config.ini
-exec --no-startup-id "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # Barra de cambio de volumen/brillo
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
