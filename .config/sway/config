@@ -208,6 +208,7 @@ bindsym $mod+o resize grow width 20px
 
 for_window [app_id="pavucontrol"] floating enable
 assign [class="Firefox-esr"] 2
+assign [app_id="org.mozilla.Thunderbird"] 6
 assign [class="steam"] 7
 
 #= EXTRAS ===========================================================================#
