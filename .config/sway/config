@@ -195,10 +195,10 @@ bindsym $mod+Shift+9 move container to workspace number 9, workspace 9
 bindsym $mod+Shift+0 move container to workspace number 10, workspace 10
 
 # Cambiar tamaño de las ventanas
-bindsym $mod+y resize shrink width 20px
-bindsym $mod+u resize shrink height 20px
-bindsym $mod+i resize grow height 20px
-bindsym $mod+o resize grow width 20px
+bindsym $mod+Alt+h resize shrink width 20px
+bindsym $mod+Alt+j resize shrink height 20px
+bindsym $mod+Alt+k resize grow height 20px
+bindsym $mod+Alt+l resize grow width 20px
 
 #---- Scratchpads ----#
 
