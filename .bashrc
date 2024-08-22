@@ -42,7 +42,7 @@ alias cl='sudo nala autoremove && flatpak remove --unused'
 alias ss='sudo systemctl'
 
 # Atajos para fzf
-alias ff='find ~/.config/ ~/.local/bin/ -type f | fzf | xargs -r $EDITOR'
+alias ff='find -L ~/.config/ ~/.local/bin/ -type f | fzf | xargs -r $EDITOR'
 
 # Otros
 alias abook="abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_CONFIG_HOME"/abook/addressbook"
