@@ -7,7 +7,7 @@ selected="$(printf "Bloquear\nCerrar sesión\nSuspender\nReiniciar\nApagar" | to
 case $selected in
 	"Bloquear")
 		~/.local/bin/lockscreen ;;
-	"Cerrar sesión")
+	"Cerrar"*)
 		swaymsg exit ;;
 	"Suspender")
 		~/.local/bin/lockscreen & systemctl suspend ;;
