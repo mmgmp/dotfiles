@@ -12,7 +12,7 @@ export FILE_MANAGER="$TERMINAL_RUN lf"
 export CALENDAR="$TERMINAL_RUN calcurse"
 export RSS_READER="$TERMINAL_RUN newsboat"
 export RUN_LAUNCHER="tofi-drun"
-export PASSWORD_MENU="tofi-password-menu"
+export PASSWORD_MENU="askpass"
 
 # Organización
 export XDG_CONFIG_HOME="$HOME/.config"
