@@ -100,7 +100,7 @@ bindsym $mod+Alt+b exec ~/.local/bin/add-bookmark
 bindsym $mod+Shift+q exec ~/.local/bin/tsession
 bindsym $mod+Shift+i exec ~/.local/bin/tofi-wifi-menu
 bindsym $mod+Shift+p exec ~/.local/bin/tofi-pass
-bindsym $mod+Shift+m exec ~/.local/bin/tofi-usb-mounter
+bindsym $mod+Shift+m exec ~/.local/bin/tmount
 bindsym $mod+Shift+b exec ~/.local/bin/tofi-bookmark-menu
 
 #---- Funciónes ----#
