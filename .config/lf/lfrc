@@ -5,6 +5,7 @@ set icons true
 set drawbox true
 set sixel true
 set previewer ~/.config/lf/previewer.sh
+set cursorpreviewfmt "\033[7m"
 
 # Quitar teclas predeterminadas
 map m
