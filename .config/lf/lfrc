@@ -23,7 +23,7 @@ cmd trash ${{
   files=$(printf "$fx" | tr '\n' ';')
   while [ "$files" ]; do
     file=${files%%;*}
-    trash-put "$file"
+    trash-put "$file" > /dev/null
     if [ "$files" = "$file" ]; then
       files=''
     else
