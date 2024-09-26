@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Script que busca en determinadas webs en función del comando inicial.
+
+order="$(printf "" | tofi --require-match=false --prompt-text='Atajos de Internet: ')"
+case "$order" in
+	yt\ *)
+		search_url="https://www.youtube.com/results?search_query=" ;;
+	pdb\ *)
+		search_url="https://www.protondb.com/search?q=" ;;
+	*)
+		exit ;;
+esac
+
+word="$(printf "$order" | sed 's/^[^ ]* //')"
+xdg-open "$search_url""$word"
+
+exit
