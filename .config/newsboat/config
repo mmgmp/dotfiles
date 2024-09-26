@@ -2,7 +2,7 @@
 max-items 50			
 auto-reload yes
 reload-threads 10 
-browser "firefox %u"
+browser "$BROWSER %u"
 cleanup-on-quit yes
 show-keymap-hint yes
 
@@ -22,8 +22,8 @@ feedlist-format "%?T? %1 %n %7u %t & ───── %t ─────?"
 highlight article "https?://[^ ]+" color4 default protect
 
 #--- MACROS ---# 
-macro v set browser "mpv %u --fs --really-quiet --no-terminal" ; open-in-browser-and-mark-read ; set browser "firefox %u"
-macro r set browser "reader -i none %u | less -R" ; open-in-browser-and-mark-read ; set browser "firefox %u"
+macro v set browser "mpv %u --fs --really-quiet --no-terminal" ; open-in-browser-and-mark-read ; set browser "$BROWSER %u"
+macro r set browser "reader -i none %u | less -R" ; open-in-browser-and-mark-read ; set browser "$BROWSER %u"
 
 #--- IGNORAR ---#
 ignore-mode "display"
