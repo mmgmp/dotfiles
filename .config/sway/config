@@ -77,7 +77,6 @@ for_window [app_id=".*"] inhibit_idle fullscreen
 #= REGLAS DE VENTANAS ===============================================================#
 
 for_window [app_id="pavucontrol"] floating enable
-assign [class="Firefox-esr"] 2
 assign [app_id="org.mozilla.Thunderbird"] 6
 assign [class="steam"] 7
 
@@ -85,7 +84,7 @@ assign [class="steam"] 7
 
 # Ejecutar programas
 bindsym $mod+t exec $TERMINAL
-bindsym $mod+b exec $BROWSER, workspace 2
+bindsym $mod+b workspace 2, exec $BROWSER
 bindsym $mod+d exec $RUN_LAUNCHER | xargs swaymsg exec --
 bindsym $mod+f exec $FILE_MANAGER
 bindsym $mod+n exec $RSS_READER
