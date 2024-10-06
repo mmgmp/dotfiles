@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sway for_window [app_id="$TERMINAL"] floating toggle
+$TERMINAL_RUN $1
+sway for_window [app_id="$TERMINAL"] floating toggle

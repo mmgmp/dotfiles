@@ -98,7 +98,6 @@ bindsym $mod+Alt+b exec ~/.local/bin/add-bookmark
 
 # Scripts de tofi
 bindsym $mod+Shift+q exec ~/.local/bin/tsession
-bindsym $mod+Shift+i exec ~/.local/bin/tofi-wifi-menu
 bindsym $mod+Shift+p exec ~/.local/bin/tofi-pass
 bindsym $mod+Shift+m exec ~/.local/bin/tmount
 bindsym $mod+Shift+b exec ~/.local/bin/tofi-bookmark-menu
@@ -112,6 +111,9 @@ bindsym Alt+Print exec cpant 2
 # Control del brillo
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
 bindsym XF86MonBrightnessUp exec brightnessctl s 5%+ | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
+
+# Menú de redes wifi
+bindsym $mod+Shift+i exec $TERMINAL_RUN nmtui
 
 # Control de audio - Portátil
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
