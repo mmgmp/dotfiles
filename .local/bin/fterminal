@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# Ejecuta el comando $1 en una terminal flotante.
-
-sway for_window [app_id="$TERMINAL"] floating toggle
-$TERMINAL_RUN $1
-sway for_window [app_id="$TERMINAL"] floating toggle
