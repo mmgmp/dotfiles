@@ -93,13 +93,13 @@ bindsym $mod+c exec $CALENDAR
 bindsym $mod+Shift+r reload
 
 # Añadir a marcadores el elemento copiado
-bindsym $mod+Alt+b exec ~/.local/bin/add-bookmark
 
 # Scripts de tofi
 bindsym $mod+Shift+q exec ~/.local/bin/tsession
 bindsym $mod+Shift+p exec ~/.local/bin/tpass
 bindsym $mod+Shift+m exec ~/.local/bin/tmount
-bindsym $mod+Shift+b exec ~/.local/bin/tofi-bookmark-menu
+bindsym $mod+Shift+b exec ~/.local/bin/tbookmarks 2
+bindsym $mod+Alt+b exec ~/.local/bin/tbookmarks 1
 
 #---- Funciónes ----#
 
