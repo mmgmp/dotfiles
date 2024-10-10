@@ -98,7 +98,7 @@ bindsym $mod+Alt+b exec ~/.local/bin/add-bookmark
 
 # Scripts de tofi
 bindsym $mod+Shift+q exec ~/.local/bin/tsession
-bindsym $mod+Shift+p exec ~/.local/bin/tofi-pass
+bindsym $mod+Shift+p exec ~/.local/bin/tpass
 bindsym $mod+Shift+m exec ~/.local/bin/tmount
 bindsym $mod+Shift+b exec ~/.local/bin/tofi-bookmark-menu
 
