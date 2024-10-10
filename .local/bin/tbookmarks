@@ -1,0 +1,29 @@
+#!/bin/bash
+
+case $1 in
+	"1") # Añadir marcador
+		path=$(dirname "$BOOKMARK_FILE")
+		file=$(basename "$BOOKMARK_FILE")
+		bookmark=$(wl-paste)
+
+		[ -d "$path" ] || mkdir "$path"
+		[ -f "$path/$file" ] || touch "$path/$file"
+
+		# Comprobar que no este duplicado
+		if grep "^$bookmark$" "$path/$file"; then
+			notify-send "Oops" "Ya esta guardado"
+		else
+			echo "$bookmark" >> "$path/$file"
+			notify-send "Completado" "Guardado en marcadores"
+		fi
+		;;
+
+	"2") # Mostrar menú de marcadores
+		if [ ! -f "$BOOKMARK_FILE" ] || [ ! -s "$BOOKMARK_FILE" ]; then
+			notify-send "Error" "No hay marcadores guardados"
+		else
+			selection=$(cat "$BOOKMARK_FILE" | tofi --prompt-text="Marcadores: " --include="$XDG_CONFIG_HOME/tofi/config-alt")
+			[ -n "$selection" ] && wl-copy "$selection" && notify-send "Éxito" "Marcador copiado al portapapeles"
+		fi
+		;;
+esac
