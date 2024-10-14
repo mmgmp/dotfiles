@@ -55,6 +55,7 @@ include ~/.config/sway/wallpaper
 
 exec_always --no-startup-id autotiling
 exec --no-startup-id mako
+exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id gammastep -c ~/.config/gammastep/config.ini
 
 # Barra de cambio de volumen/brillo
