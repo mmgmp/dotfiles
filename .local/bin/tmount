@@ -9,11 +9,11 @@ mount() {
 }
 
 notify() {
-	notify-send -u low "Éxito al montar el USB" "$name2 montado en $mount_path" -i ~/.local/share/icons/awesome/usb-brands-solid.svg
+	notify-send -u low "Éxito al montar el USB" "$name2 montado en $mount_path" -i $NOTIFY_ICONS/usb-brands-solid.svg
 }
 
 notify-error() {
-	notify-send -u critical "Error al montar el USB" "Fallo inesperado al montar $name2" -i ~/.local/share/icons/awesome/triangle-exclamation-solid.svg
+	notify-send -u critical "Error al montar el USB" "Fallo inesperado al montar $name2" -i $NOTIFY_ICONS/triangle-exclamation-solid.svg
 }
 
 # Ruta de los discos normales
