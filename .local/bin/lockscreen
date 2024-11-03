@@ -4,4 +4,4 @@
 # establecido en el archivo ~/.config/sway/wallpaper
 
 wallpaper=$(cat ~/.config/sway/wallpaper | awk '{print $4}')
-swaylock -i $wallpaper -f --indicator-idle-visible --indicator-radius 75
+swaylock -i $wallpaper -f --indicator-idle-visible --indicator-radius 75 --font FiraSans
