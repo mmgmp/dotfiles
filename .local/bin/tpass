@@ -1,5 +1,9 @@
 #!/bin/bash
 
+notify() {
+	notify-send -u low "Éxito" "$1" -i ~/.local/share/icons/awesome/key-solid.svg
+}
+
 # Muestra todas las claves en $PASSWORD_STORE_DIR
 selec=$(find "$PASSWORD_STORE_DIR/" -type f -name '*.gpg' -exec basename {} .gpg \; | tofi --prompt-text="pass: ")
 [ -z $selec ] && exit 0
@@ -8,15 +12,15 @@ selec=$(find "$PASSWORD_STORE_DIR/" -type f -name '*.gpg' -exec basename {} .gpg
 path=$(find "$PASSWORD_STORE_DIR/" -type f -name "$selec.gpg" | grep -oP "^$PASSWORD_STORE_DIR/\K.*(?=\.gpg$)")
 
 if [[ $selec =~ otp ]]; then 
-	pass otp -c $path && notify-send "Código copiado" 
+	pass otp -c $path && notify "Código copiado al portapapeles" 
 	exit 0
 else
 	selected=$(printf "Usuario\nClave" | tofi --prompt-text="pass: ")
 	case $selected in
 		"Usuario")
-			pass -c2 $path && notify-send "Usuario copiado" ;;
+			pass -c2 $path && notify "Usuario copiado al portapapeles" ;;
 		"Clave")
-			pass -c1 $path && notify-send "Contraseña copiada" ;;
+			pass -c1 $path && notify "Contraseña copiada al portapapeles" ;;
 		*)
 			exit 0 ;;
 	esac
