@@ -106,7 +106,8 @@ bindsym $mod+Alt+b exec ~/.local/bin/tbookmarks 1
 
 # Captura de pantalla
 bindsym Print exec cpant -f
-bindsym Alt+Print exec cpant -s
+bindsym Print+Shift exec cpant -w
+bindsym Print+Shift+Ctrl exec cpant -s
 
 # Control del brillo
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK

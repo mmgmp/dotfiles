@@ -1,15 +1,24 @@
 #!/bin/bash
 
+notify() {
+	notify-send -u low "Captura realizada" "Imagen guardada en $GRIM_DEFAULT_DIR"
+}
+
 [ -d "$GRIM_DEFAULT_DIR" ] || mkdir -p $GRIM_DEFAULT_DIR
 
 case $1 in
-	"-f") 
-		grim # Capturar la pantalla entera
-		notify-send -u low "Captura realizada" "Imagen guardada en $GRIM_DEFAULT_DIR" ;;
-	"-s")
-		grim -g "$(slurp -w 0)" # Capturar zona seleccionada
-		notify-send -u low "Captura realizada" "Imagen guardada en $GRIM_DEFAULT_DIR" ;;
+	"-f") # Capturar la pantalla entera
+		grim && notify ;;
+	"-s") # Capturar zona seleccionada
+		grim -g "$(slurp -w 0)" &&	notify ;;
+	"-w") # Capturar ventana enfocada
+		grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused? and .pid?) | "\(.rect.x + .window_rect.x),\(.rect.y + .window_rect.y) \(.window_rect.width)x\(.window_rect.height)"')" && notify ;;
 	*)
-		exit ;;
+		echo "Instrucciones de uso:"
+		echo "cpant -f --> Captura completa de pantalla"
+		echo "cpant -s --> Captura zona seleccionada"
+		echo "cpant -w --> Captura ventana enfocada" ;;
 esac
+
+exit
 
