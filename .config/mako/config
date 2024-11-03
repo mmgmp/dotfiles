@@ -8,6 +8,9 @@ height=110
 default-timeout=5000
 background-color=#333333
 
+icons=1
+max-icon-size=32
+
 [urgency=low]
 border-color=#808080
 
