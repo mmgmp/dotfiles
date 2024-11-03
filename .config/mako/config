@@ -1,18 +1,22 @@
-font=UbuntuMono Nerd Font
+font=FiraSans 10
 
 padding=10
-background-color=#333333
-border-color=#808080
 border-size=1
+border-radius=5
+width=300
+height=110
 
 [urgency=low]
-border-color=#d08770
+border-color=#808080
+background-color=#333333
 default-timeout=3000
 
 [urgency=normal]
 border-color=#d08770
+background-color=#333333
 default-timeout=5000
 
 [urgency=high]
 border-color=#bf616a
+background-color=#333333
 default-timeout=0
