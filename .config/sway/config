@@ -58,10 +58,6 @@ exec --no-startup-id mako
 exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id gammastep -c ~/.config/gammastep/config.ini
 
-# Barra de cambio de volumen/brillo
-set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec --no-startup-id rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
-
 #= ENERGÍA ==========================================================================#
 
 exec swayidle -w \
@@ -110,27 +106,27 @@ bindsym Print+Shift exec cpant -w
 bindsym Print+Shift+Ctrl exec cpant -s
 
 # Control del brillo
-bindsym XF86MonBrightnessDown exec brightnessctl s 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
-bindsym XF86MonBrightnessUp exec brightnessctl s 5%+ | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
+bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl s 5%+
 
 # Menú de redes wifi
 bindsym $mod+Shift+i exec $TERMINAL_RUN nmtui
 
 # Control de audio - Portátil
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1{print substr($5,1,length($5)-1)}' > $WOBSOCK
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1{print substr($5,1,length($5)-1)}' > $WOBSOCK
+bindsym XF86AudioMute exec volumecontrol mute
+bindsym XF86AudioLowerVolume exec volumecontrol down
+bindsym XF86AudioRaiseVolume exec volumecontrol up
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym Alt+XF86AudioLowerVolume exec pactl set-source-volume @DEFAULT_SOURCE@ -5% && pactl get-source-volume @DEFAULT_SOURCE@ | awk 'NR==1{print substr($5,1,length($5)-1)}' > $WOBSOCK
-bindsym Alt+XF86AudioRaiseVolume exec pactl set-source-volume @DEFAULT_SOURCE@ +5% && pactl get-source-volume @DEFAULT_SOURCE@ | awk 'NR==1{print substr($5,1,length($5)-1)}' > $WOBSOCK
+bindsym Alt+XF86AudioLowerVolume exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
+bindsym Alt+XF86AudioRaiseVolume exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
 
 # Control de audio - Sobremesa
-bindsym Alt+F1 exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym Alt+F2 exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1{print substr($5,1,length($5)-1)}' > $WOBSOCK
-bindsym Alt+F3 exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1{print substr($5,1,length($5)-1)}' > $WOBSOCK
+bindsym Alt+F1 exec volumecontrol mute
+bindsym Alt+F2 exec volumecontrol down
+bindsym Alt+F3 exec volumecontrol up
 bindsym Alt+F4 exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym Alt+Shift+F2 exec pactl set-source-volume @DEFAULT_SOURCE@ -5% && pactl get-source-volume @DEFAULT_SOURCE@ | awk 'NR==1{print substr($5,1,length($5)-1)}' > $WOBSOCK
-bindsym Alt+Shift+F3 exec pactl set-source-volume @DEFAULT_SOURCE@ +5% && pactl get-source-volume @DEFAULT_SOURCE@ | awk 'NR==1{print substr($5,1,length($5)-1)}' > $WOBSOCK
+bindsym Alt+Shift+F2 exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
+bindsym Alt+Shift+F3 exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
 
 #---- Ventanas ----#
 

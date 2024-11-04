@@ -1,7 +1,8 @@
 font=FiraSans 10
 
+layer=overlay
 padding=10
-border-size=1
+border-size=2
 border-radius=5
 width=300
 height=110
