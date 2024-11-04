@@ -14,12 +14,12 @@ input_volume() { # Configura las variables para el caso del micrófono
 
 notify() { # Notificación en caso de cambiar el volumen 
 	[ "$volume" -eq 0 ] && bar="·" || bar=$(seq -s "=" 0 $((volume / 5)) | sed 's/[0-9]//g')
-	args="-u low -h string:x-canonical-private-synchronous:volumecontrol -a volume -t 1000 -i $NOTIFY_ICONS/$icon"
+	args="-u low -h string:x-canonical-private-synchronous:volumecontrol -t 1000 -i $NOTIFY_ICONS/$icon"
     notify-send "Volumen: ${volume}%" "$bar" $args
 }
 
 notify_mute() { # Notificación en caso de silenciar
-	args="-u low -h string:x-canonical-private-synchronous:volumecontrol -a volume -t 1000 -i $NOTIFY_ICONS/$icon"
+	args="-u low -h string:x-canonical-private-synchronous:volumecontrol -t 1000 -i $NOTIFY_ICONS/$icon"
 	[ "$mute" -eq 1 ] && notify-send "Volumen: OFF" $args || notify
 }
 
