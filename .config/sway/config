@@ -106,8 +106,8 @@ bindsym Print+Shift exec cpant -w
 bindsym Print+Shift+Ctrl exec cpant -s
 
 # Control del brillo
-bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl s 5%+
+bindsym XF86MonBrightnessDown exec screencontrol down
+bindsym XF86MonBrightnessUp exec screencontrol up
 
 # Menú de redes wifi
 bindsym $mod+Shift+i exec $TERMINAL_RUN nmtui

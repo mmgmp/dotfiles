@@ -1,0 +1,18 @@
+#!/bin/bash
+
+notify() { # Notificación en caso de cambiar el brillo
+	level=$(brightnessctl | sed -n 's/.*(\(.*\)%).*/\1/p')
+	icon=circle-half-stroke-solid.svg
+	[ "$level" -eq 0 ] && bar="·" || bar=$(seq -s "=" 0 $((level / 5)) | sed 's/[0-9]//g')
+	args="-u low -h string:x-canonical-private-synchronous:screencontrol -t 1000 -i $NOTIFY_ICONS/$icon"
+    notify-send "Brillo: ${level}%" "$bar" $args
+}
+
+case $1 in
+	up)
+		brightnessctl s 5%+ ; notify ;;
+	
+	down)
+		brightnessctl s 5%- ; notify ;;
+
+esac
