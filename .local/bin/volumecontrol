@@ -1,55 +1,51 @@
 #!/bin/bash
 
-notify() {    
+output_volume() { # Configura las variables para el caso de los altavoces
     volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tr -dc '0-9' | sed 's/^0\{1,2\}//')
-	if [ "$volume" -eq 0 ]; then
-		bar="·"
-	else
-		bar=$(seq -s "=" 0 $((volume / 5)) | sed 's/[0-9]//g')
-	fi
-    notify-send "Volumen: ${volume}%" "$bar" -u low -h string:x-canonical-private-synchronous:volumecontrol -a volume -t 1000 -i $NOTIFY_ICONS/$icon
+	wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q "MUTED" && mute=1 || mute=0
+	[ "$mute" -eq 1 ] && icon=volume-xmark-solid.svg || icon=volume-low-solid.svg
 }
 
-notify_mute() {
-	if [ "$mute" -eq 1 ]; then
-		notify-send "Volumen: OFF" -u low -h string:x-canonical-private-synchronous:volumecontrol -a volume -t 1000 -i $NOTIFY_ICONS/$icon
-	else
-		notify
-	fi
+input_volume() { # Configura las variables para el caso del micrófono
+	volume=$(wpctl get-volume @DEFAULT_SOURCE@ | tr -dc '0-9' | sed 's/^0\{1,2\}//')
+	wpctl get-volume @DEFAULT_SOURCE@ | grep -q "MUTED" && mute=1 || mute=0
+	[ "$mute" -eq 1 ] && icon=microphone-slash-solid.svg || icon=microphone-solid.svg
 }
 
-icon_select() {
-	if [ "$mute" -eq 1 ]; then
-		icon=volume-xmark-solid.svg
-	else
-		icon=volume-low-solid.svg
-	fi
+notify() { # Notificación en caso de cambiar el volumen 
+	[ "$volume" -eq 0 ] && bar="·" || bar=$(seq -s "=" 0 $((volume / 5)) | sed 's/[0-9]//g')
+	args="-u low -h string:x-canonical-private-synchronous:volumecontrol -a volume -t 1000 -i $NOTIFY_ICONS/$icon"
+    notify-send "Volumen: ${volume}%" "$bar" $args
 }
 
-mute_check() {
-	if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q "MUTED"; then
-		mute=1
-	else
-		mute=0
-	fi
+notify_mute() { # Notificación en caso de silenciar
+	args="-u low -h string:x-canonical-private-synchronous:volumecontrol -a volume -t 1000 -i $NOTIFY_ICONS/$icon"
+	[ "$mute" -eq 1 ] && notify-send "Volumen: OFF" $args || notify
 }
 
 case $1 in
 	up)
 		wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+
-		mute_check
-		icon_select
-		notify ;;
+		output_volume ; notify ;;
 
 	down)
 		wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-
-		mute_check
-		icon_select
-		notify ;;
+		output_volume ; notify ;;
 
 	mute)
 		wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-		mute_check
-		icon_select
-		notify_mute ;;
+		output_volume ; notify_mute ;;
+
+	mic-up)
+		wpctl set-volume -l 1.0 @DEFAULT_SOURCE@ 5%+
+		input_volume ; notify ;;
+
+	mic-down)
+		wpctl set-volume -l 1.0 @DEFAULT_SOURCE@ 5%-
+		input_volume ; notify ;;
+
+	mic-mute)
+		wpctl set-mute @DEFAULT_SOURCE@ toggle
+		input_volume ; notify_mute ;;
+
 esac

@@ -116,17 +116,17 @@ bindsym $mod+Shift+i exec $TERMINAL_RUN nmtui
 bindsym XF86AudioMute exec volumecontrol mute
 bindsym XF86AudioLowerVolume exec volumecontrol down
 bindsym XF86AudioRaiseVolume exec volumecontrol up
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym Alt+XF86AudioLowerVolume exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
-bindsym Alt+XF86AudioRaiseVolume exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
+bindsym XF86AudioMicMute exec volumecontrol mic-mute
+bindsym Alt+XF86AudioLowerVolume exec volumecontrol mic-down
+bindsym Alt+XF86AudioRaiseVolume exec volumecontrol mic-up
 
 # Control de audio - Sobremesa
 bindsym Alt+F1 exec volumecontrol mute
 bindsym Alt+F2 exec volumecontrol down
 bindsym Alt+F3 exec volumecontrol up
-bindsym Alt+F4 exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym Alt+Shift+F2 exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
-bindsym Alt+Shift+F3 exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
+bindsym Alt+F4 exec volumecontrol mic-mute
+bindsym Alt+Shift+F2 exec volumecontrol mic-down
+bindsym Alt+Shift+F3 exec volumecontrol mic-up
 
 #---- Ventanas ----#
 
