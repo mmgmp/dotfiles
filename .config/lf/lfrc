@@ -66,6 +66,16 @@ cmd open ${{
 	esac
 }}
 
+# Copiar nombre del archivo
+cmd copy-name ${{
+	basename "$f" | wl-copy
+}}
+
+# Copiar ruta del archivo
+cmd copy-path ${{
+	wl-copy "$f"
+}}
+
 # Hacer ejecutable
 cmd chmodx ${{
 	chmod +x $fx
@@ -93,3 +103,5 @@ map E extract
 map S symbolic
 map X chmodx
 map bg background
+map N copy-name
+map P copy-path
