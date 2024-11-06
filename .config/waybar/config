@@ -77,8 +77,7 @@
         "format-ethernet": " ",
         "format-linked": "{ifname} (No IP)  ",
         "format-disconnected": " ",
-		"tooltip-format": "{essid} ({signalStrength}%)",
-		"on-click": "fterminal nmtui"
+		"tooltip-format": "{essid} ({signalStrength}%)"
     },
     "pulseaudio": {
         "format": "{icon}  {format_source}",
