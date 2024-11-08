@@ -11,6 +11,12 @@ vim.keymap.set('n', '<right>', '<cmd>echo "Usa l para moverte!!"<CR>')
 vim.keymap.set('n', '<up>', '<cmd>echo "Usa k para moverte!!"<CR>')
 vim.keymap.set('n', '<down>', '<cmd>echo "Usa j para moverte!!"<CR>')
 
+-- Cierres automáticos
+vim.keymap.set('i', '(', '()<ESC>i', { desc = "(X) automáticas" })
+vim.keymap.set('i', '{', '{}<ESC>i', { desc = "{X} automáticas" })
+vim.keymap.set('i', '[', '[]<ESC>i', { desc = "[X] automáticas" })
+vim.keymap.set('i', '<', '<><ESC>i', { desc = "<X> automáticas" })
+
 -- LaTeX
 vim.keymap.set('i', ';bf', '\\textbf{}<ESC>i', { desc = "Insertar \textbf{}" })
 vim.keymap.set('i', ';it', '\\textit{}<ESC>i', { desc = "Insertar \textit{}" })

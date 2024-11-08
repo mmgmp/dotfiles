@@ -9,7 +9,7 @@ case "$order" in
 	pdb\ *)
 		search_url="https://www.protondb.com/search?q=" ;;
 	*)
-		exit ;;
+		search_url="https://duckduckgo.com/?t=h_&q=" ;;
 esac
 
 word="$(printf "$order" | sed 's/^[^ ]* //')"
