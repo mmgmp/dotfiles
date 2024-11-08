@@ -1,8 +1,11 @@
 #!/bin/bash
 
-# Script que busca en determinadas webs en función del comando inicial.
+# Script para buscar en Internet sin tener que abrir el buscador.
+# En caso de meter ciertas claves buscara en webs especificas.
 
-order="$(printf "" | tofi --require-match=false --prompt-text='Atajos de Internet: ')"
+order="$(printf "" | tofi --require-match=false --prompt-text='Buscar en Internet: ')"
+[ -z "$order" ] && exit
+
 case "$order" in
 	yt\ *)
 		search_url="https://www.youtube.com/results?search_query=" ;;
