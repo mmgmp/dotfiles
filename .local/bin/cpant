@@ -14,10 +14,7 @@ case $1 in
 	"-w") # Capturar ventana enfocada
 		grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused? and .pid?) | "\(.rect.x + .window_rect.x),\(.rect.y + .window_rect.y) \(.window_rect.width)x\(.window_rect.height)"')" && notify ;;
 	*)
-		echo "Instrucciones de uso:"
-		echo "cpant -f --> Captura completa de pantalla"
-		echo "cpant -s --> Captura zona seleccionada"
-		echo "cpant -w --> Captura ventana enfocada" ;;
+		printf "Instrucciones de uso:\ncpant -f --> Captura completa de pantalla\ncpant -s --> Captura zona seleccionada\ncpant -w --> Captura ventana enfocada" ;;
 esac
 
 exit
