@@ -94,7 +94,7 @@ bindsym $mod+Shift+r reload
 # Scripts varios
 bindsym $mod+Shift+q exec ~/.local/bin/tsession
 bindsym $mod+Shift+p exec ~/.local/bin/tpass
-bindsym $mod+Shift+m exec ~/.local/bin/tmount
+bindsym $mod+Shift+m exec ~/.local/bin/tdisks -m
 bindsym $mod+Shift+b exec ~/.local/bin/tbookmarks 2
 bindsym $mod+Alt+b exec ~/.local/bin/tbookmarks 1
 bindsym $mod+s exec ~/.local/bin/twsearch
