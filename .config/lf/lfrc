@@ -13,10 +13,14 @@ map n
 map r
 
 # Crear carpeta
-cmd mkdir %printf " Nombre del directorio: "; read ans; mkdir "$ans"; printf "Se ha creado el directorio '$ans'"
+cmd mkdir ${{
+	clear; printf "\n\nNombre del directorio: "; read ans; mkdir "$ans"
+}}
 
 # Crear archivo
-cmd mkfile %printf " Nombre del archivo: "; read ans; touch "$ans"; printf "Se ha creado el archivo '$ans'"
+cmd mkfile ${{
+	clear; printf "\n\nNombre del archivo: "; read ans; touch "$ans"
+}}
 
 # Mover a la papelera
 cmd trash ${{
@@ -34,7 +38,7 @@ cmd trash ${{
 
 # Vaciar papelera
 cmd trash-empty ${{
-	printf "\n\n¿Quieres vaciar la papelera? (s/N): "; read ans
+	clear; printf "\n\n¿Quieres vaciar la papelera? (s/N): "; read ans
 	[ "$ans" = "s" ] || [ "$ans" = "S" ] && trash-empty || exit 0
 }}
 
