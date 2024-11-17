@@ -32,6 +32,12 @@ cmd trash ${{
   done
 }}
 
+# Vaciar papelera
+cmd trash-empty ${{
+	printf "\n\n¿Quieres vaciar la papelera? (s/N): "; read ans
+	[ "$ans" = "s" ] || [ "$ans" = "S" ] && trash-empty || exit 0
+}}
+
 # Descomprimir
 cmd extract ${{
 	case "$f" in
@@ -99,6 +105,7 @@ map gr cd ~/Documentos/GitHub/
 map md mkdir
 map mf mkfile
 map R trash
+map T trash-empty
 map E extract
 map S symbolic
 map X chmodx
