@@ -1,3 +1,5 @@
 #!/bin/bash
 
+# Menú para introducir contraseñas.
+
 echo "" | tofi --prompt-text='Clave: ' --hide-input=true --hidden-character=* --require-match=false --anchor=center --width=500 --border-width=2 --border-color=#DB2D1D --height=30 --corner-radius=2

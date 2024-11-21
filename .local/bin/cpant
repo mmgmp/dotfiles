@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Diversas maneras para capturar la pantalla.
+
 notify() {
 	notify-send -u low "Captura realizada" "Imagen guardada en $GRIM_DEFAULT_DIR" -i $NOTIFY_ICONS/image-solid.svg
 }

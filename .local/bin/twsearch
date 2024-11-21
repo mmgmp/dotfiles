@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Script para buscar en Internet sin tener que abrir el buscador.
-# En caso de meter ciertas claves buscara en webs especificas.
+# Atajos para buscar en paginas web.
 
 order="$(printf "" | tofi --require-match=false --prompt-text='Buscar en Internet: ')"
 [ -z "$order" ] && exit

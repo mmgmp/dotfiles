@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Muestra un menú para montar/desmontar USBs.
+
 menu() {
 	selected=$(printf "%s" "$menu_list" | tofi --prompt-text="$1")
 }

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Muestra un menú con contraseñas de pass en tofi.
+
 notify() {
 	notify-send -u low "Éxito" "$1" -i $NOTIFY_ICONS/key-solid.svg
 }

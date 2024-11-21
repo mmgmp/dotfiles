@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Muestra una notificación al cambiar el brillo.
+
 notify() { # Notificación en caso de cambiar el brillo
 	level=$(brightnessctl | sed -n 's/.*(\(.*\)%).*/\1/p')
 	icon=circle-half-stroke-solid.svg

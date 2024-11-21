@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Muestra un menú con diferentes opciones para el sistema
+# Muestra un menú con diferentes opciones para el sistema.
 
 selected="$(printf "Bloquear\nCerrar sesión\nSuspender\nReiniciar\nApagar" | tofi)"
 

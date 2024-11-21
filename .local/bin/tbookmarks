@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Muestra un menú con los marcadores y poder crearlos.
+
 case $1 in
 	"1") # Añadir marcador
 		path=$(dirname "$BOOKMARK_FILE")

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Muestra una notificación al cambiar el volumen.
+
 output_volume() { # Configura las variables para el caso de los altavoces
     volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tr -dc '0-9' | sed 's/^0\{1,2\}//')
 	wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q "MUTED" && mute=1 || mute=0
