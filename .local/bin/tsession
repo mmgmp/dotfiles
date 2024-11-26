@@ -2,7 +2,7 @@
 
 # Muestra un menú con diferentes opciones para el sistema.
 
-selected="$(printf "Bloquear\nCerrar sesión\nSuspender\nReiniciar\nApagar" | tofi)"
+selected="$(printf "Bloquear\nCerrar sesión\nSuspender\nReiniciar\nApagar" | tofi --prompt-text='Sesión de mi PC: ')"
 
 case $selected in
 	"Bloquear")
