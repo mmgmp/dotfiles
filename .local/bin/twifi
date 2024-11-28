@@ -1,0 +1,7 @@
+#!/bin/bash
+
+notify-send "Buscando redes Wifi" "Espere por favor"
+wifi_list=$(nmcli -t --fields "SSID, BARS, SECURITY" device wifi list | grep '▆')
+
+# Mostrar la info en tofi, pero sin la seguridad y con espacion en vez de :.
+selection=$(printf "$wifi_list" | sed 's/:\([^:]*\)$//' | sed 's/:/ /g' | tofi --prompt-text 'Redes Wifi: ')
