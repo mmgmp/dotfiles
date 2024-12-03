@@ -13,9 +13,9 @@
 		"sway/scratchpad"
 	],
     "modules-center": [
+		"clock"
     ],
     "modules-right": [
-		"custom/weather",
 		"cpu",
 		"memory", 
 		"temperature", 
@@ -23,7 +23,6 @@
 		"network",
 		"pulseaudio", 
 		"battery",
-		"clock",
 		"idle_inhibitor"
 	],
 
