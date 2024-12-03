@@ -1,9 +1,12 @@
 #!/bin/bash
 
-sleep 3
+# Muestra la humedad, temp max y min del día.
+# Geolocalización automática.
 
-day_low="$(curl -s wttr.in | sed '13q;d' | grep -o "m\\([-+]\\)*[0-9]\\+" | sed 's/[+m]//g' | sort -g | head -1q)"
-day_high="$(curl -s wttr.in | sed '13q;d' | grep -o "m\\([-+]\\)*[0-9]\\+" | sed 's/[+m]//g' | sort -g | sed -e '$!d')"
-day_prec="$(curl -s wttr.in | sed '16q;d' | grep -wo "[0-9]*%" | sort -rn | head -1q)"
+sleep 2
 
-echo "  $day_prec    $day_lowºC    $day_highºC"
+tmin=$(curl -s wttr.in/?format=j2 | grep -o '"mintempC": "[0-9]*"' | sed -E 's/[^0-9]//g' | sort -n | head -1)
+tmax=$(curl -s wttr.in/?format=j2 | grep -o '"maxtempC": "[0-9]*"' | sed -E 's/[^0-9]//g' | sort -n | tail -1)
+hum=$(curl -s wttr.in/?format=j2 | grep "humidity" | sed -E 's/[^0-9]//g')
+
+echo " $tmaxºC   $tminºC   $hum%"

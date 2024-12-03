@@ -95,7 +95,7 @@
 	"custom/weather": {
 		"format": "{}",
 		"interval": 3600, // 1 hora
-		"exec": "~/.config/waybar/modules/way-weather",
+		"exec": "~/.config/waybar/modules/weather",
 		"tooltip": false
 	},
 	"idle_inhibitor": {
