@@ -1,7 +1,31 @@
 #!/bin/bash
 
-notify-send "Buscando redes Wifi" "Espere por favor"
+notify-send "Buscando redes Wifi..." "Espere por favor" -u low
 wifi_list=$(nmcli -t --fields "SSID, BARS, SECURITY" device wifi list | grep '▆')
 
-# Mostrar la info en tofi, pero sin la seguridad y con espacion en vez de :.
-selection=$(printf "$wifi_list" | sed 's/:\([^:]*\)$//' | sed 's/:/ /g' | tofi --prompt-text 'Redes Wifi: ')
+printf "$wifi_list" | awk '{ 
+    if ($0 ~ /▂▄▆█/) {
+		if ($0 ~ /802.1X/)
+			print "󰤪 " $0;
+		else if ($0 ~ /WPA2/)
+			print "󰤨 " $0;
+		else
+			sub(/:▂.*/, ""); print "󰤩 " $0;
+		}
+    else if ($0 ~ /▂▄▆_/) {
+		if ($0 ~ /802.1X/)
+			print "󰤧 " $0;
+		else if ($0 ~ /WPA2/)
+			print "󰤥 " $0;
+		else
+			sub(/:▂.*/, ""); print "󰤣 " $0;
+		}
+    else 
+        print "Less than 5";
+}'
+
+#printf "$wifi_list" | awk '
+#/▂▄▆█/ {sub(/▂▄▆█/, ""); sub(/:▂.*/, ""); print "󰤨 " $0; next}
+#/▂▄▆_/ {sub(/▂▄▆_/, ""); sub(/:▂.*/, ""); print "󰤥 " $0; next}
+#!/▂▄▆█|▂▄▆_/ {sub(/▂▄▆█/, ""); sub(/▂▄▆_/, ""); sub(/:▂.*/, ""); print $0}
+

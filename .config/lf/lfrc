@@ -44,6 +44,7 @@ cmd trash-empty ${{
 
 # Descomprimir
 cmd extract ${{
+	clear
 	case "$f" in
 		*.zip) unzip "$f" ;;
 		*.tar*) tar -xvf "$f" ;;

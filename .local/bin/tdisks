@@ -23,7 +23,7 @@ unlock() {
 	path=$(lsblk -nrpo "name,type,mountpoint" | grep crypt | awk '$3==""{print $1}')
 }
 
-lsblk_out=$(lsblk -nrpo "name,type,size,fstype,mountpoint")
+lsblk_out=$(lsblk -nrpo "name,type,size,fstype,mountpoint,tran" | grep "usb")
 
 case "$1" in
 	-m)
