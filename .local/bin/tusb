@@ -1,0 +1,64 @@
+#!/bin/bash
+
+show_menu() { # Mostrar con iconos en tofi.
+		awk '{
+			if ($4 == "crypto_LUKS") {
+				printf "   %s (%s)\n", $1, $3
+			} else if ($4 == "usb") {
+				printf "   %s (%s)\n", $1, $3
+			}
+		}' <<< "$list_all" | tofi --prompt-text="$1"
+}
+
+mount() {
+	mounted_path=$(udisksctl mount -b "$path" | awk '{print $4}')
+}
+
+unmount() {
+	udisksctl unmount -b "$path"
+}
+
+# Extraer los USBs de la lista completa.
+lsblk_out=$(lsblk -nrpo NAME,TYPE,SIZE,TRAN,FSTYPE,MOUNTPOINT)
+lsblk_usb=$(grep "usb" <<< "$lsblk_out")
+
+# Detecta los encriptados de la lista de USBs.
+name_cryp=$(awk '$5 == "" {print $1}' <<< "$lsblk_usb")
+
+# Listado de los USBs no encriptados.
+list1=$(awk '$5 != ""' <<< "$lsblk_usb")
+
+# Listado de USBs encriptados, con la condición para que en caso 
+# de no haber ningún USB no detecte los discos del sistema al hacer grep.
+[ -z "$name_cryp" ] || list2=$(grep "$name_cryp.*crypto_LUKS" <<< "$lsblk_out")
+
+case "$1" in
+	-m) # Montar USBs.
+		list_all=$(awk '$6 == ""' <<< "$list1" && awk '$5 == ""' <<< "$list2")
+		selected=$(show_menu "Montar USB: ") || exit 0
+		path=$(awk '{print $2}' <<< "$selected")
+		
+		case "$selected" in
+			*)
+				;;
+			*)
+				mount && notify-send "Ok"
+				;;
+		esac
+		;;
+	-u) # Desmontar USBs.
+		list_all=$(awk '$6 != ""' <<< "$list1" && awk '$5 != ""' <<< "$list2")
+		selected=$(show_menu "Desmontar USB: ") || exit 0
+		path=$(awk '{print $2}' <<< "$selected")
+
+		case "$selected" in
+			*)
+				;;
+			*)
+				unmount && notify-send "Ok"
+				;;
+		esac
+
+		;;
+esac
+
