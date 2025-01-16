@@ -12,35 +12,46 @@ map m
 map n
 map r
 
+# Renombrar
+map A :rename; cmd-end
+map I :rename; cmd-home
+
+# Movimiento
+map gd cd ~/Descargas/
+map gD cd ~/Documentos/
+map gi cd ~/Imágenes/
+map gm cd ~/Música/
+map gv cd ~/Vídeos/
+
+map gs cd ~/.local/bin/
+map gr cd ~/Documentos/GitHub/
+
+# Configuración de teclas
+map md mkdir
+map mf mkfile
+map S symbolic
+map rr trash-put
+map R trash-empty
+map E extract
+map bg background
+map N copy-name
+map P copy-path
+map +x ch-x1
+
 # Crear carpeta
-cmd mkdir ${{
-	clear; printf "\n\nNombre del directorio: "; read ans; mkdir "$ans"
-}}
+cmd mkdir %printf " Nombre del directorio: "; read ans; mkdir "$ans"; printf " "
 
 # Crear archivo
-cmd mkfile ${{
-	clear; printf "\n\nNombre del archivo: "; read ans; touch "$ans"
-}}
+cmd mkfile %printf " Nombre del archivo: "; read ans; touch "$ans"; printf " "
+
+# Crear link simbólico
+cmd symbolic %current_path=$(pwd); name=$(basename "$f"); ln -s "$f" $current_path/Enlace_a_$name
 
 # Mover a la papelera
-cmd trash ${{
-  files=$(printf "$fx" | tr '\n' ';')
-  while [ "$files" ]; do
-    file=${files%%;*}
-    trash-put "$file" > /dev/null
-    if [ "$files" = "$file" ]; then
-      files=''
-    else
-      files="${files#*;}"
-    fi
-  done
-}}
+cmd trash-put %trash-put -- $fx
 
 # Vaciar papelera
-cmd trash-empty ${{
-	clear; printf "\n\n¿Quieres vaciar la papelera? (s/N): "; read ans
-	[ "$ans" = "s" ] || [ "$ans" = "S" ] && trash-empty || exit 0
-}}
+cmd trash-empty %printf "¿Quieres vaciar la papelera? (*): "; read ans; [ "$ans" = "*" ] && trash-empty; printf " "
 
 # Descomprimir
 cmd extract ${{
@@ -54,18 +65,8 @@ cmd extract ${{
 	esac
 }}
 
-# Crear link simbólico
-cmd symbolic ${{
-	current_path=$(pwd)
-	name=$(basename "$f")
-	ln -s "$f" $current_path/Enlace_a_$name
-}}
-
 # Cambiar fondo en sway
-cmd background ${{
-	printf "output * bg "$f" fill" > ~/.config/sway/wallpaper
-	sway reload
-}}
+cmd background %printf "output * bg "$f" fill" > ~/.config/sway/wallpaper; sway reload; printf " "
 
 # Abrir archivos
 cmd open ${{
@@ -88,32 +89,6 @@ cmd copy-path ${{
 }}
 
 # Hacer ejecutable
-cmd chmodx ${{
+cmd ch-x1 ${{
 	chmod +x $fx
 }}
-
-# Renombrar
-map A :rename; cmd-end
-map I :rename; cmd-home
-
-# Movimiento
-map gd cd ~/Descargas/
-map gD cd ~/Documentos/
-map gi cd ~/Imágenes/
-map gm cd ~/Música/
-map gv cd ~/Vídeos/
-
-map gs cd ~/.local/bin/
-map gr cd ~/Documentos/GitHub/
-
-# Configuración de teclas
-map md mkdir
-map mf mkfile
-map R trash
-map T trash-empty
-map E extract
-map S symbolic
-map X chmodx
-map bg background
-map N copy-name
-map P copy-path
