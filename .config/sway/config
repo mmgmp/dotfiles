@@ -56,7 +56,7 @@ include ~/.config/sway/wallpaper
 exec --no-startup-id autotiling
 exec --no-startup-id mako
 exec --no-startup-id lxpolkit
-exec --no-startup-id gammastep -c ~/.config/gammastep/config.ini
+exec --no-startup-id gammastep -O 4500
 
 #= ENERGÍA ==========================================================================#
 
