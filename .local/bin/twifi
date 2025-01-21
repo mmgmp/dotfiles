@@ -3,29 +3,43 @@
 notify-send "Buscando redes Wifi..." "Espere por favor" -u low
 wifi_list=$(nmcli -t --fields "SSID, BARS, SECURITY" device wifi list | grep '▆')
 
-printf "$wifi_list" | awk '{ 
-    if ($0 ~ /▂▄▆█/) {
-		if ($0 ~ /802.1X/)
-			print "󰤪 " $0;
-		else if ($0 ~ /WPA2/)
-			print "󰤨 " $0;
-		else
-			sub(/:▂.*/, ""); print "󰤩 " $0;
-		}
-    else if ($0 ~ /▂▄▆_/) {
-		if ($0 ~ /802.1X/)
-			print "󰤧 " $0;
-		else if ($0 ~ /WPA2/)
-			print "󰤥 " $0;
-		else
-			sub(/:▂.*/, ""); print "󰤣 " $0;
-		}
-    else 
-        print "Less than 5";
-}'
+selected="$(printf "$wifi_list" | awk -F ':' '{
+    ssid = $1; bars = $2; security = $3;
 
-#printf "$wifi_list" | awk '
-#/▂▄▆█/ {sub(/▂▄▆█/, ""); sub(/:▂.*/, ""); print "󰤨 " $0; next}
-#/▂▄▆_/ {sub(/▂▄▆_/, ""); sub(/:▂.*/, ""); print "󰤥 " $0; next}
-#!/▂▄▆█|▂▄▆_/ {sub(/▂▄▆█/, ""); sub(/▂▄▆_/, ""); sub(/:▂.*/, ""); print $0}
+    if (bars ~ /▂▄▆█/) {
+        if (security ~ /802.1X/)
+            print "󰤪  " ssid;
+        else if (security ~ /WPA2/)
+            print "󰤨  " ssid;
+        else
+            print "󰤩  " ssid;
+    } else if (bars ~ /▂▄▆_/) {
+        if (security ~ /802.1X/)
+            print "󰤧  " ssid;
+        else if (security ~ /WPA2/)
+            print "󰤥  " ssid;
+        else
+            print "󰤣  " ssid;
+    }
+}' | tofi --prompt-text='Redes wifi disponibles: ')"
 
+icon=$(echo "$selected" | awk '{print $1}')
+ssid=$(echo "$selected" | sed 's/^[^ ]*  //')
+
+case "$icon" in
+	"󰤪"*|"󰤧"*)
+		echo "Seguridad"
+		echo "$ssid"
+	;;
+	"󰤨"*|"󰤥"*)
+		echo "Normal"
+		echo "$ssid"
+	;;
+	"󰤩"*|"󰤣"*)
+		echo "Abierta"
+		echo "$ssid"
+	;;
+	*)
+		exit 0
+	;;
+esac
