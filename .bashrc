@@ -37,7 +37,7 @@ alias gc='git clone'
 
 # Sistema
 alias na='sudo nala'
-alias up='sudo nala update && sudo nala upgrade && flatpak update'
+alias up='sudo nala update && sudo nala upgrade && flatpak update && sudo yt-dlp --update'
 alias cl='sudo nala autoremove && flatpak remove --unused'
 alias ss='sudo systemctl'
 
