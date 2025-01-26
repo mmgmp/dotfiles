@@ -22,14 +22,18 @@ selected="$(printf "$wifi_list" | awk -F ':' '{
             print "󰤣  " ssid;
     }
 }' | tofi --prompt-text='Redes wifi disponibles: ')"
+[ -z $selected ] && exit 0
 
 icon=$(echo "$selected" | awk '{print $1}')
 ssid=$(echo "$selected" | sed 's/^[^ ]*  //')
+
+password=$($PASSWORD_MENU)
 
 case "$icon" in
 	"󰤪"*|"󰤧"*)
 		echo "Seguridad"
 		echo "$ssid"
+		echo "$password"
 	;;
 	"󰤨"*|"󰤥"*)
 		echo "Normal"
