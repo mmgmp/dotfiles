@@ -48,14 +48,12 @@ button {
 }
 
 #clock,
-#pulseaudio,
+#wireplumber,
 #temperature,
-#backlight,
 #battery,
 #cpu,
 #memory,
 #network,
-#custom-weather,
 #idle_inhibitor,
 #tray {
 	margin: 0px 7px;
