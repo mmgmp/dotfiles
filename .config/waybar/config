@@ -70,6 +70,7 @@
         "format-charging": "  {capacity}%",
         "format-plugged": "  {capacity}%",
         "format-icons": ["", "", "", "", ""],
+		"on-click": "auto-cpufreq-gtk",
 		"tooltip": "{time}"
     },
     "network": {
