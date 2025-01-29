@@ -15,6 +15,6 @@ case "$order" in
 esac
 
 word="$(printf "$order" | sed 's/^[^ ]* //')"
-xdg-open "$search_url""$word"
+"$BROWSER" "$search_url""$word"
 
 exit

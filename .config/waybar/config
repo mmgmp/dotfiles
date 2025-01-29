@@ -44,7 +44,7 @@
     },
     "clock": {
 		"format": "{:%e %b %H:%M}",
-      	"tooltip-format": false,
+		"tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
         "on-click": "$CALENDAR"
     },
     "cpu": {
