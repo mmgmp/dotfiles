@@ -14,6 +14,10 @@ export RSS_READER="$TERMINAL_RUN newsboat"
 export RUN_LAUNCHER="tofi-drun"
 export PASSWORD_MENU="askpass"
 
+# Wayland
+export XDG_SESSION_TYPE="wayland"
+export XDG_CURRENT_DESKTOP="sway"
+
 # Organización
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
