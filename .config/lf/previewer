@@ -6,6 +6,6 @@ case "$(file -Lb --mime-type -- "$1")" in
     exit 1
     ;;
   text/*)
-    cat "$1"
+    expand -t 4 "$1"
     ;;
 esac

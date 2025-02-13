@@ -4,7 +4,7 @@ set ignorecase true
 set icons true
 set drawbox true
 set sixel true
-set previewer ~/.config/lf/previewer.sh
+set previewer ~/.config/lf/previewer
 set cursorpreviewfmt "\033[7m"
 
 # Quitar teclas predeterminadas
