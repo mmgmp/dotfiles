@@ -48,4 +48,5 @@ alias ss='sudo systemctl'
 alias ff='find -L ~/.config/ ~/.local/bin/ -type f | fzf | xargs -r $EDITOR'
 
 # Otros
+alias yta="yt-dlp -f "bestaudio[ext=webm]" -x --audio-format vorbis"
 alias abook="abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_CONFIG_HOME"/abook/addressbook"
