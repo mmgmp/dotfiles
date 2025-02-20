@@ -1,5 +1,13 @@
 #!/bin/bash
 
+connect() {
+	nmcli device wifi connect "$ssid" password "$password"	
+}
+
+passw() {
+	password=$($PASSWORD_MENU)
+}
+
 notify-send "Buscando redes Wifi..." "Espere por favor" -u low
 wifi_list=$(nmcli -t --fields "SSID, BARS, SECURITY" device wifi list | grep '▆')
 
@@ -27,9 +35,6 @@ selected="$(printf "$wifi_list" | awk -F ':' '{
 icon=$(echo "$selected" | awk '{print $1}')
 ssid=$(echo "$selected" | sed 's/^[^ ]*  //')
 
-password=$($PASSWORD_MENU)
-[ -z $password ] && exit 0
-
 case "$icon" in
 	"󰤪"*|"󰤧"*)
 		echo "Seguridad"
@@ -37,8 +42,7 @@ case "$icon" in
 		echo "$password"
 	;;
 	"󰤨"*|"󰤥"*)
-		echo "Normal"
-		echo "$ssid"
+		passw && connect
 	;;
 	"󰤩"*|"󰤣"*)
 		echo "Abierta"
