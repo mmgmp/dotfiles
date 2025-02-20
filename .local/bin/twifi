@@ -28,6 +28,7 @@ icon=$(echo "$selected" | awk '{print $1}')
 ssid=$(echo "$selected" | sed 's/^[^ ]*  //')
 
 password=$($PASSWORD_MENU)
+[ -z $password ] && exit 0
 
 case "$icon" in
 	"󰤪"*|"󰤧"*)
