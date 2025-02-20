@@ -1,7 +1,19 @@
 #!/bin/bash
 
-connect() {
+connect_normal() {
 	nmcli device wifi connect "$ssid" password "$password"	
+}
+
+connect_user() {
+	nmcli con add type wifi \
+		ifname wlan0 \
+		ssid "$ssid" \
+		wifi-sec.key-mgmt wpa-eap \
+		802-1x.identity "$user" \
+		802-1x.password "$password" \
+		802-1x.system-ca-certs yes \
+		802-1x.eap peap \
+		802-1x.phase2-auth mschapv2
 }
 
 passw() {
@@ -42,7 +54,7 @@ case "$icon" in
 		echo "$password"
 	;;
 	"󰤨"*|"󰤥"*)
-		passw && connect
+		passw && connect_normal
 	;;
 	"󰤩"*|"󰤣"*)
 		echo "Abierta"
