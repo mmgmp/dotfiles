@@ -1,0 +1,13 @@
+#!/bin/bash
+
+notify-low() {
+	notify-send -u critical "¡Batería baja!" "Conectar el cargador lo antes posible" -i $NOTIFY_ICONS/battery-quarter-solid.svg
+}
+
+battery_level=$(acpi -b | grep -P -o '[0-9]+(?=%)')
+charging=$(acpi -b | grep -c "Charging") # 1 = Cargando, 0 = Descargando
+
+[ "$battery_level" -le 20 ] && [ "$charging" -eq 0 ] && notify-low || exit 0
+
+[ "$battery_level" -ge 80 ] && [ "$charging" -eq 1 ] && notify-high || exit 0
+

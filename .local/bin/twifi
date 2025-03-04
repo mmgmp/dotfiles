@@ -20,6 +20,17 @@ passw() {
 	password=$($PASSWORD_MENU)
 }
 
+notify() {
+	case $1 in
+		1)
+			notify-send -u low "Conexión exitosa" "Conectado a la red $ssid" -i $NOTIFY_ICONS/wifi-solid.svg
+		;;
+		0)
+			notify-send "Error de conexión" "No se ha podido conectar a $ssid" -i $NOTIFY_ICONS/triangle-exclamation-solid.svg
+		;;
+	esac
+}
+
 notify-send "Buscando redes Wifi..." "Espere por favor" -u low
 wifi_list=$(nmcli -t --fields "SSID, BARS, SECURITY" device wifi list | grep '▆')
 
@@ -47,6 +58,8 @@ selected="$(printf "$wifi_list" | awk -F ':' '{
 icon=$(echo "$selected" | awk '{print $1}')
 ssid=$(echo "$selected" | sed 's/^[^ ]*  //')
 
+# Añadir una condición si la ssid esta guardada en la base de datos.
+
 case "$icon" in
 	"󰤪"*|"󰤧"*)
 		echo "Seguridad"
@@ -54,7 +67,7 @@ case "$icon" in
 		echo "$password"
 	;;
 	"󰤨"*|"󰤥"*)
-		passw && connect_normal
+		passw && connect_normal && notify 1 || notify 0
 	;;
 	"󰤩"*|"󰤣"*)
 		echo "Abierta"
