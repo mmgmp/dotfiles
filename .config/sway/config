@@ -73,6 +73,7 @@ for_window [app_id=".*"] inhibit_idle fullscreen
 #= REGLAS DE VENTANAS ===============================================================#
 
 for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="mpv"] floating enable
 assign [app_id="org.mozilla.Thunderbird"] 6
 assign [class="steam"] 7
 

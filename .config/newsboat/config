@@ -1,10 +1,11 @@
 #--- GENERALES ---#
-max-items 50			
+max-items 20
 auto-reload yes
-reload-threads 10 
+reload-threads 10
 browser "$BROWSER %u"
 cleanup-on-quit yes
 show-keymap-hint yes
+ignore-mode "display"
 
 #--- TECLAS ---#
 unbind-key j
@@ -22,5 +23,8 @@ feedlist-format "%?T? %1 %n %7u %t & ───── %t ─────?"
 highlight article "https?://[^ ]+" color4 default protect
 
 #--- MACROS ---# 
-macro v set browser "mpv %u --fs --really-quiet --no-terminal" ; open-in-browser-and-mark-read ; set browser "$BROWSER %u"
+macro v set browser "mpv %u --really-quiet --no-terminal" ; open-in-browser-and-mark-read ; set browser "$BROWSER %u"
 macro r set browser "reader -i none %u | less -R" ; open-in-browser-and-mark-read ; set browser "$BROWSER %u"
+
+#--- Filtros ---#
+ignore-article "https://youtube.com/feeds/videos.xml?channel_id=UCyXHCFqljyxn8U50Cgoax6w" "title !# \"FORJA\""
