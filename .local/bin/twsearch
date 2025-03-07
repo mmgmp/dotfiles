@@ -10,6 +10,8 @@ case "$order" in
 		search_url="https://www.youtube.com/results?search_query=" ;;
 	pdb\ *)
 		search_url="https://www.protondb.com/search?q=" ;;
+	rae\ *)
+		search_url="https://dle.rae.es/?m=form&w=" ;;
 	*)
 		search_url="https://duckduckgo.com/?t=h_&q=" ;;
 esac
