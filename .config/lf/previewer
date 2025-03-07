@@ -1,16 +1,21 @@
 #!/bin/sh
 
+##############################################################################
+#
+# Script para previsualizar distintos
+# tipos de archivos en lf
+#
+# Marcos Mikolta
+#
+##############################################################################
+
 case "$(file -Lb --mime-type -- "$1")" in
 	image/*)
-		chafa -f sixel -s "$2x$3" --animate off --polite on "$1"
-    ;;
+		chafa -f sixel -s "$2x$3" --animate off --polite on "$1";;
 	text/*)
-		expand -t 4 "$1"
-    ;;
+		expand -t 4 "$1";;
 	*/pdf)
-		pdftoppm -singlefile -png "$1" | chafa -f sixel -s "$2x$3"
-	;;
+		pdftoppm -singlefile -png "$1" | chafa -f sixel -s "$2x$3" --animate off --polite on;;
 	*/zip)
-		unzip -Z1 "$1"
-	;;
+		unzip -Z1 "$1";;
 esac
