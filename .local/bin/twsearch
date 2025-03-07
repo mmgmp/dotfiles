@@ -1,22 +1,26 @@
 #!/bin/bash
 
-# Atajos para buscar en paginas web.
+##############################################################################
+#
+# Atajos para buscar en paginas web o busquedas generales
+#
+# Marcos Mikolta
+#
+##############################################################################
 
 order="$(printf "" | tofi --require-match=false --prompt-text='Buscar en Internet: ')"
 [ -z "$order" ] && exit
 
 case "$order" in
 	yt\ *)
-		search_url="https://www.youtube.com/results?search_query=" ;;
+		search_url="https://www.youtube.com/results?search_query=";;
 	pdb\ *)
-		search_url="https://www.protondb.com/search?q=" ;;
+		search_url="https://www.protondb.com/search?q=";;
 	rae\ *)
-		search_url="https://dle.rae.es/?m=form&w=" ;;
+		search_url="https://dle.rae.es/?m=form&w=";;
 	*)
-		search_url="https://duckduckgo.com/?t=h_&q=" ;;
+		search_url="https://duckduckgo.com/?t=h_&q=";;
 esac
 
 word="$(printf "$order" | sed 's/^[^ ]* //')"
 "$BROWSER" "$search_url""$word"
-
-exit
