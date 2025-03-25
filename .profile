@@ -5,7 +5,7 @@
 
 # Programas predeterminados
 export EDITOR="nvim"
-export BROWSER="firefox"
+export BROWSER="brave-browser"
 export TERMINAL="foot"
 export TERMINAL_RUN="foot sh -c"
 export FILE_MANAGER="$TERMINAL_RUN lf"
