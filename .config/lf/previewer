@@ -8,13 +8,13 @@
 #
 ##############################################################################
 
-case "$(file -Lb --mime-type -- "$1")" in
-	image/*)
+case "$1" in
+	*.bmp|*.jpg|*.jpeg|*.png|*.xpm)
 		chafa -f sixel -s "$2x$3" --animate off --polite on "$1";;
-	text/*)
-		expand -t 4 "$1";;
-	*/pdf)
+	*.pdf)
 		pdftoppm -singlefile -png "$1" | chafa -f sixel -s "$2x$3" --animate off --polite on;;
-	*/zip)
+	*.zip)
 		unzip -Z1 "$1";;
+	*)
+		expand -t 4 "$1";;
 esac
