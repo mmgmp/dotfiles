@@ -32,6 +32,7 @@ map mf mkfile
 map S symbolic
 map rr trash-put
 map R trash-empty
+map C compress
 map E extract
 map bg background
 map N copy-name
@@ -51,7 +52,10 @@ cmd symbolic %current_path=$(pwd); name=$(basename "$f"); ln -s "$f" $current_pa
 cmd trash-put %files=$(printf "$fx" | tr '\n' ';'); while true; do file=${files%%;*}; trash-put "$file" > /dev/null; [ "$files" = "$file" ] && exit 0 || files="${files#*;}"; done
 
 # Vaciar papelera
-cmd trash-empty %printf "¿Quieres vaciar la papelera? (*): "; read ans; [ "$ans" = "*" ] && trash-empty; printf " "
+cmd trash-empty %printf " ¿Quieres vaciar la papelera? (*): "; read ans; [ "$ans" = "*" ] && trash-empty; printf " "
+
+# Comprimir archivos
+cmd compress %printf " Nombre del archivo: "; read ans; 7zz a "$ans" "$f"
 
 # Descomprimir
 cmd extract ${{

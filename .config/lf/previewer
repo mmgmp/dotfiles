@@ -15,6 +15,8 @@ case "$1" in
 		pdftoppm -singlefile -png "$1" | chafa -f sixel -s "$2x$3" --animate off --polite on;;
 	*.zip)
 		unzip -Z1 "$1";;
+	*.7z)
+		7zz l "$1";;
 	*)
 		expand -t 4 "$1";;
 esac
