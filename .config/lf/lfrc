@@ -37,7 +37,7 @@ map E extract
 map bg background
 map N copy-name
 map P copy-path
-map +x ch-x1
+map mo chmod
 
 # Crear carpeta
 cmd mkdir %printf " Nombre del directorio: "; read ans; mkdir "$ans"; printf " "
@@ -92,7 +92,5 @@ cmd copy-path ${{
 	wl-copy "$f"
 }}
 
-# Hacer ejecutable
-cmd ch-x1 ${{
-	chmod +x $fx
-}}
+# Ejecutar chmod con el argumento escrito
+cmd chmod %printf " Argumento para chmod: "; read ans; chmod "$ans" $fx; printf " "
