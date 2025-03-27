@@ -97,4 +97,4 @@ cmd on-cd &{{
 on-cd
 
 # Git
-cmd gcm %printf " Comentario: "; read ans; git commit -am "$ans"
+cmd gcm %printf " Comentario: "; read ans; git commit -am "$ans"; om-cd
