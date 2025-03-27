@@ -99,4 +99,6 @@ on-cd
 
 # Git
 cmd commit %printf " Comentario: "; read ans; git commit -am "$ans"
-cmd push %git push
+cmd push ${{
+	git push
+}}
