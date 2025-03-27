@@ -1,6 +1,12 @@
 #!/bin/bash
 
+##############################################################################
+#
 # Separar archivos multimedia según los tiempos especificados.
+#
+# Marcos Mikolta
+#
+##############################################################################
 
 if [ "$1" == "--h" ]; then
 	echo "El comando ffmsep tiene 2 entradas"

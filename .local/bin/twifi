@@ -1,5 +1,13 @@
 #!/bin/bash
 
+##############################################################################
+#
+# Muestra un menú con las diferentes conexiones wifi.
+#
+# Marcos Mikolta
+#
+##############################################################################
+
 connect_normal() {
 	nmcli device wifi connect "$ssid" password "$password"	
 }

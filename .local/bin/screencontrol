@@ -1,6 +1,12 @@
 #!/bin/bash
 
+##############################################################################
+#
 # Muestra una notificación al cambiar el brillo.
+#
+# Marcos Mikolta
+#
+##############################################################################
 
 notify() { # Notificación en caso de cambiar el brillo
 	level=$(brightnessctl | sed -n 's/.*(\(.*\)%).*/\1/p')

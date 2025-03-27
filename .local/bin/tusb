@@ -1,5 +1,13 @@
 #!/bin/bash
 
+##############################################################################
+#
+# Muestra un menú con los diferentes USBs.
+#
+# Marcos Mikolta
+#
+##############################################################################
+
 show_menu() { # Mostrar con iconos en tofi.
 		awk '{
 			if ($4 == "crypto_LUKS") {

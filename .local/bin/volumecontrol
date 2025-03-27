@@ -2,7 +2,7 @@
 
 ##############################################################################
 #
-# Cambia el volumen y muestra una notificación
+# Muestra una notificación al cambiar el volumen.
 #
 # Marcos Mikolta
 #
