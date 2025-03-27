@@ -1,5 +1,13 @@
 #!/bin/bash
 
+##############################################################################
+#
+# Muestra una notificación según el estado de la batería.
+#
+# Marcos Mikolta
+#
+##############################################################################
+
 notify-low() {
 	notify-send -u critical "¡Batería baja!" "Conectar el cargador lo antes posible" -i $NOTIFY_ICONS/battery-quarter-solid.svg
 }
