@@ -29,7 +29,8 @@ map N copy-name
 map P copy-path
 map mo chmod
 
-map gcm gcm
+map gcm commit
+map gp push
 
 # Crear carpeta
 cmd mkdir %printf " Nombre del directorio: "; read ans; mkdir "$ans"; printf " "
@@ -97,4 +98,5 @@ cmd on-cd &{{
 on-cd
 
 # Git
-cmd gcm %printf " Comentario: "; read ans; git commit -am "$ans"; on-cd
+cmd commit %printf " Comentario: "; read ans; git commit -am "$ans"
+cmd push %git push
