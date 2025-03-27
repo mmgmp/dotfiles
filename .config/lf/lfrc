@@ -29,8 +29,8 @@ map N copy-name
 map P copy-path
 map mo chmod
 
-map gcm commit
-map gp push
+map gcm gcommit
+map gp gpush
 
 # Crear carpeta
 cmd mkdir %printf " Nombre del directorio: "; read ans; mkdir "$ans"; printf " "
@@ -90,15 +90,15 @@ cmd copy-path ${{
 # Ejecutar chmod con el argumento escrito
 cmd chmod %printf " Argumento para chmod: "; read ans; chmod "$ans" $fx; printf " "
 
+# Git
+cmd gcommit %printf " Comentario: "; read ans; git commit -am "$ans"
+cmd gpush ${{
+	git push
+}}
+
 # Integración con starship
 cmd on-cd &{{
     fmt="$(printf "\e[1;32m$USER\e[1;37m:\e[0m"; STARSHIP_SHELL= starship prompt | sed -n '2p')"
     lf -remote "send $id set promptfmt \"$fmt\""
 }}
 on-cd
-
-# Git
-cmd commit %printf " Comentario: "; read ans; git commit -am "$ans"
-cmd push ${{
-	git push
-}}
