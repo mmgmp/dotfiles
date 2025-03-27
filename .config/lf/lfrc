@@ -16,16 +16,6 @@ map r
 map A :rename; cmd-end
 map I :rename; cmd-home
 
-# Movimiento
-map gd cd ~/Descargas/
-map gD cd ~/Documentos/
-map gi cd ~/Imágenes/
-map gm cd ~/Música/
-map gv cd ~/Vídeos/
-
-map gs cd ~/.local/bin/
-map gr cd ~/Documentos/GitHub/
-
 # Configuración de teclas
 map md mkdir
 map mf mkfile
@@ -38,7 +28,6 @@ map bg background
 map N copy-name
 map P copy-path
 map mo chmod
-map x print
 
 # Crear carpeta
 cmd mkdir %printf " Nombre del directorio: "; read ans; mkdir "$ans"; printf " "
@@ -98,4 +87,9 @@ cmd copy-path ${{
 # Ejecutar chmod con el argumento escrito
 cmd chmod %printf " Argumento para chmod: "; read ans; chmod "$ans" $fx; printf " "
 
-cmd print %printf " $f"
+# Integración con starship
+cmd on-cd &{{
+    fmt="$(printf "\e[1;32m$USER\e[1;37m:\e[0m"; STARSHIP_SHELL= starship prompt | sed -n '2p')"
+    lf -remote "send $id set promptfmt \"$fmt\""
+}}
+on-cd
