@@ -38,6 +38,7 @@ map bg background
 map N copy-name
 map P copy-path
 map mo chmod
+map x print
 
 # Crear carpeta
 cmd mkdir %printf " Nombre del directorio: "; read ans; mkdir "$ans"; printf " "
@@ -60,6 +61,8 @@ cmd compress %printf " Nombre del archivo: "; read ans; 7zz a "$ans" "$f"
 # Descomprimir
 cmd extract ${{
 	clear
+	dir=$(basename "$f" | sed 's/\(.*\)\..*/\1/')
+	mkdir "$dir" &&	cd "$dir"
 	case "$f" in
 		*.zip) unzip "$f" ;;
 		*.tar*) tar -xvf "$f" ;;
@@ -94,3 +97,5 @@ cmd copy-path ${{
 
 # Ejecutar chmod con el argumento escrito
 cmd chmod %printf " Argumento para chmod: "; read ans; chmod "$ans" $fx; printf " "
+
+cmd print %printf " $f"
