@@ -29,6 +29,8 @@ map N copy-name
 map P copy-path
 map mo chmod
 
+map gcm gcm
+
 # Crear carpeta
 cmd mkdir %printf " Nombre del directorio: "; read ans; mkdir "$ans"; printf " "
 
@@ -93,3 +95,6 @@ cmd on-cd &{{
     lf -remote "send $id set promptfmt \"$fmt\""
 }}
 on-cd
+
+# Git
+cmd gcm %printf " Comentario: "; read ans; git commit -am "$ans"
