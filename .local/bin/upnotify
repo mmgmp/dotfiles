@@ -1,0 +1,21 @@
+#!/bin/bash
+
+##############################################################################
+#
+# Muestra una notificación en caso de haber una actualización disponible.
+#
+# Marcos Mikolta
+#
+##############################################################################
+
+notify() {
+	notify-send -u low "Actualización disponible" "$pkgs paquetes disponibles." -i $NOTIFY_ICONS/arrow-circle-up-solid.svg
+}
+
+sleep 5
+
+sudo apt update -qq
+
+pkgs=$(apt list --upgradable 2>/dev/null | sed '1d' | wc -l)
+
+[ "$pkgs" = "0" ] || notify && exit 0
