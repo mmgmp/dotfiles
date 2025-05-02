@@ -74,8 +74,6 @@ for_window [app_id=".*"] inhibit_idle fullscreen
 #= REGLAS DE VENTANAS =======================================================#
 
 for_window [app_id="pavucontrol"] floating enable
-for_window [app_id="mpv"] floating enable, resize set 1280 720
-assign [app_id="org.mozilla.Thunderbird"] 6
 assign [class="steam"] 7
 
 #= ATAJOS DE TECLAS =========================================================#
