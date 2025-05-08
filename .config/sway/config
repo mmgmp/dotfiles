@@ -57,7 +57,6 @@ exec --no-startup-id autotiling
 exec --no-startup-id mako
 exec --no-startup-id lxpolkit
 exec --no-startup-id gammastep -O 4500
-exec --no-startup-id ~/.local/bin/upnotify
 
 #= ENERGÍA ==================================================================#
 
@@ -78,6 +77,9 @@ assign [class="steam"] 7
 
 #= ATAJOS DE TECLAS =========================================================#
 
+# Recargar la configuración de sway
+bindsym $mod+Shift+r reload
+
 # Ejecutar programas
 bindsym $mod+t exec $TERMINAL
 bindsym $mod+b exec $BROWSER
@@ -85,11 +87,6 @@ bindsym $mod+d exec $RUN_LAUNCHER | xargs swaymsg exec --
 bindsym $mod+f exec $FILE_MANAGER
 bindsym $mod+n exec $RSS_READER
 bindsym $mod+c exec $CALENDAR
-
-# Recargar la configuración de sway
-bindsym $mod+Shift+r reload
-
-# Añadir a marcadores el elemento copiado
 
 # Scripts varios
 bindsym $mod+Shift+q exec ~/.local/bin/tsession
