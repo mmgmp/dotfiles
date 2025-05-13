@@ -89,6 +89,7 @@ bindsym $mod+n exec $RSS_READER
 bindsym $mod+c exec $CALENDAR
 
 # Scripts varios
+bindsym $mod+Shift+i exec ~/.local/bin/wifi-menu
 bindsym $mod+Shift+q exec ~/.local/bin/tsession
 bindsym $mod+Shift+p exec ~/.local/bin/tpass
 bindsym $mod+Shift+m exec ~/.local/bin/tusb -m
@@ -107,9 +108,6 @@ bindsym Print+Shift+Ctrl exec cpant -s
 # Control del brillo
 bindsym XF86MonBrightnessDown exec screencontrol down
 bindsym XF86MonBrightnessUp exec screencontrol up
-
-# Menú de redes wifi
-bindsym $mod+Shift+i exec $TERMINAL_RUN nmtui
 
 # Control de audio - Portátil
 bindsym XF86AudioMute exec volumecontrol mute
