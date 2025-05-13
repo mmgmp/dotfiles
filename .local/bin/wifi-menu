@@ -1,0 +1,80 @@
+#!/bin/bash
+
+notify() {
+	case "$1" in
+		-on) notify-send -u low "Wifi activado" -i $NOTIFY_ICONS/image-solid.svg ;;
+		-off) notify-send -u low "Wifi desactivado" -i $NOTIFY_ICONS/image-solid.svg ;;
+	esac
+}
+
+passw() {
+	password=$($PASSWORD_MENU)
+}
+
+arg1="Conectarse a una red"
+arg2="Olvidar una red"
+arg3="(Des)Activar Wifi"
+
+selection=$(printf "$arg1\n$arg2\n$arg3" | tofi)
+[ -z "$selection" ] && exit 0
+
+case "$selection" in
+	"$arg1")
+		notify-send "Buscando redes Wifi..." "Espere por favor" -u low
+		wifi_list=$(nmcli -t --fields "SSID, BARS, SECURITY" device wifi list | grep '▆')
+
+		selected="$(printf "$wifi_list" | awk -F ':' '{
+			ssid = $1; bars = $2; security = $3;
+		    if (bars ~ /▂▄▆█/) {
+				if (security ~ /802.1X/)
+					print "󰤪  " ssid;
+				else if (security ~ /WPA2/)
+					print "󰤨  " ssid;
+				else
+					print "󰤩  " ssid;
+			} else if (bars ~ /▂▄▆_/) {
+				if (security ~ /802.1X/)
+					print "󰤧  " ssid;
+				else if (security ~ /WPA2/)
+					print "󰤥  " ssid;
+				else
+					print "󰤣  " ssid;
+			}
+		}' | tofi --prompt-text='Redes wifi disponibles: ')"
+		[ -z "$selected" ] && exit 0
+
+		icon=$(echo "$selected" | awk '{print $1}')
+		ssid=$(echo "$selected" | sed 's/^[^ ]*  //')
+		saved=$(nmcli -t -f NAME connection show)
+	
+		# Conectar directamente si esta guardada.
+		if echo "$saved" | grep -q -- "$ssid"; then
+			nmcli connection up "$ssid"
+			exit 0
+		fi
+
+		case "$icon" in
+			"󰤪"*|"󰤧"*)
+				echo "Seguridad"
+				;;
+			"󰤨"*|"󰤥"*)
+				passw && nmcli device wifi connect "$ssid" password "$password"
+				;;
+			"󰤩"*|"󰤣"*)
+				nmcli device wifi connect "$ssid"
+				;;
+		esac
+		;;
+	"$arg2")
+		connection=$(nmcli -t -f NAME connection show | tofi) 
+		[ -z "$connection" ] && exit 0
+		nmcli connection delete "$connection"
+		;;
+	"$arg3")
+		if	[ "$(nmcli radio wifi)" == "enabled" ]; then
+			nmcli radio wifi off && notify -off 
+		else
+			nmcli radio wifi on && notify -on
+		fi
+		;;
+esac
