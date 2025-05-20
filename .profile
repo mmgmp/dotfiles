@@ -2,6 +2,7 @@
 
 # Ejecutar desde ~/.local/bin
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
+[ -d "$HOME/.local/scripts" ] && PATH="$HOME/.local/scripts:$PATH"
 
 # Programas predeterminados
 export EDITOR="nvim"

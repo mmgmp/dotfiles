@@ -57,6 +57,7 @@ exec --no-startup-id autotiling
 exec --no-startup-id mako
 exec --no-startup-id lxpolkit
 exec --no-startup-id gammastep -O 4500
+exec /home/marcos/.local/share/appimages/tutanota-desktop-linux.AppImage -a
 
 #= ENERGÍA ==================================================================#
 
@@ -73,6 +74,7 @@ for_window [app_id=".*"] inhibit_idle fullscreen
 #= REGLAS DE VENTANAS =======================================================#
 
 for_window [app_id="pavucontrol"] floating enable
+assign [class="tutanota-desktop"] 8
 assign [class="steam"] 7
 
 #= ATAJOS DE TECLAS =========================================================#
