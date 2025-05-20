@@ -56,11 +56,11 @@ cmd extract ${{
 	dir=$(basename "$f" | sed 's/\(.*\)\..*/\1/')
 	mkdir "$dir" &&	cd "$dir"
 	case "$f" in
-		*.zip) unzip "$f" ;;
-		*.tar*) tar -xvf "$f" ;;
-		*.rar) unrar x "$f" ;;
-		*.7z) 7zz x "$f" ;;
-		*) printf "> Formato no soportado.\n " | less ;;
+		*.zip) unzip "$f";;
+		*.tar*) tar -xvf "$f";;
+		*.rar) unrar x "$f";;
+		*.7z) 7zz x "$f";;
+		*) printf "> Formato no soportado.\n " | less;;
 	esac
 }}
 
@@ -75,7 +75,7 @@ cmd open ${{
 		audio/*) swayhide mpv --force-window "$f";;
 		video/*) swayhide mpv "$f";;
 		*/pdf) swayhide zathura "$f";;
-		*) swayhide xdg-open "$f";;
+		*) xdg-open "$f";;
 	esac
 }}
 

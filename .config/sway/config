@@ -51,6 +51,13 @@ gaps inner 5
 # Fondo de pantalla
 include ~/.config/sway/wallpaper
 
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+	gsettings set $gnome-schema gtk-theme 'Arc-dark'
+	gsettings set $gnome-schema color-scheme 'prefer-dark'
+	gsettings set $gnome-schema cursor-theme 'breeze_cursors'
+}
+
 #= AUTOEJECUTAR =============================================================#
 
 exec --no-startup-id autotiling
@@ -73,7 +80,7 @@ for_window [app_id=".*"] inhibit_idle fullscreen
 
 #= REGLAS DE VENTANAS =======================================================#
 
-for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="pavucontrol" ] floating enable, resize set width 60 ppt height 60 ppt
 assign [class="tutanota-desktop"] 8
 assign [class="steam"] 7
 
