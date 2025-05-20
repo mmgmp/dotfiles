@@ -51,6 +51,16 @@ gaps inner 5
 # Fondo de pantalla
 include ~/.config/sway/wallpaper
 
+# Tema del cursor
+seat * xcursor_theme breeze_cursors 24
+
+# Apariencia de GTK3
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Arc-Dark'
+    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
+}
+
 #= AUTOEJECUTAR =============================================================#
 
 exec --no-startup-id autotiling
