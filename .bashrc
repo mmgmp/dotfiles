@@ -23,30 +23,35 @@ bind "set completion-ignore-case on"
 eval "$(starship init bash)"
 
 # Colores
-alias ls='ls --color=auto --group-directories-first'
-alias la='ls -A --color=auto --group-directories-first'
-alias ll='ls -Ahl --color=auto --group-directories-first'
-alias grep='grep --color=auto'
+alias ls="ls --color=auto --group-directories-first"
+alias la="ls -A --color=auto --group-directories-first"
+alias ll="ls -Ahl --color=auto --group-directories-first"
+alias grep="grep --color=auto"
 
 # Atajos
-alias c='clear'
-alias v='$EDITOR'
-alias sv='sudo $EDITOR'
+alias c="clear"
+alias v="$EDITOR"
+alias sv="sudo $EDITOR"
 
 # Git
-alias gcm='git commit -am'
-alias gp='git push'
-alias gc='git clone'
+alias gcm="git commit -am"
+alias gp="git push"
+alias gc="git clone"
 
 # Sistema
-alias na='sudo nala'
-alias up='sudo nala update && sudo nala upgrade && flatpak update && sudo yt-dlp --update'
-alias cl='sudo nala autoremove && flatpak remove --unused'
-alias ss='sudo systemctl'
+alias na="sudo nala"
+alias up="sudo nala update && sudo nala upgrade && flatpak update && sudo yt-dlp --update"
+alias cl="sudo nala autoremove && flatpak remove --unused"
+alias ss="sudo systemctl"
 
 # Atajos para fzf
-alias ff='find -L ~/.config/ ~/.local/bin/ -type f | fzf | xargs -r $EDITOR'
+alias ff="find -L ~/.config/ ~/.local/bin/ -type f | fzf | xargs -r $EDITOR"
 
 # Otros
 alias yta="yt-dlp -f "bestaudio[ext=webm]" -x --audio-format vorbis"
 alias abook="abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_CONFIG_HOME"/abook/addressbook"
+
+# Esconder terminal
+alias mpv="swayhide mpv"
+alias zathura="swayhide zathura"
+alias swayimg="swayhide swayimg"

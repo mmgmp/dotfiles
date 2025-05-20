@@ -70,10 +70,12 @@ cmd background %printf "output * bg "$f" fill" > ~/.config/sway/wallpaper; sway 
 # Abrir archivos
 cmd open ${{
 	case $(file --mime-type -Lb "$f") in
-		text/*) $EDITOR "$f" ;;
-		image/*) swayimg "$f" ;;
-		*/pdf) zathura "$f" & ;;
-		*) xdg-open "$f" & ;;
+		text/*) $EDITOR "$f";;
+		image/*) swayimg "$f";;
+		audio/*) swayhide mpv --force-window "$f";;
+		video/*) swayhide mpv "$f";;
+		*/pdf) swayhide zathura "$f";;
+		*) swayhide xdg-open "$f";;
 	esac
 }}
 
