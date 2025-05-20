@@ -32,11 +32,9 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "sway/scratchpad": {
-        "format": "{icon} {count}",
+        "format": "| <span color='#808080'>{count}</span>",
         "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
+        "tooltip": false
     },
     "tray": {
         // "icon-size": 15,
