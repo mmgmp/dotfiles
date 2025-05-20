@@ -51,11 +51,14 @@ gaps inner 5
 # Fondo de pantalla
 include ~/.config/sway/wallpaper
 
+# Tema del cursor
+seat * xcursor_theme breeze_cursors 24
+
+# Apariencia de GTK3
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
-	gsettings set $gnome-schema gtk-theme 'Arc-dark'
-	gsettings set $gnome-schema color-scheme 'prefer-dark'
-	gsettings set $gnome-schema cursor-theme 'breeze_cursors'
+    gsettings set $gnome-schema gtk-theme 'Arc-Dark'
+    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
 }
 
 #= AUTOEJECUTAR =============================================================#
@@ -80,7 +83,7 @@ for_window [app_id=".*"] inhibit_idle fullscreen
 
 #= REGLAS DE VENTANAS =======================================================#
 
-for_window [app_id="pavucontrol" ] floating enable, resize set width 60 ppt height 60 ppt
+for_window [app_id="pavucontrol"] floating enable
 assign [class="tutanota-desktop"] 8
 assign [class="steam"] 7
 
