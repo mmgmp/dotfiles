@@ -83,7 +83,7 @@ for_window [app_id=".*"] inhibit_idle fullscreen
 
 #= REGLAS DE VENTANAS =======================================================#
 
-for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="pavucontrol"] floating enable, resize set width 60 ppt height 60 ppt
 assign [class="tutanota-desktop"] 8
 assign [class="steam"] 7
 
