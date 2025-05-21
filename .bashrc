@@ -52,6 +52,6 @@ alias yta="yt-dlp -f "bestaudio[ext=webm]" -x --audio-format vorbis"
 alias abook="abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_CONFIG_HOME"/abook/addressbook"
 
 # Esconder terminal
-alias mpv="swayhide mpv"
+alias mpv="swayhide mpv --force-window"
 alias zathura="swayhide zathura"
 alias swayimg="swayhide swayimg"

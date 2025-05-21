@@ -73,7 +73,7 @@ cmd open ${{
 		text/*) $EDITOR "$f";;
 		image/*) swayimg "$f";;
 		audio/*) swayhide mpv --force-window "$f";;
-		video/*) swayhide mpv "$f";;
+		video/*) swayhide mpv --force-window "$f";;
 		*/pdf) swayhide zathura "$f";;
 		*) xdg-open "$f";;
 	esac
