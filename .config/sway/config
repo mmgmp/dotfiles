@@ -205,20 +205,6 @@ bindsym $mod+u resize shrink height 20px
 bindsym $mod+i resize grow height 20px
 bindsym $mod+o resize grow width 20px
 
-#---- Scratchpads ----#
-
-# Scratchpad:
-
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
-
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
-
 #= EXTRAS ===================================================================#
 
 # Requeridos para el correcto funcionamiento de sway

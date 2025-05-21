@@ -10,7 +10,6 @@
 "modules-left": [
 		"sway/workspaces", 
 		"sway/mode", 
-		"sway/scratchpad"
 	],
     "modules-center": [
 		"clock"
@@ -30,11 +29,6 @@
     
 	"sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
-    },
-    "sway/scratchpad": {
-        "format": "| <span color='#808080'>{count}</span>",
-        "show-empty": false,
-        "tooltip": false
     },
     "tray": {
         // "icon-size": 15,
