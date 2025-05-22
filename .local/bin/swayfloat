@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# Launch the target command
+"$@" &
+pid=$!
+
+# Create a named pipe
+pipe=$(mktemp -u)
+mkfifo "$pipe"
+
+# Subscribe to window events and filter for the PID
+{
+  swaymsg -t subscribe -m '[ "window" ]' \
+    | jq --unbuffered --argjson pid "$pid" '.container | select(.pid == $pid) | .id' \
+    > "$pipe"
+} &
+
+# Read the container ID from the pipe, retry resize/move
+{
+  read -r con_id < "$pipe"
+
+  # Retry a few times to ensure the window is ready
+  for i in {1..5}; do
+    swaymsg "[con_id=$con_id] floating enable, move position center, resize set width 90 ppt height 90 ppt"
+    sleep 0.1
+  done
+} &
+
+subscription_pid=$!
+
+echo "Going into wait state"
+
+# Wait for the original command to finish
+tail --pid=$pid -f /dev/null
+
+echo "Killing subscription"
+if kill -0 "$subscription_pid" 2>/dev/null; then
+  kill "$subscription_pid"
+fi
+
+rm "$pipe"
