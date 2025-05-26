@@ -1,32 +1,9 @@
-// Esta es la configuración de waybar de Marcos Mikolta
-// Mi Github: http://github.com/mmgmp/
-// Mi Web: http://marcosmikolta.xyz
-
 {
 	"height": 30,
+	"modules-left": ["sway/workspaces","sway/mode",],
+	"modules-center": ["clock"],
+	"modules-right": ["cpu","memory","temperature","tray","network","pulseaudio","battery","idle_inhibitor"],
 
-//= MODULOS ===================================================================//
-    
-"modules-left": [
-		"sway/workspaces", 
-		"sway/mode", 
-	],
-    "modules-center": [
-		"clock"
-    ],
-    "modules-right": [
-		"cpu",
-		"memory", 
-		"temperature", 
-		"tray",
-		"network",
-		"wireplumber",
-		"battery",
-		"idle_inhibitor"
-	],
-
-//= CONFIGURACIÓN =============================================================//
-    
 	"sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -72,7 +49,7 @@
         "format-disconnected": " ",
 		"tooltip-format": "{essid} ({signalStrength}%)"
     },
-	"wireplumber": {
+	"pulseaudio": {
 		"format": " ",
 		"format-muted": "<span color='#808080'> </span>",
 		"tooltip-format": "{volume}%",
@@ -89,4 +66,3 @@
 		}
 	}
 }
-
