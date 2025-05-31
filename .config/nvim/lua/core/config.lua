@@ -1,6 +1,6 @@
 vim.opt.number = true -- Número de la linea
 vim.opt.relativenumber = true -- Números relativos de lineas
-vim.opt.cursorline = true -- Mostrar linea del cursor
+vim.opt.cursorline = false -- Mostrar linea del cursor
 vim.opt.termguicolors = true -- Colores de la terminal
 
 vim.opt.tabstop = 4 -- Número de espacios de tabulador
