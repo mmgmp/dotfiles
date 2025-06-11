@@ -11,3 +11,6 @@ vim.opt.mouse = "a" -- Activar el ratón
 vim.opt.clipboard = 'unnamedplus' -- Portapapeles del sistema
 
 vim.opt.ttyfast = true -- Movimiento mas rápido
+
+vim.o.ignorecase = true -- Buscar los mayúsculas
+vim.o.smartcase = true -- Solo mayúsculas si se especifica

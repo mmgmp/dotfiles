@@ -1,4 +1,4 @@
 -- Core
-require("core/config")
-require("core/keymap")
-require("core/filetype/tex")
+require("config")
+require("keymap")
+require("filetype/tex")
