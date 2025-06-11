@@ -65,7 +65,7 @@ cmd extract ${{
 }}
 
 # Cambiar fondo en sway
-cmd background %printf "output * bg "$f" fill" > ~/.config/sway/wallpaper; sway reload; printf " "
+cmd background %printf "output * bg "$f" fill" > ~/.config/sway/modules/background.conf; sway reload; printf " "
 
 # Abrir archivos
 cmd open ${{
