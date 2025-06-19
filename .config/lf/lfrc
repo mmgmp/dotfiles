@@ -1,4 +1,5 @@
-# Ajustes básicos
+#---- GENERAL ----#
+
 set hidden true
 set ignorecase true
 set icons true
@@ -7,21 +8,21 @@ set sixel true
 set previewer ~/.config/lf/previewer
 set cursorpreviewfmt "\033[7m"
 
+#---- CONFIGURACIÓN DE TECLAS ----#
+
 # Quitar teclas predeterminadas
 map m
 map n
 map r
+map t
 
 # Renombrar
 map A :rename; cmd-end
 map I :rename; cmd-home
 
-# Configuración de teclas
 map md mkdir
 map mf mkfile
 map S symbolic
-map rr trash-put
-map R trash-empty
 map C compress
 map E extract
 map bg background
@@ -29,10 +30,16 @@ map N copy-name
 map P copy-path
 map mo chmod
 
+# Git
 map gcm gcommit
 map gp gpush
 
+# Papelera
+map tt trash-put
+map T trash-empty
 map <c-t> $trash-restore-fzf
+
+#---- COMANDOS ----#
 
 # Crear carpeta
 cmd mkdir %printf " Nombre del directorio: "; read ans; mkdir "$ans"; printf " "
