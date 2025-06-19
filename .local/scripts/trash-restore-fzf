@@ -1,0 +1,24 @@
+#!/bin/bash
+
+##############################################################################
+#
+# Muestra los archivos en papelera y restaura el seleccionado.
+#
+# Marcos Mikolta
+#
+##############################################################################
+
+trashinfo_dir="$HOME/.local/share/Trash/info"
+trashfiles_dir="$HOME/.local/share/Trash/files"
+
+# Lista de elemento en la papelera con fzf
+selection="$(trash-list | fzf)"
+[ -z "$selection" ] && exit 1
+
+# Extraer la ruta original y el nombre
+restore_path="$(echo "$selection" | sed 's|^[^/]*||')"
+filename="$(basename "$restore_path")"
+
+# Sacar el archivo de la papelera y eliminar el registro
+mv "$trashfiles_dir/$filename" "$restore_path"
+rm "$trashinfo_dir/$filename.trashinfo"

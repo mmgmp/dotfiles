@@ -32,6 +32,8 @@ map mo chmod
 map gcm gcommit
 map gp gpush
 
+map <c-t> $trash-restore-fzf
+
 # Crear carpeta
 cmd mkdir %printf " Nombre del directorio: "; read ans; mkdir "$ans"; printf " "
 
