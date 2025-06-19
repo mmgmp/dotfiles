@@ -12,8 +12,7 @@ trashinfo_dir="$HOME/.local/share/Trash/info"
 trashfiles_dir="$HOME/.local/share/Trash/files"
 
 # Lista de elemento en la papelera con fzf
-selection="$(trash-list | fzf)"
-[ -z "$selection" ] && exit 1
+selection="$(trash-list | fzf --layout=reverse)" || exit 0
 
 # Extraer la ruta original y el nombre
 restore_path="$(echo "$selection" | sed 's|^[^/]*||')"
