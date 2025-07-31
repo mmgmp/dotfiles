@@ -12,11 +12,11 @@ selected="$(printf "Bloquear\nCerrar sesión\nSuspender\nReiniciar\nApagar" | to
 
 case $selected in
 	"Bloquear")
-		~/.local/scripts/lockscreen;;
+		locksway;;
 	"Cerrar"*)
 		swaymsg exit;;
 	"Suspender")
-		~/.local/scripts/lockscreen & systemctl suspend;;
+		locksway & systemctl suspend;;
 	"Reiniciar")
 		systemctl reboot;;
 	"Apagar")
