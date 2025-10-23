@@ -15,12 +15,8 @@ case $(file --mime-type -Lb "$1") in
 		pdftoppm -singlefile -r 72 -png "$1" | chafa -f sixel -s "$2x$3" --animate off --polite on;;
 	audio/*)
 		ffmpeg -i "$1" -f image2pipe -vcodec png - 2>/dev/null | chafa -f sixel -s "$2x$3" --animate off --polite on;;
-	*/x-7z-compressed)
-		7zz l "$1";;
-	*/zip)
-		unzip -l "$1";;
-	*/x-rar*)
-		unrar l "$1" | tail -n +7;;
+	*/x-7z-compressed|*/zip|*/x-rar*)
+		7z l "$1" | sed '1,17d';;
 	*)
 		expand -t 4 "$1";;
 esac
