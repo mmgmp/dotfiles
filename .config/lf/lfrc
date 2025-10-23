@@ -57,20 +57,13 @@ cmd trash-put %files=$(printf "$fx" | tr '\n' ';'); while true; do file=${files%
 cmd trash-empty %printf " ¿Quieres vaciar la papelera? (*): "; read ans; [ "$ans" = "*" ] && trash-empty; printf " "
 
 # Comprimir archivos
-cmd compress %printf " Nombre del archivo comprimido: "; read ans; 7zz a "$ans" "$f"; printf " "
+cmd compress %printf " Nombre del archivo comprimido: "; read ans; 7z a "$ans".7z "$f"; printf " "
 
 # Extraer en una carpeta
 cmd extract ${{
 	clear
 	dir=$(basename "$f" | sed 's/\(.*\)\..*/\1/')
-	mkdir "$dir" &&	cd "$dir"
-	case "$f" in
-		*.zip) unzip "$f";;
-		*.tar*) tar -xvf "$f";;
-		*.rar) unrar x "$f";;
-		*.7z) 7zz x "$f";;
-		*) printf "> Formato no soportado.\n " | less;;
-	esac
+	7z x "$f" -o"$dir"
 }}
 
 # Cambiar fondo en sway
