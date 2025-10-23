@@ -12,7 +12,7 @@ selected="$(printf "Bloquear\nCerrar sesión\nSuspender\nReiniciar\nApagar" | to
 
 case $selected in
 	"Bloquear")
-		locksway;;
+		~/.local/scripts/super-swaylock;;
 	"Cerrar"*)
 		swaymsg exit;;
 	"Suspender")
