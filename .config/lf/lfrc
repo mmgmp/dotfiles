@@ -51,7 +51,7 @@ cmd mkfile %printf " Nombre del archivo: "; read ans; touch "$ans"; printf " "
 cmd symbolic %current_path=$(pwd); name=$(basename "$f"); ln -s "$f" $current_path/Enlace_a_$name
 
 # Mover a la papelera
-cmd trash-put %files=$(printf "$fx" | tr '\n' ';'); while true; do file=${files%%;*}; trash-put "$file" > /dev/null; [ "$files" = "$file" ] && exit 0 || files="${files#*;}"; done
+cmd trash-put %trash-put $fs
 
 # Vaciar papelera
 cmd trash-empty %printf " ¿Quieres vaciar la papelera? (*): "; read ans; [ "$ans" = "*" ] && trash-empty; printf " "
