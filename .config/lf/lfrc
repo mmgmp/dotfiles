@@ -30,10 +30,6 @@ map N copy-name
 map P copy-path
 map mo chmod
 
-# Git
-map gcm gcommit
-map gp gpush
-
 # Papelera
 map tt trash-put
 map T trash-empty
@@ -93,18 +89,3 @@ cmd copy-path ${{
 
 # Ejecutar chmod con el argumento escrito
 cmd chmod %printf " Argumento para chmod: "; read ans; chmod "$ans" $fx; printf " "
-
-# Git
-cmd gcommit %printf " Comentario: "; read ans; git commit -am "$ans"; fmt="$(printf "\e[1;32m$USER\e[1;37m:\e[0m"; STARSHIP_SHELL= starship prompt | sed -n '2p')"; lf -remote "send $id set promptfmt \"$fmt\""
-cmd gpush ${{
-	git push
-    fmt="$(printf "\e[1;32m$USER\e[1;37m:\e[0m"; STARSHIP_SHELL= starship prompt | sed -n '2p')"
-    lf -remote "send $id set promptfmt \"$fmt\""
-}}
-
-# Integración con starship
-cmd on-cd &{{
-    fmt="$(printf "\e[1;32m$USER\e[1;37m:\e[0m"; STARSHIP_SHELL= starship prompt | sed -n '2p')"
-    lf -remote "send $id set promptfmt \"$fmt\""
-}}
-on-cd
