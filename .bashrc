@@ -39,13 +39,9 @@ alias gp="git push"
 alias gc="git clone"
 
 # Sistema
-alias na="sudo nala"
 alias up="sudo nala update && sudo nala upgrade && flatpak update && sudo yt-dlp --update"
 alias cl="sudo nala autoremove && flatpak remove --unused"
 alias ss="sudo systemctl"
-
-# Atajos para fzf
-alias ff="find -L ~/.config/ ~/.local/bin/ -type f | fzf | xargs -r $EDITOR"
 
 # Otros
 alias yta="yt-dlp -f "bestaudio[ext=webm]" -x --audio-format vorbis"
