@@ -13,9 +13,6 @@ HISTFILESIZE=2000
 # Autocompletar
 source /etc/profile.d/bash_completion.sh
 
-# Leer paginas man con nvim
-export MANPAGER="nvim --clean +Man!"
-
 # Ignorar mayúsculas al pulsar TAB
 bind "set completion-ignore-case on"
 
