@@ -25,6 +25,9 @@ alias la="ls -A --color=auto --group-directories-first"
 alias ll="ls -Ahl --color=auto --group-directories-first"
 alias grep="grep --color=auto"
 
+# Manipulación de archivos
+alias rm="trash -v"
+
 # Atajos
 alias c="clear"
 alias v="$EDITOR"
