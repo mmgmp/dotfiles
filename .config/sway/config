@@ -13,7 +13,7 @@ bar {
 }
 
 # Incluir los .conf de la carpeta de /modules
-include "${XDG_CONFIG_HOME:-$HOME/.config}/sway/modules/*.conf"
+include $HOME/.config/sway/config.d/*.conf
 
 # Requeridos para el correcto funcionamiento de sway
 include /etc/sway/config.d/*
