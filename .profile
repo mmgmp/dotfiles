@@ -6,12 +6,11 @@
 
 # Programas predeterminados
 export EDITOR="nvim"
-export BROWSER="brave-browser"
+export BROWSER="flatpak run com.brave.Browser"
 export TERMINAL="foot"
-export TERMINAL_RUN="foot sh -c"
-export FILE_MANAGER="$TERMINAL_RUN lf"
-export CALENDAR="$TERMINAL_RUN calcurse"
-export RSS_READER="$TERMINAL_RUN newsboat"
+export FILE_MANAGER="$TERMINAL lf"
+export CALENDAR="$TERMINAL --app-id=calcurse calcurse"
+export RSS_READER="$TERMINAL newsboat"
 export RUN_LAUNCHER="tofi-drun"
 export PASSWORD_MENU="askpass"
 
