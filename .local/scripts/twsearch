@@ -23,4 +23,7 @@ case "$order" in
 esac
 
 word="$(printf "$order" | sed 's/^[^ ]* //')"
-"$BROWSER" "$search_url""$word"
+
+# Separa $BROWSER en diferentes arrays
+IFS=' ' read -r -a browser_cmd <<< "$BROWSER"
+"${browser_cmd[@]}" "${search_url}${word}"
