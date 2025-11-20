@@ -12,7 +12,6 @@ export FILE_MANAGER="$TERMINAL lf"
 export CALENDAR="$TERMINAL --app-id=calcurse calcurse"
 export RSS_READER="$TERMINAL newsboat"
 export RUN_LAUNCHER="tofi-drun"
-export PASSWORD_MENU="askpass"
 
 # Wayland
 export XDG_SESSION_TYPE="wayland"
