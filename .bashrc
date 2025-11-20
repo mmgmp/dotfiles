@@ -50,4 +50,3 @@ alias abook="abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_CO
 # Esconder terminal
 alias mpv="swayhide mpv --force-window"
 alias zathura="swayhide zathura"
-alias swayimg="swayhide swayimg"
