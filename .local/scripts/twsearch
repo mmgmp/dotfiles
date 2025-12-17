@@ -9,7 +9,9 @@
 ##############################################################################
 
 order="$(printf "" | tofi --require-match=false --prompt-text='Buscar en Internet: ')"
-[ -z "$order" ] && exit
+[ -z "$order" ] && exit 0
+
+word="$(printf "$order" | sed 's/^[^ ]* //')"
 
 case "$order" in
 	yt\ *)
@@ -20,9 +22,9 @@ case "$order" in
 		search_url="https://dle.rae.es/?m=form&w=";;
 	*)
 		search_url="https://duckduckgo.com/?t=h_&q=";;
+		word="$order";;
 esac
 
-word="$(printf "$order" | sed 's/^[^ ]* //')"
 
 # Separa $BROWSER en diferentes arrays
 IFS=' ' read -r -a browser_cmd <<< "$BROWSER"
