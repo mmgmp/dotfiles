@@ -9,7 +9,11 @@
 ##############################################################################
 
 notify() {
-	notify-send -u low "Éxito" "$1" -i $NOTIFY_ICONS/key-solid.svg
+	notify-send -u low "Éxito" "Copiado al portapapeles" -i "$1"
+}
+
+notify_error() {
+	notify-send -u critical "Error" "No se encuentra la información" -i $NOTIFY_ICONS/triangle-exclamation-solid.svg
 }
 
 # Muestra todas las claves en $PASSWORD_STORE_DIR
@@ -26,9 +30,9 @@ else
 	selected=$(printf "Usuario\nClave" | tofi --prompt-text="pass: ")
 	case $selected in
 		"Usuario")
-			pass -c2 $path && notify "Usuario copiado al portapapeles" ;;
+			pass -c2 $path && notify $NOTIFY_ICONS/user-solid.svg || notify_error ;;
 		"Clave")
-			pass -c1 $path && notify "Contraseña copiada al portapapeles" ;;
+			pass -c1 $path && notify $NOTIFY_ICONS/key-solid.svg || notify_error ;;
 		*)
 			exit 0 ;;
 	esac
