@@ -10,7 +10,7 @@ export BROWSER="flatpak run com.brave.Browser"
 export TERMINAL="foot"
 export FILE_MANAGER="$TERMINAL lf"
 export CALENDAR="$TERMINAL --app-id=calcurse calcurse"
-export RSS_READER="$TERMINAL newsboat"
+export RSS_READER="$TERMINAL newsraft"
 export RUN_LAUNCHER="tofi-drun"
 
 # Wayland
