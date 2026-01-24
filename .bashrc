@@ -45,6 +45,7 @@ alias ss="sudo systemctl"
 
 # Otros
 alias yta="yt-dlp -f "bestaudio[ext=webm]" -x --audio-format vorbis"
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 alias abook="abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_CONFIG_HOME"/abook/addressbook"
 
 # Esconder terminal
