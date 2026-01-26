@@ -1,21 +1,24 @@
 {
 	"height": 30,
-	"modules-left": ["sway/workspaces","sway/mode",],
+	"modules-left": ["niri/workspaces","sway/workspaces"],
 	"modules-center": ["clock"],
-	"modules-right": ["cpu","memory","temperature","tray","network","pulseaudio","battery","idle_inhibitor"],
+	"modules-right": ["cpu","memory","temperature","tray","pulseaudio","battery","idle_inhibitor"],
 
-	"sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
     "tray": {
         // "icon-size": 15,
         "spacing": 10
     },
     "clock": {
 		"format": "{:%e %b %H:%M}",
-		"tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-        "on-click": "$CALENDAR"
+		"tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
     },
+	"niri/workspaces": {
+		"format": "{icon}",
+		"format-icons": {
+			"default": "󰄰 ",
+			"active": "󰪥 "
+		},
+	},
     "cpu": {
         "format": "  {usage}%",
         "tooltip": false
@@ -41,13 +44,6 @@
         "format-icons": ["", "", "", "", ""],
 		"on-click": "auto-cpufreq-gtk",
 		"tooltip": "{time}"
-    },
-    "network": {
-        "format-wifi": " ",
-        "format-ethernet": " ",
-        "format-linked": "{ifname} (No IP)  ",
-        "format-disconnected": " ",
-		"tooltip-format": "{essid} ({signalStrength}%)"
     },
 	"pulseaudio": {
 		"format": " ",
