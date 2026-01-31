@@ -70,9 +70,9 @@ cmd open ${{
 	case $(file --mime-type -Lb "$f") in
 		text/*) $EDITOR "$f";;
 		image/*) swayimg "$f";;
-		audio/*) swayhide mpv --force-window "$f";;
-		video/*) swayhide mpv --force-window "$f";;
-		*/pdf) swayhide zathura "$f";;
+		audio/*) mpv --force-window "$f";;
+		video/*) mpv --force-window "$f";;
+		*/pdf) zathura "$f";;
 		*) xdg-open "$f";;
 	esac
 }}
