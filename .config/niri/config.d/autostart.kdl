@@ -1,0 +1,12 @@
+spawn-sh-at-startup "$XDG_DATA_HOME/backgrounds/bg-setup.sh"
+spawn-at-startup "udiskie"
+
+spawn-at-startup "swayidle" "-w" "timeout" "300" "super-swaylock" \
+	"timeout" "600" "niri msg action power-off-monitors before-sleep super-swaylock"
+
+spawn-sh-at-startup "gammastep -O 4500"
+spawn-sh-at-startup "~/.local/share/appimages/tutanota-desktop-linux.AppImage -a"
+
+// Configuración de GTK3
+spawn-sh-at-startup "gsettings set org.gnome.desktop.interface gtk-theme Arc-Dark"
+spawn-sh-at-startup "gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark"

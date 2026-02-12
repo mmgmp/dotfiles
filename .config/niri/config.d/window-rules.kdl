@@ -1,0 +1,30 @@
+//=== REGLAS DE VENATANA ===//
+
+// Bordes redondeados
+window-rule {
+	clip-to-geometry true
+    geometry-corner-radius 10
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Ventanas flotantes
+window-rule {
+	match app-id="pavucontrol"
+	match app-id="yad"
+	open-floating true
+}
+
+window-rule {
+	match app-id="fzfcha"
+	open-floating true
+    default-column-width { proportion 0.60; }
+    default-window-height { proportion 0.45; }
+}

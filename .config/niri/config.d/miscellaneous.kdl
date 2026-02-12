@@ -1,0 +1,25 @@
+//=== MISCELÁNEOS ===//
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd
+
+cursor {
+    xcursor-theme "breeze_cursors"
+    xcursor-size 24
+}
+
+// You can change the path where screenshots are saved.
+screenshot-path "~/Imágenes/capturas-de-pantalla/%Y-%m-%d_%Hh%Mm%Ss.png"
+
+// You can also set this to null to disable saving screenshots to disk.
+// screenshot-path null
+
+// Animation settings.
+// https://yalter.github.io/niri/Configuration:-Animations
+animations {
+    on
+    slowdown 1.0
+}

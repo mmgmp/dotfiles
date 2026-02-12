@@ -1,0 +1,155 @@
+//=== ATAJOS DE TECLADO ===//
+
+binds {
+    //Mod+Shift+8 { show-hotkey-overlay; }
+    Mod+O repeat=false { toggle-overview; }
+    Mod+Q repeat=false { close-window; }
+
+	// Ejecutar programas
+    Mod+T hotkey-overlay-title="Terminal" { spawn-sh "$TERMINAL"; }
+    Mod+B hotkey-overlay-title="Buscador web" { spawn-sh "$BROWSER"; }
+    Mod+F hotkey-overlay-title="Gestor de archivos" { spawn-sh "$FILE_MANAGER"; }
+    Mod+N hotkey-overlay-title="Lector de RSS" { spawn-sh "$RSS_READER"; }
+    Mod+V hotkey-overlay-title="Control de audio" { spawn "pavucontrol"; }
+    Mod+D hotkey-overlay-title="Ejecutar aplicación" { spawn-sh "$RUN_LAUNCHER | xargs niri msg action spawn --"; }
+
+	// Menús varios
+	Mod+S hotkey-overlay-title="Buscar en la web" { spawn "twsearch"; }
+    Mod+Shift+Q hotkey-overlay-title="Gestionar sesión" { spawn "tsession"; }
+	Mod+Shift+P hotkey-overlay-title="Menú de contraseñas" { spawn "tpass"; }
+	Mod+Shift+B hotkey-overlay-title="Menú de fondos de pantalla" {
+		spawn-sh "
+			$TERMINAL --app-id=fzfcha fzfcha-bg || exit 0
+			pkill swaybg
+			$XDG_DATA_HOME/backgrounds/bg-setup.sh
+		";
+	}
+
+	// Control del brillo de la pantalla
+    XF86MonBrightnessDown	allow-when-locked=true { spawn-sh "screencontrol down"; }
+    XF86MonBrightnessUp		allow-when-locked=true { spawn-sh "screencontrol up"; }
+
+	// Control de volumen
+    XF86AudioMute				allow-when-locked=true { spawn-sh "volumecontrol mute"; }
+    XF86AudioLowerVolume		allow-when-locked=true { spawn-sh "volumecontrol down"; }
+    XF86AudioRaiseVolume		allow-when-locked=true { spawn-sh "volumecontrol up"; }
+    XF86AudioMicMute			allow-when-locked=true { spawn-sh "volumecontrol mic-mute"; }
+	Alt+XF86AudioLowerVolume	allow-when-locked=true { spawn-sh "volumecontrol mic-down"; }
+	Alt+XF86AudioRaiseVolume	allow-when-locked=true { spawn-sh "volumecontrol mic-up"; }
+
+	Alt+F1			allow-when-locked=true { spawn-sh "volumecontrol mute"; }
+	Alt+F2			allow-when-locked=true { spawn-sh "volumecontrol down"; }
+	Alt+F3			allow-when-locked=true { spawn-sh "volumecontrol up"; }
+	Alt+F4			allow-when-locked=true { spawn-sh "volumecontrol mic-mute"; }
+	Alt+Shift+F2	allow-when-locked=true { spawn-sh "volumecontrol mic-down"; }
+	Alt+Shift+F3	allow-when-locked=true { spawn-sh "volumecontrol mic-up"; }
+
+    // Example media keys mapping using playerctl.
+    // This will work with any MPRIS-enabled media player.
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+
+	// Mover el foco de ventana
+    Mod+H { focus-column-left; }
+    Mod+L { focus-column-right; }
+    Mod+J { focus-window-or-workspace-down; }
+    Mod+K { focus-window-or-workspace-up; }
+
+    Mod+U { focus-column-first; }
+    Mod+I { focus-column-last; }
+
+	// Mover ventana
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+L { move-column-right; }
+    Mod+Shift+J { move-column-to-workspace-down; }
+    Mod+Shift+k { move-column-to-workspace-up; }
+
+    Mod+Shift+U { move-column-to-first; }
+    Mod+Shift+I { move-column-to-last; }
+
+	// Escritorios virtuales
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    // The following binds move the focused window in and out of a column.
+    // If the window is alone, they will consume it into the nearby column to the side.
+    // If the window is already in a column, they will expel it out.
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+
+    // Consume one window from the right to the bottom of the focused column.
+    Mod+Comma  { consume-window-into-column; }
+    // Expel the bottom window from the focused column to the right.
+    Mod+Period { expel-window-from-column; }
+
+    Mod+R { switch-preset-column-width; }
+    // Cycling through the presets in reverse order is also possible.
+    // Mod+R { switch-preset-column-width-back; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
+    Mod+M { maximize-column; }
+    Mod+Shift+M { fullscreen-window; }
+
+    // Expand the focused column to space not taken up by other fully visible columns.
+    // Makes the column "fill the rest of the space".
+    Mod+Ctrl+F { expand-column-to-available-width; }
+
+    Mod+C { center-column; }
+
+    // Center all fully visible columns on screen.
+    Mod+Ctrl+C { center-visible-columns; }
+
+    // Finer width adjustments.
+    // This command can also:
+    // * set width in pixels: "1000"
+    // * adjust width in pixels: "-5" or "+5"
+    // * set width as a percentage of screen width: "25%"
+    // * adjust width as a percentage of screen width: "-10%" or "+10%"
+    // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
+    // set-column-width "100" will make the column occupy 200 physical screen pixels.
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    // Finer height adjustments when in column with other windows.
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // Move the focused window between the floating and the tiling layout.
+    Mod+Shift+Space { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    // Toggle tabbed column display mode.
+    // Windows in this column will appear as vertical tabs,
+    // rather than stacked on top of each other.
+    // Mod+W { toggle-column-tabbed-display; }
+
+    // Actions to switch layouts.
+    // Note: if you uncomment these, make sure you do NOT have
+    // a matching layout switch hotkey configured in xkb options above.
+    // Having both at once on the same hotkey will break the switching,
+    // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
+    // Mod+Space       { switch-layout "next"; }
+    // Mod+Shift+Space { switch-layout "prev"; }
+
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+}
