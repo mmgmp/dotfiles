@@ -2,11 +2,11 @@
 	"height": 30,
 	"modules-left": ["niri/workspaces","sway/workspaces"],
 	"modules-center": ["clock"],
-	"modules-right": ["cpu","memory","temperature","tray","pulseaudio","battery","idle_inhibitor"],
+	"modules-right": ["tray","network","pulseaudio","battery","idle_inhibitor"],
 
     "tray": {
         // "icon-size": 15,
-        "spacing": 10
+        "spacing": 14
     },
     "clock": {
 		"format": "{:%e %b %H:%M}",
@@ -29,6 +29,14 @@
 		"format-icons": {
 			"default": "󰄯 "
 		},
+	},
+	"network": {
+		"format": "{ifname}",
+		"format-wifi": " ",
+	    "format-ethernet": " ",
+		"format-disconnected": "<span color='#808080'> </span>",
+		"tooltip-format-wifi": "{signalStrength}% {essid}",
+		"tooltip-format-ethernet": "{ifname}"
 	},
     "cpu": {
         "format": "  {usage}%",
@@ -57,8 +65,8 @@
 		"tooltip": "{time}"
     },
 	"pulseaudio": {
-		"format": " ",
-		"format-muted": "<span color='#808080'> </span>",
+		"format": "  {volume}%",
+		"format-muted": "<span color='#808080'>  {volume}%</span>",
 		"tooltip-format": "{volume}%",
 		"on-scroll-up": "volumecontrol up",
 		"on-scroll-down": "volumecontrol down",
