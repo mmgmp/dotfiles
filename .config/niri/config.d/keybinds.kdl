@@ -1,29 +1,22 @@
 //=== ATAJOS DE TECLADO ===//
 
 binds {
-    //Mod+Shift+8 { show-hotkey-overlay; }
     Mod+O repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
 
 	// Ejecutar programas
-    Mod+T hotkey-overlay-title="Terminal" { spawn-sh "$TERMINAL"; }
-    Mod+B hotkey-overlay-title="Buscador web" { spawn-sh "$BROWSER"; }
-    Mod+F hotkey-overlay-title="Gestor de archivos" { spawn-sh "$FILE_MANAGER"; }
-    Mod+N hotkey-overlay-title="Lector de RSS" { spawn-sh "$RSS_READER"; }
-    Mod+V hotkey-overlay-title="Control de audio" { spawn "pavucontrol"; }
-    Mod+D hotkey-overlay-title="Ejecutar aplicación" { spawn-sh "$RUN_LAUNCHER | xargs niri msg action spawn --"; }
+    Mod+T { spawn-sh "$TERMINAL"; }
+    Mod+B { spawn-sh "$BROWSER"; }
+    Mod+F { spawn-sh "$FILE_MANAGER"; }
+    Mod+N { spawn-sh "$RSS_READER"; }
+    Mod+V { spawn "pavucontrol"; }
+    Mod+D { spawn-sh "$RUN_LAUNCHER | xargs niri msg action spawn --"; }
 
 	// Menús varios
-	Mod+S hotkey-overlay-title="Buscar en la web" { spawn "twsearch"; }
-    Mod+Shift+Q hotkey-overlay-title="Gestionar sesión" { spawn "tsession"; }
-	Mod+Shift+P hotkey-overlay-title="Menú de contraseñas" { spawn "tpass"; }
-	Mod+Shift+B hotkey-overlay-title="Menú de fondos de pantalla" {
-		spawn-sh "
-			$TERMINAL --app-id=fzfcha fzfcha-bg || exit 0
-			pkill swaybg
-			$XDG_DATA_HOME/backgrounds/bg-setup.sh
-		";
-	}
+	Mod+S { spawn "twsearch"; }
+    Mod+Shift+Q { spawn "tsession"; }
+	Mod+Shift+P { spawn "tpass"; }
+	Mod+Shift+B { spawn-sh "$TERMINAL --app-id=fzfcha fzfcha-bg && $XDG_DATA_HOME/backgrounds/bg-setup.sh"; }
 
 	// Control del brillo de la pantalla
     XF86MonBrightnessDown	allow-when-locked=true { spawn-sh "screencontrol down"; }
