@@ -1,6 +1,6 @@
 #---- GENERAL ----#
 
-set hidden true
+set hidden false
 set ignorecase true
 set icons true
 set drawbox true
@@ -19,6 +19,8 @@ map t
 # Renombrar
 map A :rename; cmd-end
 map I :rename; cmd-home
+
+map . set hidden!
 
 map md mkdir
 map mf mkfile
