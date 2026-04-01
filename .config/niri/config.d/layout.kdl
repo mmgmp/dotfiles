@@ -45,6 +45,8 @@ layout {
 		off
     }
 
+    background-color "transparent"
+
     border {
         on
         width 3

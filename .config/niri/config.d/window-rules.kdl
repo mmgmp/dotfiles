@@ -6,6 +6,18 @@ window-rule {
     geometry-corner-radius 10
 }
 
+// Fondo de pantalla en overview
+layer-rule {
+    place-within-backdrop true
+}
+
+// Quitar sombras en overview
+overview {
+    workspace-shadow {
+        off
+    }
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
