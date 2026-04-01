@@ -78,14 +78,10 @@ cmd open ${{
 }}
 
 # Copiar nombre del archivo
-cmd copy-name ${{
-	basename "$f" | wl-copy
-}}
+cmd copy-name $basename "$f" | wl-copy -n && lf -remote "send $id echo 'Nombre del archivo copiado'"
 
 # Copiar ruta del archivo
-cmd copy-path ${{
-	wl-copy "$f"
-}}
+cmd copy-path $wl-copy -n "$f" && lf -remote "send $id echo 'Ruta del archivo copiada'"
 
 # Ejecutar chmod con el argumento escrito
 cmd chmod %printf " Argumento para chmod: "; read ans; chmod "$ans" $fx; printf " "
