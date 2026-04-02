@@ -18,12 +18,9 @@ overview {
     }
 }
 
-// Open the Firefox picture-in-picture player as floating by default.
+// Videos flotantes 
 window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match title="Imagen en imagen"
     open-floating true
 }
 
