@@ -21,13 +21,11 @@ overview {
 // Videos flotantes 
 window-rule {
     match title="Imagen en imagen"
-    open-floating true
-}
-
-// Ventanas flotantes
-window-rule {
+    match title="Paradox Launcher"
+	match title="Mod Organizer"
+	match title="Winetricks"
 	match app-id="yad"
-	open-floating true
+    open-floating true
 }
 
 window-rule {
