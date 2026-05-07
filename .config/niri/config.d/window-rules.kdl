@@ -22,7 +22,6 @@ overview {
 window-rule {
     match title="Imagen en imagen"
     match title="Paradox Launcher"
-	match title="Mod Organizer"
 	match title="Winetricks"
 	match app-id="yad"
     open-floating true

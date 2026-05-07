@@ -1,6 +1,6 @@
 #---- GENERAL ----#
 
-set hidden false
+set hidden true
 set ignorecase true
 set icons true
 set drawbox true
