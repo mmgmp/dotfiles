@@ -11,6 +11,13 @@ cursor {
     xcursor-size 24
 }
 
+// Disable the hot corners.
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 // You can change the path where screenshots are saved.
 screenshot-path "~/Imágenes/capturas-de-pantalla/%Y-%m-%d_%Hh%Mm%Ss.png"
 
