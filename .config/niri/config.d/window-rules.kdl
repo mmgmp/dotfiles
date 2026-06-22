@@ -21,9 +21,9 @@ overview {
 // Videos flotantes 
 window-rule {
     match title="Imagen en imagen"
-    match title="Paradox Launcher"
 	match title="Winetricks"
 	match app-id="yad"
+	match app-id="galculator"
     open-floating true
 }
 
