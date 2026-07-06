@@ -1,70 +1,29 @@
 {
 	"height": 30,
 	"layer": "top",
-	"modules-left": ["niri/workspaces","sway/workspaces"],
-	"modules-center": ["clock"],
-	"modules-right": ["tray","network","pulseaudio","battery","idle_inhibitor"],
 
-    "tray": {
-        // "icon-size": 15,
-        "spacing": 14
-    },
-    "clock": {
+	"modules-left": ["niri/workspaces"],
+	"modules-center": ["clock"],
+	"modules-right": ["tray","pulseaudio","idle_inhibitor"],
+
+	"clock": {
 		"format": "{:%e %b %H:%M}",
-		"tooltip-format": "<tt><small>{calendar}</small></tt>",
-		"calendar": {
-			"mode": "year",
-			"weeks-pos": "left",
-			"mode-mon-col": 3,
-			"format": {
-	            "months":     "<span color='#ffead3'><b>{}</b></span>",
-                "days":       "<b>{}</b>",
-                "weeks":      "<span color='#99ffdd'><b>{}</b></span>",
-                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                "today":      "<span color='#ff6699'><b>{}</b></span>"
-            }
-		}
+        "tooltip": false,
+	},
+    "tray": {
+        "spacing": 14,
     },
 	"niri/workspaces": {
 		"format": "{icon}",
+		"format-icons": {"default": "󰄯"},
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
 		"format-icons": {
-			"default": "󰄯 "
+			"activated": " ",
+			"deactivated": "<span color='#808080'> </span>",
 		},
 	},
-	"network": {
-		"format": "{ifname}",
-		"format-wifi": " ",
-	    "format-ethernet": " ",
-		"format-disconnected": "<span color='#808080'> </span>",
-		"tooltip-format-wifi": "{signalStrength}% {essid}",
-		"tooltip-format-ethernet": "{ifname}"
-	},
-    "cpu": {
-        "format": "  {usage}%",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "  {}%"
-    },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", ""],
-		"tooltip": false
-    },
-    "battery": {
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}   {capacity}%",
-        "format-charging": "  {capacity}%",
-        "format-plugged": "  {capacity}%",
-        "format-icons": ["", "", "", "", ""],
-		"on-click": "auto-cpufreq-gtk",
-		"tooltip": "{time}"
-    },
 	"pulseaudio": {
 		"format": "  {volume}%",
 		"format-muted": "<span color='#808080'>  {volume}%</span>",
@@ -72,13 +31,6 @@
 		"on-scroll-up": "volumecontrol up",
 		"on-scroll-down": "volumecontrol down",
 		"on-click": "pavucontrol",
-		"on-click-right": "volumecontrol mute"
+		"on-click-right": "volumecontrol mute",
 	},
-	"idle_inhibitor": {
-		"format": "{icon}",
-		"format-icons": {
-			"activated": "",
-			"deactivated": "<span color='#808080'></span>"
-		}
-	}
 }
