@@ -27,7 +27,7 @@
 	"pulseaudio": {
 		"format": "  {volume}%",
 		"format-muted": "<span color='#808080'>  {volume}%</span>",
-		"tooltip-format": "{volume}%",
+        "tooltip": false,
 		"on-scroll-up": "volumecontrol up",
 		"on-scroll-down": "volumecontrol down",
 		"on-click": "pavucontrol",
