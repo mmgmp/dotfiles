@@ -7,7 +7,3 @@ spawn-at-startup "swayidle" "-w" \
 
 spawn-sh-at-startup "gammastep -O 4500"
 spawn-sh-at-startup "~/.local/share/appimages/tutanota-desktop-linux.AppImage -a"
-
-// Configuración de GTK3
-spawn-sh-at-startup "gsettings set org.gnome.desktop.interface gtk-theme Arc-Dark"
-spawn-sh-at-startup "gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark"
