@@ -1,5 +1,5 @@
 {
-	"height": 30,
+	"height": 33,
 	"margin-top": 5,
 	"margin-left": 5,
 	"margin-right": 5,
@@ -10,15 +10,12 @@
 	"modules-right": ["tray", "pulseaudio", "battery", "idle_inhibitor"],
 
 	"clock": {
-		"format": "{:%e %b %H:%M}",
-        "tooltip": false,
+		"format": "{:L%e %b %H:%M}",
+		"tooltip": false,
 	},
     "tray": {
         "spacing": 14,
     },
-	"niri/workspaces": {
-		"format": "{value}",
-	},
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {
