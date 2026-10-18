@@ -1,4 +1,5 @@
 spawn-sh-at-startup "$XDG_DATA_HOME/backgrounds/bg-setup.sh"
+spawn-sh-at-startup "qs"
 spawn-sh-at-startup "udiskie -s"
 
 spawn-at-startup "swayidle" "-w" \
