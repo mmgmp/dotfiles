@@ -7,6 +7,7 @@ set drawbox true
 set sixel true
 set previewer ~/.config/lf/previewer
 set cursorpreviewfmt "\033[7m"
+set ifs "\n"
 
 #---- CONFIGURACIÓN DE TECLAS ----#
 
@@ -26,15 +27,11 @@ map md mkdir
 map mf mkfile
 map S symbolic
 map C compress
+map X trash
 map E extract
 map N copy-name
 map P copy-path
 map mo chmod
-
-# Papelera
-map tt trash-put
-map T trash-empty
-map <c-t> $trash-restore-fzf
 
 #---- COMANDOS ----#
 
@@ -48,10 +45,7 @@ cmd mkfile %printf " Nombre del archivo: "; read ans; touch "$ans"; printf " "
 cmd symbolic %current_path=$(pwd); name=$(basename "$f"); ln -s "$f" "$current_path/Enlace_a_$name"
 
 # Mover a la papelera
-cmd trash-put %files=$(printf "$fx" | tr '\n' ';'); while true; do file=${files%%;*}; trash-put "$file" > /dev/null; [ "$files" = "$file" ] && exit 0 || files="${files#*;}"; done
-
-# Vaciar papelera
-cmd trash-empty %printf " ¿Quieres vaciar la papelera? (*): "; read ans; [ "$ans" = "*" ] && trash-empty; printf " "
+cmd trash %trash-put -- $fx
 
 # Comprimir archivos
 cmd compress %printf " Nombre del archivo comprimido: "; read ans; 7z a "$ans".7z $fs; printf " "
