@@ -51,10 +51,13 @@ cmd trash %trash-put -- $fx
 cmd compress %printf " Nombre del archivo comprimido: "; read ans; 7z a "$ans".7z $fs; printf " "
 
 # Extraer en una carpeta
-cmd extract ${{
+cmd extract !{{
 	clear
-	dir=$(basename "$f" | sed 's/\(.*\)\..*/\1/')
-	7z x "$f" -o"$dir"
+	name=${f##*/}
+	case $name in
+		?*.tar.*) 7z x -so "$f" | 7z x -si -ttar -o"${name%.tar.*}" ;;
+		*) 7z x "$f" -o"$dir" ;;
+	esac
 }}
 
 # Abrir archivos
