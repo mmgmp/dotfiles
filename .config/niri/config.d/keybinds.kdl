@@ -23,19 +23,19 @@ binds {
     XF86MonBrightnessUp		allow-when-locked=true { spawn-sh "screencontrol up"; }
 
 	// Control de volumen
-    XF86AudioMute				allow-when-locked=true { spawn-sh "volumecontrol mute"; }
-    XF86AudioLowerVolume		allow-when-locked=true { spawn-sh "volumecontrol down"; }
-    XF86AudioRaiseVolume		allow-when-locked=true { spawn-sh "volumecontrol up"; }
-    XF86AudioMicMute			allow-when-locked=true { spawn-sh "volumecontrol mic-mute"; }
-	Alt+XF86AudioLowerVolume	allow-when-locked=true { spawn-sh "volumecontrol mic-down"; }
-	Alt+XF86AudioRaiseVolume	allow-when-locked=true { spawn-sh "volumecontrol mic-up"; }
+    XF86AudioMute				allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioLowerVolume		allow-when-locked=true { spawn-sh "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-"; }
+    XF86AudioRaiseVolume		allow-when-locked=true { spawn-sh "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+"; }
+    XF86AudioMicMute			allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_SOURCE@ toggle"; }
+	Alt+XF86AudioLowerVolume	allow-when-locked=true { spawn-sh "wpctl set-volume -l 1.0 @DEFAULT_SOURCE@ 5%-"; }
+	Alt+XF86AudioRaiseVolume	allow-when-locked=true { spawn-sh "wpctl set-volume -l 1.0 @DEFAULT_SOURCE@ 5%+"; }
 
-	Alt+F1			allow-when-locked=true { spawn-sh "volumecontrol mute"; }
-	Alt+F2			allow-when-locked=true { spawn-sh "volumecontrol down"; }
-	Alt+F3			allow-when-locked=true { spawn-sh "volumecontrol up"; }
-	Alt+F4			allow-when-locked=true { spawn-sh "volumecontrol mic-mute"; }
-	Alt+Shift+F2	allow-when-locked=true { spawn-sh "volumecontrol mic-down"; }
-	Alt+Shift+F3	allow-when-locked=true { spawn-sh "volumecontrol mic-up"; }
+	Alt+F1			allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+	Alt+F2			allow-when-locked=true { spawn-sh "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-"; }
+	Alt+F3			allow-when-locked=true { spawn-sh "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+"; }
+	Alt+F4			allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_SOURCE@ toggle"; }
+	Alt+Shift+F2	allow-when-locked=true { spawn-sh "wpctl set-volume -l 1.0 @DEFAULT_SOURCE@ 5%-"; }
+	Alt+Shift+F3	allow-when-locked=true { spawn-sh "wpctl set-volume -l 1.0 @DEFAULT_SOURCE@ 5%+"; }
 
     // Example media keys mapping using playerctl.
     // This will work with any MPRIS-enabled media player.
