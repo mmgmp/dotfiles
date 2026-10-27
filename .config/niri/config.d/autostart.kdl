@@ -1,5 +1,4 @@
 spawn-sh-at-startup "$XDG_DATA_HOME/backgrounds/bg-setup.sh"
-spawn-sh-at-startup "qs -d"
 spawn-sh-at-startup "udiskie -s"
 
 spawn-at-startup "swayidle" "-w" \
@@ -7,4 +6,4 @@ spawn-at-startup "swayidle" "-w" \
     "timeout" "600" "niri msg action power-off-monitors"
 
 spawn-sh-at-startup "gammastep -O 4500"
-spawn-sh-at-startup "~/.local/share/appimages/tutanota-desktop-linux.AppImage -a"
+//spawn-sh-at-startup "~/.local/share/appimages/tutanota-desktop-linux.AppImage -a"
