@@ -1,2 +1,0 @@
-[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
-[ -d "$HOME/.local/scripts" ] && export PATH="$HOME/.local/scripts:$PATH"
